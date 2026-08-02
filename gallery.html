@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Galerie — ZanBlauerhimmel Tour Safari</title>
+    <title>Galerie — Blauerhimmel Tour Safari</title>
     <meta
       name="description"
-      content="Galerie von ZanBlauerhimmel Tour Safari — Impressionen aus Sansibar: Stone Town, Strände, Gewürzfarmen, Unterwasserwelt und mehr."
+      content="Galerie von Blauerhimmel Tour Safari — Impressionen aus Sansibar: Stone Town, Strände, Gewürzfarmen, Unterwasserwelt und mehr."
     />
     <meta
       name="keywords"
-      content="Sansibar Galerie, Zanzibar Fotos, Stone Town Bilder, Strandurlaub Fotos, ZanBlauerhimmel Tour Safari Galerie"
+      content="Sansibar Galerie, Zanzibar Fotos, Stone Town Bilder, Strandurlaub Fotos, Blauerhimmel Tour Safari Galerie"
     />
-    <meta property="og:title" content="Galerie — ZanBlauerhimmel Tour Safari" />
+    <meta property="og:title" content="Galerie — Blauerhimmel Tour Safari" />
     <meta
       property="og:description"
       content="Erleben Sie die Schönheit von Sansibar in unserer Fotogalerie — Strände, Natur und Kultur."
@@ -25,39 +25,83 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <!-- Header/footer only -->
     <link rel="stylesheet" href="styles/index.css" />
+    <!-- Everything else on this page: self-contained -->
     <link rel="stylesheet" href="styles/gallery.css" />
   </head>
   <body>
-    <!-- Header -->
+    <!-- Header (depends on index.css, shared across all pages) -->
     <header class="header" id="top">
       <div class="container">
         <nav class="nav" aria-label="Hauptnavigation">
           <a href="index.html" class="brand">
             <div class="brand-logo">
-              <img src="./images/logo.jpg" alt="ZanBlauerhimmel Tour Safari Logo" />
+              <img
+                src="./images/logo.jpg"
+                alt="Blauerhimmel Tour Safari Logo"
+              />
             </div>
-            <div class="brand-name">ZanBlauerhimmel Tour Safari</div>
+            <div class="brand-name">Blauerhimmel Tour Safari</div>
           </a>
-          <button class="burger" aria-label="Menü öffnen" id="burger">☰</button>
+          <button class="burger" aria-label="Menü öffnen" id="burger">
+            ☰
+          </button>
           <div class="menu" id="menu">
-            <a href="index.html#destinations" data-de="Reiseziele" data-en="Destinations">Reiseziele</a>
+            <a
+              href="index.html#destinations"
+              data-de="Reiseziele"
+              data-en="Destinations"
+              >Reiseziele</a
+            >
             <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
-            <a href="gallery.html" class="active" data-de="Galerie" data-en="Gallery">Galerie</a>
+            <a
+              href="gallery.html"
+              class="active"
+              data-de="Galerie"
+              data-en="Gallery"
+              >Galerie</a
+            >
             <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
-            <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
-            <a href="contact.html" class="cta" style="color: #1a1a1a" data-de="Reise planen" data-en="Plan Your Trip">Reise planen</a>
+            <a href="contact.html" data-de="Kontakt" data-en="Contact"
+              >Kontakt</a
+            >
+            <a
+              href="contact.html"
+              class="cta"
+              style="color: #1a1a1a"
+              data-de="Reise planen"
+              data-en="Plan Your Trip"
+              >Reise planen</a
+            >
             <div class="lang-toggle" aria-label="Sprache wählen">
-              <button type="button" data-lang-btn="de" class="active">DE</button>
+              <button type="button" data-lang-btn="de" class="active">
+                DE
+              </button>
               <button type="button" data-lang-btn="en">EN</button>
             </div>
-            <div id="google_translate_element" class="gt-fallback" title="Automatische Übersetzung (Google)"></div>
+            <div
+              id="google_translate_element"
+              class="gt-fallback"
+              title="Automatische Übersetzung (Google)"
+            ></div>
           </div>
         </nav>
         <div class="mobile" id="mobileMenu" aria-label="Mobile Navigation">
-          <a href="index.html#destinations" data-de="Reiseziele" data-en="Destinations">Reiseziele</a>
+          <a
+            href="index.html#destinations"
+            data-de="Reiseziele"
+            data-en="Destinations"
+            >Reiseziele</a
+          >
           <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
-          <a href="gallery.html" class="active" data-de="Galerie" data-en="Gallery">Galerie</a>
+          <a
+            href="gallery.html"
+            class="active"
+            data-de="Galerie"
+            data-en="Gallery"
+            >Galerie</a
+          >
           <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
           <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
           <div class="lang-toggle" style="margin: 14px 20px">
@@ -68,263 +112,309 @@
       </div>
     </header>
 
-    <!-- Gallery Hero Section -->
-    <section class="hero" role="banner">
-      <div class="container wrap">
-        <div class="eyebrow">
-          <span class="dot"></span
-          ><span data-de="Impressionen & Momente" data-en="Impressions & Moments"
-            >Impressionen & Momente</span
+    <!-- ============================================================
+         Everything from here to the closing </main> uses ONLY
+         gallery.css classes (g-hero, g-container, g-section, ...).
+         None of it depends on index.css.
+         ============================================================ -->
+    <main class="gallery-page">
+      <!-- Gallery Hero Section -->
+      <section class="g-hero" role="banner">
+        <div class="g-container g-wrap">
+          <div class="g-eyebrow">
+            <span class="g-dot"></span
+            ><span
+              data-de="Impressionen & Momente"
+              data-en="Impressions & Moments"
+              >Impressionen & Momente</span
+            >
+          </div>
+          <h1>
+            <span data-de="Unsere" data-en="Our">Unsere</span>
+            <span
+              style="color: var(--g-gold)"
+              data-de="Fotogalerie"
+              data-en="Photo Gallery"
+              >Fotogalerie</span
+            >
+          </h1>
+          <p
+            data-de="Tauchen Sie ein in die visuellen Eindrücke von Sansibar. Klicken Sie auf ein Bild, um die Vollbildansicht und Diashow zu starten."
+            data-en="Immerse yourself in the visual moments of Zanzibar. Click on any image to launch the fullscreen lightbox and slideshow."
           >
+            Tauchen Sie ein in die visuellen Eindrücke von Sansibar. Klicken Sie
+            auf ein Bild, um die Vollbildansicht und Diashow zu starten.
+          </p>
         </div>
-        <h1>
-          <span data-de="Unsere" data-en="Our">Unsere</span>
-          <span style="color: var(--gold)" data-de="Fotogalerie" data-en="Photo Gallery">Fotogalerie</span>
-        </h1>
-        <p
-          data-de="Tauchen Sie ein in die visuellen Eindrücke von Sansibar. Klicken Sie auf ein Bild, um die Vollbildansicht und Diashow zu starten."
-          data-en="Immerse yourself in the visual moments of Zanzibar. Click on any image to launch the fullscreen lightbox and slideshow."
-        >
-          Tauchen Sie ein in die visuellen Eindrücke von Sansibar. Klicken Sie auf ein Bild, um die Vollbildansicht und Diashow zu starten.
-        </p>
+      </section>
+
+      <div class="g-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+          <path
+            class="g-line g-line-black"
+            d="M0,10 C 200,32 400,-4 600,18 C 800,40 1000,4 1200,26"
+            fill="none"
+          />
+          <path
+            class="g-line g-line-red"
+            d="M0,20 C 200,-2 400,36 600,14 C 800,-4 1000,32 1200,10"
+            fill="none"
+          />
+          <path
+            class="g-line g-line-gold"
+            d="M0,30 C 200,8 400,22 600,32 C 800,18 1000,8 1200,20"
+            fill="none"
+          />
+        </svg>
       </div>
-    </section>
 
-    <div class="wave-divider" aria-hidden="true">
-      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
-        <path class="de-line de-line-black" d="M0,10 C 200,32 400,-4 600,18 C 800,40 1000,4 1200,26" fill="none" />
-        <path class="de-line de-line-red" d="M0,20 C 200,-2 400,36 600,14 C 800,-4 1000,32 1200,10" fill="none" />
-        <path class="de-line de-line-gold" d="M0,30 C 200,8 400,22 600,32 C 800,18 1000,8 1200,20" fill="none" />
-      </svg>
-    </div>
-
-    <main>
       <!-- Interactive Gallery Grid -->
-      <section class="section reveal" id="gallery">
-        <div class="container">
-          <div class="section-title">
-            <div>
-              <h2 data-de="Sansibar Highlights" data-en="Zanzibar Highlights">Sansibar Highlights</h2>
-              <div class="sub" data-de="Strände, Kultur, Natur und Ausflüge" data-en="Beaches, culture, nature & excursions">Strände, Kultur, Natur und Ausflüge</div>
+      <section class="g-section" id="gallery">
+        <div class="g-container">
+          <div class="g-section-title">
+            <h2 data-de="Sansibar Highlights" data-en="Zanzibar Highlights">
+              Sansibar Highlights
+            </h2>
+            <div
+              class="g-sub"
+              data-de="Strände, Kultur, Natur und Ausflüge"
+              data-en="Beaches, culture, nature & excursions"
+            >
+              Strände, Kultur, Natur und Ausflüge
             </div>
           </div>
 
           <div class="gallery-grid" id="galleryGrid">
-            <div class="gallery-item" data-index="0">
-              <img src="./images/kima.jpg" alt="Blick auf den Bergsee" />
+            <div class="gallery-item g-reveal" data-index="0">
+              <img src="./images/kima.jpg" alt="Sansibar Galerie Bild 1" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/e.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="1">
+              <img src="./images/e.jpg" alt="Sansibar Galerie Bild 2" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/chupa.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="2">
+              <img src="./images/chupa.jpg" alt="Sansibar Galerie Bild 3" />
             </div>
-            <div class="gallery-item" data-index="1">
-              <img src="./images/kasawoman.jpg" alt="Nebel über den Bergen" />
+            <div class="gallery-item g-reveal" data-index="3">
+              <img src="./images/kasawoman.jpg" alt="Sansibar Galerie Bild 4" />
             </div>
-            <div class="gallery-item" data-index="2">
-              <img src="./images/m.jpg" alt="Mops-Porträt" />
+            <div class="gallery-item g-reveal" data-index="4">
+              <img src="./images/m.jpg" alt="Sansibar Galerie Bild 5" />
             </div>
-            <div class="gallery-item" data-index="3">
-              <img src="./images/mwanamke.jpg" alt="Nebliger Waldweg" />
+            <div class="gallery-item g-reveal" data-index="5">
+              <img src="./images/mwanamke.jpg" alt="Sansibar Galerie Bild 6" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/c.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="6">
+              <img src="./images/c.jpg" alt="Sansibar Galerie Bild 7" />
             </div>
-            <div class="gallery-item" data-index="4">
-              <img src="./images/tembo.jpg" alt="Ruhige Meeresküste" />
+            <div class="gallery-item g-reveal" data-index="7">
+              <img src="./images/tembo.jpg" alt="Sansibar Galerie Bild 8" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/d.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="8">
+              <img src="./images/d.jpg" alt="Sansibar Galerie Bild 9" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/maajabu.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="9">
+              <img src="./images/maajabu.jpg" alt="Sansibar Galerie Bild 10" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/wanawake.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="10">
+              <img src="./images/wanawake.jpg" alt="Sansibar Galerie Bild 11" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/dau.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="11">
+              <img src="./images/dau.jpg" alt="Sansibar Galerie Bild 12" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/beach kidau 1.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="12">
+              <img
+                src="./images/beach kidau 1.jpg"
+                alt="Sansibar Galerie Bild 13"
+              />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/what.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="13">
+              <img src="./images/what.jpg" alt="Sansibar Galerie Bild 14" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/bad.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="14">
+              <img src="./images/bad.jpg" alt="Sansibar Galerie Bild 15" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/fukwe.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="15">
+              <img src="./images/fukwe.jpg" alt="Sansibar Galerie Bild 16" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/f.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="16">
+              <img src="./images/f.jpg" alt="Sansibar Galerie Bild 17" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/b.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="17">
+              <img src="./images/b.jpg" alt="Sansibar Galerie Bild 18" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/h.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="18">
+              <img src="./images/h.jpg" alt="Sansibar Galerie Bild 19" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/i.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="19">
+              <img src="./images/i.jpg" alt="Sansibar Galerie Bild 20" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/j.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="20">
+              <img src="./images/j.jpg" alt="Sansibar Galerie Bild 21" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/g.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="21">
+              <img src="./images/g.jpg" alt="Sansibar Galerie Bild 22" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/l.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="22">
+              <img src="./images/l.jpg" alt="Sansibar Galerie Bild 23" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/wow.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="23">
+              <img src="./images/wow.jpg" alt="Sansibar Galerie Bild 24" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/kidau.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="24">
+              <img src="./images/kidau.jpg" alt="Sansibar Galerie Bild 25" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/k.jpg" alt="Sonnenuntergang an der Küste" />
+            <div class="gallery-item g-reveal" data-index="25">
+              <img src="./images/k.jpg" alt="Sansibar Galerie Bild 26" />
             </div>
-            <div class="gallery-item" data-index="5">
-              <img src="./images/animals.jpg" alt="Sonnenuntergang an der Küste" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Lightbox Modal -->
-      <div class="lightbox" id="lightbox">
-        <button class="lightbox-btn close-btn" id="closeBtn" aria-label="Schließen">&times;</button>
-        <button class="lightbox-btn prev-btn" id="prevBtn" aria-label="Vorheriges Bild">&#10094;</button>
-        <button class="lightbox-btn next-btn" id="nextBtn" aria-label="Nächstes Bild">&#10095;</button>
-        
-        <div class="lightbox-content">
-          <img id="lightboxImg" src="" alt="Vergrößerte Ansicht">
-          <div class="lightbox-caption" id="lightboxCaption"></div>
-        </div>
-
-        <div class="lightbox-controls">
-          <button class="slideshow-btn" id="slideshowBtn" data-de="▶ Diashow starten" data-en="▶ Start Slideshow">▶ Diashow starten</button>
-        </div>
-      </div>
-
-      <div class="wave-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
-          <path class="de-line de-line-black" d="M0,28 C 200,4 400,30 600,8 C 800,-4 1000,34 1200,12" fill="none" />
-          <path class="de-line de-line-red" d="M0,12 C 200,34 400,6 600,26 C 800,38 1000,2 1200,24" fill="none" />
-          <path class="de-line de-line-gold" d="M0,20 C 200,18 400,26 600,16 C 800,10 1000,24 1200,18" fill="none" />
-        </svg>
-      </div>
-
-      <!-- Map -->
-      <section class="section reveal" id="standort">
-        <div class="container">
-          <div class="section-title">
-            <div>
-              <h2 data-de="Unser Standort" data-en="Our Location">Unser Standort</h2>
-              <div class="sub" data-de="ZanBlauerhimmel Tour Safari, Sansibar" data-en="ZanBlauerhimmel Tour Safari, Zanzibar">ZanBlauerhimmel Tour Safari, Sansibar</div>
+            <div class="gallery-item g-reveal" data-index="26">
+              <img src="./images/animals.jpg" alt="Sansibar Galerie Bild 27" />
             </div>
           </div>
-          <div class="map-block">
-            <iframe
-              class="map-frame"
-              src="https://www.google.com/maps?q=ZanBlauerhimmel%20tour%20%26%20Safari%20Sansibar&output=embed"
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade"
-              aria-label="Google Maps Standort ZanBlauerhimmel Tour Safari"
-            ></iframe>
-            <div class="map-info">
-              <h3 data-de="Besuchen Sie uns" data-en="Visit Us">Besuchen Sie uns</h3>
-              <p class="small" data-de="Sansibar, Tansania" data-en="Zanzibar, Tanzania">Sansibar, Tansania</p>
-              <a class="btn btn-primary" href="https://maps.app.goo.gl/RtPf7wyk3yh2o3Jo7" target="_blank" rel="noopener" data-de="In Google Maps öffnen" data-en="Open in Google Maps">In Google Maps öffnen</a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Contact Form -->
-      <section class="section reveal" id="kontakt">
-        <div class="container">
-          <div class="section-title" style="justify-content: center; text-align: center; flex-direction: column">
-            <h2 data-de="Kontaktieren Sie uns" data-en="Contact Us">Kontaktieren Sie uns</h2>
-            <div class="sub" data-de="Wir melden uns innerhalb von 24 Stunden bei Ihnen." data-en="We'll get back to you within 24 hours.">Wir melden uns innerhalb von 24 Stunden bei Ihnen.</div>
-          </div>
-          <form class="contact-wrap" id="contactForm" action="mailto:donyarossa@gmail.com" method="post" enctype="text/plain">
-            <div class="form-row">
-              <div class="field">
-                <label data-de="Name" data-en="Name">Name</label>
-                <input type="text" name="name" data-de-placeholder="Ihr vollständiger Name" data-en-placeholder="Your full name" placeholder="Ihr vollständiger Name" required />
-              </div>
-              <div class="field">
-                <label data-de="E-Mail" data-en="Email">E-Mail</label>
-                <input type="email" name="email" data-de-placeholder="ihre@email.de" data-en-placeholder="your@email.com" placeholder="ihre@email.de" required />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="field full">
-                <label data-de="Reisedatum (optional)" data-en="Travel dates (optional)">Reisedatum (optional)</label>
-                <input type="text" name="dates" data-de-placeholder="z. B. 12.–20. September" data-en-placeholder="e.g. Sept 12–20" placeholder="z. B. 12.–20. September" />
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="field full">
-                <label data-de="Nachricht" data-en="Message">Nachricht</label>
-                <textarea name="message" rows="5" data-de-placeholder="Erzählen Sie uns von Ihrer Traumreise nach Sansibar…" data-en-placeholder="Tell us about your dream trip to Zanzibar…" placeholder="Erzählen Sie uns von Ihrer Traumreise nach Sansibar…" required></textarea>
-              </div>
-            </div>
-            <button type="submit" class="btn btn-primary" data-de="Nachricht senden" data-en="Send Message">Nachricht senden</button>
-          </form>
         </div>
       </section>
     </main>
 
-    <!-- Footer -->
+    <!-- Lightbox Modal (fixed overlay, sits outside the content flow) -->
+    <div class="lightbox" id="lightbox">
+      <button
+        class="lightbox-btn close-btn"
+        id="closeBtn"
+        aria-label="Schließen"
+      >
+        &times;
+      </button>
+      <button
+        class="lightbox-btn prev-btn"
+        id="prevBtn"
+        aria-label="Vorheriges Bild"
+      >
+        &#10094;
+      </button>
+      <button
+        class="lightbox-btn next-btn"
+        id="nextBtn"
+        aria-label="Nächstes Bild"
+      >
+        &#10095;
+      </button>
+
+      <div class="lightbox-content">
+        <img id="lightboxImg" src="" alt="Vergrößerte Ansicht" />
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+      </div>
+
+      <div class="lightbox-controls">
+        <button
+          class="slideshow-btn"
+          id="slideshowBtn"
+          data-de="▶ Diashow starten"
+          data-en="▶ Start Slideshow"
+        >
+          ▶ Diashow starten
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer (depends on index.css, shared across all pages) -->
     <footer>
       <div class="container">
         <div class="cols">
           <div>
             <a class="brand" href="index.html" style="color: #c9d6df">
-              <div class="brand-logo" style="background: linear-gradient(135deg, #ffd166, #ffe08a)">
-                <img src="./images/logo.jpg" alt="ZanBlauerhimmel Tour Safari Logo" />
+              <div
+                class="brand-logo"
+                style="background: linear-gradient(135deg, #ffd166, #ffe08a)"
+              >
+                <img
+                  src="./images/logo.jpg"
+                  alt="Blauerhimmel Tour Safari Logo"
+                />
               </div>
-              <div class="brand-name">ZanBlauerhimmel Tour Safari</div>
+              <div class="brand-name">Blauerhimmel Tour Safari</div>
             </a>
-            <p class="small" style="margin-top: 10px" data-de="Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen." data-en="Authentic Zanzibar experiences: Stone Town, spice, sea and smiles — guided in German. Karibu — you are most welcome.">
+            <p
+              class="small"
+              style="margin-top: 10px"
+              data-de="Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen."
+              data-en="Authentic Zanzibar experiences: Stone Town, spice, sea and smiles — guided in German. Karibu — you are most welcome."
+            >
               Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und
               Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen.
             </p>
             <div class="social-row" aria-label="Soziale Netzwerke">
-              <a href="https://www.facebook.com/share/1EjKrh5Tua/" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
-              <a href="https://www.tiktok.com/@zanblaueurhimmeltour" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
-              <a href="https://www.instagram.com/ZanBlauerhimmeltour_safari" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+              <a
+                href="https://www.facebook.com/share/18nZJRpYqY/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                >FB</a
+              >
+              <a
+                href="https://www.tiktok.com/@blaueurhimmeltour.safari"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+                >TT</a
+              >
+              <a
+                href="https://www.instagram.com/blauerhimmeltourundsafari"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+                >IG</a
+              >
             </div>
           </div>
           <div>
             <h4 data-de="Entdecken" data-en="Explore">Entdecken</h4>
-            <div class="small" style="display: grid; gap: 8px; margin-top: 10px">
-              <a href="index.html#destinations" data-de="Reiseziele" data-en="Destinations">Reiseziele</a>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <a
+                href="index.html#destinations"
+                data-de="Reiseziele"
+                data-en="Destinations"
+                >Reiseziele</a
+              >
               <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
-              <a href="gallery.html" data-de="Galerie" data-en="Gallery">Galerie</a>
+              <a href="gallery.html" data-de="Galerie" data-en="Gallery"
+                >Galerie</a
+              >
               <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
-              <a href="about.html" data-de="Über uns" data-en="About Us">Über uns</a>
-              <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
+              <a href="about.html" data-de="Über uns" data-en="About Us"
+                >Über uns</a
+              >
+              <a href="contact.html" data-de="Kontakt" data-en="Contact"
+                >Kontakt</a
+              >
             </div>
           </div>
           <div>
             <h4 data-de="Kontakt" data-en="Info">Kontakt</h4>
-            <div class="small" style="display: grid; gap: 8px; margin-top: 10px">
-              <span data-de="Sansibar, Tansania" data-en="Zanzibar, Tanzania">Sansibar, Tansania</span>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <span data-de="Sansibar, Tansania" data-en="Zanzibar, Tanzania"
+                >Sansibar, Tansania</span
+              >
               <span>+255 671 525 305</span>
-              <a href="mailto:donyarossa@gmail.com" style="color: inherit; text-decoration: underline;">donyarossa@gmail.com</a>
+              <a
+                href="mailto:donyarossa@gmail.com"
+                style="color: inherit; text-decoration: underline"
+                >donyarossa@gmail.com</a
+              >
             </div>
           </div>
         </div>
         <div class="small" style="margin-top: 24px; opacity: 0.6">
-          © <span id="year"></span> ZanBlauerhimmel Tour Safari.
-          <span data-de="Alle Rechte vorbehalten." data-en="All rights reserved.">Alle Rechte vorbehalten.</span>
+          © <span id="year"></span> Blauerhimmel Tour Safari.
+          <span
+            data-de="Alle Rechte vorbehalten."
+            data-en="All rights reserved."
+            >Alle Rechte vorbehalten.</span
+          >
         </div>
       </div>
     </footer>
@@ -334,18 +424,25 @@
     <script src="scripts/lang.js"></script>
     <script src="scripts/gallery.js"></script>
 
-    <!-- Scroll Reveal observer script -->
+    <!-- Scroll Reveal observer — targets this page's own .g-reveal class,
+         applied per gallery item, so it works correctly on any screen size -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('in-view');
-            }
-          });
-        }, { threshold: 0.15 });
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: "0px 0px -5% 0px" },
+        );
 
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        document
+          .querySelectorAll(".g-reveal")
+          .forEach((el) => observer.observe(el));
       });
     </script>
 
@@ -353,8 +450,12 @@
     <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement(
-          { pageLanguage: "de", includedLanguages: "en", layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
-          "google_translate_element"
+          {
+            pageLanguage: "de",
+            includedLanguages: "en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element",
         );
       }
     </script>

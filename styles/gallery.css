@@ -1,19 +1,145 @@
-/* Gallery Container & Grid */
-.gallery-header {
-  text-align: center;
-  padding: 2rem 1rem;
+:root {
+  --g-ink: #0b1e2d;
+  --g-sea: #0e5f68;
+  --g-sea-2: #127d86;
+  --g-sand: #f4f1ea;
+  --g-gold: #ffb703;
+  --g-cloud: #ffffff;
+  --g-ink-2: #163440;
+  --g-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --g-radius: 18px;
+  --g-black: #1a1a1a;
+  --g-red: #d00c20;
+  --g-gold-de: #ffce00;
+  --g-gradient: linear-gradient(
+    90deg,
+    var(--g-black) 0%,
+    var(--g-red) 50%,
+    var(--g-gold-de) 100%
+  );
 }
 
-.gallery-container {
+/* Scope resets to the gallery page's own content so we don't fight
+   whatever index.css already applied to <body> for the header/footer */
+.gallery-page {
+  font-family:
+    Poppins,
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Arial,
+    sans-serif;
+  color: var(--g-ink);
+}
+.gallery-page * {
+  box-sizing: border-box;
+}
+
+.g-container {
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1rem 3rem;
+  margin-inline: auto;
+  padding: 0 20px;
 }
 
+/* Hero banner */
+.g-hero {
+  position: relative;
+  min-height: 56vh;
+  display: grid;
+  align-items: center;
+  color: var(--g-cloud);
+}
+.g-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../images/maajabu.jpg") center/cover no-repeat;
+  filter: brightness(0.6);
+}
+.g-hero .g-wrap {
+  position: relative;
+  z-index: 1;
+  padding: 64px 0;
+}
+.g-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+.g-eyebrow .g-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--g-gold);
+}
+.g-hero h1 {
+  font-size: clamp(28px, 5.5vw, 50px);
+  line-height: 1.08;
+  margin: 16px 0 10px;
+}
+.g-hero p {
+  max-width: 620px;
+  font-size: clamp(14px, 2.2vw, 17px);
+  opacity: 0.95;
+  margin: 0;
+}
+
+/* Curved divider carrying the crossing accent-color lines */
+.g-divider {
+  display: block;
+  width: 100%;
+  height: 36px;
+  line-height: 0;
+}
+.g-divider svg {
+  width: 100%;
+  height: 100%;
+}
+.g-line {
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  fill: none;
+}
+.g-line-black {
+  stroke: var(--g-black);
+  stroke-opacity: 0.28;
+}
+.g-line-red {
+  stroke: var(--g-red);
+  stroke-opacity: 0.4;
+}
+.g-line-gold {
+  stroke: var(--g-gold-de);
+  stroke-opacity: 0.55;
+}
+
+/* Section rhythm */
+.g-section {
+  padding: 60px 0 72px;
+}
+.g-section-title {
+  margin-bottom: 22px;
+}
+.g-section-title h2 {
+  font-size: clamp(22px, 3.2vw, 34px);
+  margin: 0 0 4px;
+}
+.g-section-title .g-sub {
+  opacity: 0.7;
+  font-size: 15px;
+}
+
+/* Gallery Container & Grid */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.2rem;
 }
 
 .gallery-item {
@@ -29,7 +155,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease, filter 0.4s ease;
+  display: block;
+  transition:
+    transform 0.4s ease,
+    filter 0.4s ease;
 }
 
 .gallery-item:hover img {
@@ -39,7 +168,7 @@
 
 /* Lightbox Modal */
 .lightbox {
-  display: none; /* Hidden by default */
+  display: none;
   position: fixed;
   top: 0;
   left: 0;
@@ -69,7 +198,7 @@
   max-height: 75vh;
   object-fit: contain;
   border-radius: 4px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 .lightbox-caption {
@@ -138,4 +267,55 @@
   color: #000;
 }
 
+/* ============================================================
+   Scroll-reveal — scoped to this page's own .g-reveal class,
+   applied per gallery item (not to one giant wrapping section),
+   so it works correctly regardless of how many grid columns fit.
+   ============================================================ */
+.g-reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.g-reveal.in-view {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .g-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
 
+/* Responsive */
+@media (max-width: 860px) {
+  .g-hero {
+    min-height: auto;
+  }
+  .g-hero .g-wrap {
+    padding: 48px 0 40px;
+  }
+  .g-section {
+    padding: 44px 0 56px;
+  }
+}
+@media (max-width: 480px) {
+  .g-container {
+    padding: 0 16px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.8rem;
+  }
+  .lightbox-btn {
+    font-size: 1.5rem;
+    padding: 0.4rem 0.8rem;
+  }
+  .close-btn {
+    font-size: 2rem;
+  }
+}
