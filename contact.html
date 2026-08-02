@@ -1,0 +1,789 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kontakt — ZanBlauerhimmel Tour Safari | Sansibar</title>
+    <meta
+      name="description"
+      content="Kontaktieren Sie ZanBlauerhimmel Tour Safari — per WhatsApp, E-Mail oder Anruf. Wir melden uns innerhalb von 24 Stunden."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/index.css" />
+
+    <!-- Page-specific styles for contact.html only -->
+    <style>
+      .page-banner {
+        position: relative;
+        padding: 64px 0 46px;
+        color: var(--cloud);
+        background: linear-gradient(135deg, var(--ink-2), var(--sea));
+        overflow: hidden;
+      }
+      .page-banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./images/wanaume.jpg") center/cover no-repeat;
+        opacity: 0.22;
+      }
+      .page-banner .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-banner h1 {
+        font-size: clamp(28px, 5vw, 46px);
+        margin: 10px 0 8px;
+      }
+      .page-banner p {
+        max-width: 620px;
+        opacity: 0.92;
+        font-size: clamp(14px, 2vw, 16px);
+      }
+      .breadcrumb {
+        font-size: 13px;
+        opacity: 0.8;
+      }
+      .breadcrumb a {
+        color: var(--cloud);
+        text-decoration: none;
+        opacity: 0.85;
+      }
+      .breadcrumb a:hover {
+        opacity: 1;
+      }
+
+      /* Contact layout: form + quick-contact side panel */
+      .contact-layout {
+        display: grid;
+        grid-template-columns: 1.4fr 1fr;
+        gap: 22px;
+        align-items: start;
+      }
+      @media (max-width: 900px) {
+        .contact-layout {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .contact-side {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .contact-side h3 {
+        margin: 0 0 4px;
+      }
+      .contact-side .row {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 14px;
+      }
+      .contact-side .row a {
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      .contact-side .row a:hover {
+        color: var(--sea);
+      }
+
+      /* Three send-action buttons */
+      .send-actions {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-top: 18px;
+      }
+      @media (max-width: 560px) {
+        .send-actions {
+          grid-template-columns: 1fr;
+        }
+      }
+      .send-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 0;
+        border-radius: 12px;
+        padding: 13px 14px;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+        font-family: inherit;
+        text-decoration: none;
+      }
+      .send-btn svg {
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+      .send-btn.whatsapp {
+        background: #25d366;
+        color: #fff;
+      }
+      .send-btn.whatsapp:hover {
+        background: #1fb959;
+      }
+      .send-btn.email {
+        background: var(--sea);
+        color: #fff;
+      }
+      .send-btn.email:hover {
+        background: var(--sea-2);
+      }
+      .send-btn.call {
+        background: var(--gold);
+        color: #1a1a1a;
+      }
+      .send-btn.call:hover {
+        background: #e6a500;
+      }
+      .send-note {
+        font-size: 12.5px;
+        opacity: 0.6;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header (same as homepage) -->
+    <header class="header" id="top">
+      <div class="container">
+        <nav class="nav" aria-label="Hauptnavigation">
+          <a href="index.html" class="brand">
+            <div class="brand-logo">
+              <img
+                src="./images/logo.jpg"
+                alt="ZanBlauerhimmel Tour Safari Logo"
+              />
+            </div>
+            <div class="brand-name">ZanBlauerhimmel Tour Safari</div>
+          </a>
+          <button class="burger" aria-label="Menü öffnen" id="burger">
+            ☰
+          </button>
+          <div class="menu" id="menu">
+            <a
+              href="index.html#destinations"
+              data-de="Reiseziele"
+              data-en="Destinations"
+              >Reiseziele</a
+            >
+            <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
+            <a href="gallery.html" data-de="Galerie" data-en="Gallery"
+              >Galerie</a
+            >
+            <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
+            <a href="contact.html" data-de="Kontakt" data-en="Contact"
+              >Kontakt</a
+            >
+            <a
+              href="contact.html"
+              class="cta"
+              style="color: #1a1a1a"
+              data-de="Reise planen"
+              data-en="Plan Your Trip"
+              >Reise planen</a
+            >
+            <div class="lang-toggle" aria-label="Sprache wählen">
+              <button type="button" data-lang-btn="de" class="active">
+                DE
+              </button>
+              <button type="button" data-lang-btn="en">EN</button>
+            </div>
+            <div
+              id="google_translate_element"
+              class="gt-fallback"
+              title="Automatische Übersetzung (Google)"
+            ></div>
+          </div>
+        </nav>
+        <div class="mobile" id="mobileMenu" aria-label="Mobile Navigation">
+          <a
+            href="index.html#destinations"
+            data-de="Reiseziele"
+            data-en="Destinations"
+            >Reiseziele</a
+          >
+          <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
+          <a href="gallery.html" data-de="Galerie" data-en="Gallery">Galerie</a>
+          <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
+          <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
+          <div class="lang-toggle" style="margin: 14px 20px">
+            <button type="button" data-lang-btn="de" class="active">DE</button>
+            <button type="button" data-lang-btn="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page banner -->
+    <section class="page-banner">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html" data-de="Startseite" data-en="Home"
+            >Startseite</a
+          >
+          /
+          <span data-de="Kontakt" data-en="Contact">Kontakt</span>
+        </div>
+        <h1 data-de="Kontaktieren Sie uns" data-en="Contact Us">
+          Kontaktieren Sie uns
+        </h1>
+        <p
+          data-de="Erzählen Sie uns von Ihrer Traumreise nach Sansibar — wir melden uns innerhalb von 24 Stunden."
+          data-en="Tell us about your dream trip to Zanzibar — we'll get back to you within 24 hours."
+        >
+          Erzählen Sie uns von Ihrer Traumreise nach Sansibar — wir melden uns
+          innerhalb von 24 Stunden.
+        </p>
+      </div>
+    </section>
+
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path
+          class="de-line de-line-black"
+          d="M0,10 C 200,32 400,-4 600,18 C 800,40 1000,4 1200,26"
+          fill="none"
+        />
+        <path
+          class="de-line de-line-red"
+          d="M0,20 C 200,-2 400,36 600,14 C 800,-4 1000,32 1200,10"
+          fill="none"
+        />
+        <path
+          class="de-line de-line-gold"
+          d="M0,30 C 200,8 400,22 600,32 C 800,18 1000,8 1200,20"
+          fill="none"
+        />
+      </svg>
+    </div>
+
+    <main>
+      <section class="section" id="kontaktformular">
+        <div class="container">
+          <div class="contact-layout reveal-group">
+            <!-- Form -->
+            <form
+              class="contact-wrap reveal"
+              id="contactForm"
+              style="max-width: none; margin: 0"
+            >
+              <div class="form-row">
+                <div class="field full">
+                  <label data-de="Vollständiger Name" data-en="Full Name"
+                    >Vollständiger Name</label
+                  >
+                  <input
+                    type="text"
+                    id="cf-name"
+                    name="name"
+                    data-de-placeholder="Ihr vollständiger Name"
+                    data-en-placeholder="Your full name"
+                    placeholder="Ihr vollständiger Name"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label data-de="E-Mail (optional)" data-en="Email (optional)"
+                    >E-Mail (optional)</label
+                  >
+                  <input
+                    type="email"
+                    id="cf-email"
+                    name="email"
+                    data-de-placeholder="ihre@email.de"
+                    data-en-placeholder="your@email.com"
+                    placeholder="ihre@email.de"
+                  />
+                </div>
+                <div class="field">
+                  <label data-de="Telefon" data-en="Phone">Telefon</label>
+                  <input
+                    type="tel"
+                    id="cf-phone"
+                    name="phone"
+                    data-de-placeholder="+49 ..."
+                    data-en-placeholder="+49 ..."
+                    placeholder="+49 ..."
+                    required
+                  />
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field">
+                  <label
+                    data-de="Gruppengröße (optional)"
+                    data-en="Group Size (optional)"
+                    >Gruppengröße (optional)</label
+                  >
+                  <input
+                    type="number"
+                    id="cf-groupsize"
+                    name="groupsize"
+                    min="1"
+                    data-de-placeholder="z. B. 4"
+                    data-en-placeholder="e.g. 4"
+                    placeholder="z. B. 4"
+                  />
+                </div>
+                <div class="field">
+                  <label
+                    data-de="Interessierte Tour (optional)"
+                    data-en="Tour of Interest (optional)"
+                    >Interessierte Tour (optional)</label
+                  >
+                  <select id="cf-tour" name="tour">
+                    <option
+                      value=""
+                      data-de="Bitte wählen…"
+                      data-en="Please select…"
+                    >
+                      Bitte wählen…
+                    </option>
+                    <option
+                      data-de="Stone Town Altstadt-Tour"
+                      data-en="Stone Town Heritage Walk"
+                    >
+                      Stone Town Altstadt-Tour
+                    </option>
+                    <option
+                      data-de="Nungwi Beach Strandtag"
+                      data-en="Nungwi Beach Day"
+                    >
+                      Nungwi Beach Strandtag
+                    </option>
+                    <option
+                      data-de="Jozani Forest Dschungeltour"
+                      data-en="Jozani Forest Jungle Tour"
+                    >
+                      Jozani Forest Dschungeltour
+                    </option>
+                    <option
+                      data-de="Prison Island Ausflug"
+                      data-en="Prison Island Trip"
+                    >
+                      Prison Island Ausflug
+                    </option>
+                    <option
+                      data-de="Schnorcheln am Mnemba-Atoll"
+                      data-en="Mnemba Atoll Snorkeling"
+                    >
+                      Schnorcheln am Mnemba-Atoll
+                    </option>
+                    <option
+                      data-de="Gewürzfarm & Kochkurs"
+                      data-en="Spice Farm & Cooking"
+                    >
+                      Gewürzfarm & Kochkurs
+                    </option>
+                    <option
+                      data-de="Delfintour bei Kizimkazi"
+                      data-en="Kizimkazi Dolphin Tour"
+                    >
+                      Delfintour bei Kizimkazi
+                    </option>
+                    <option
+                      data-de="Mikumi Nationalpark Tagessafari"
+                      data-en="Mikumi National Park Day Safari"
+                    >
+                      Mikumi Nationalpark Tagessafari
+                    </option>
+                    <option
+                      data-de="Mikumi 2-Tage-Safari"
+                      data-en="Mikumi 2-Day Safari"
+                    >
+                      Mikumi 2-Tage-Safari
+                    </option>
+                    <option
+                      data-de="Noch unsicher / individuelle Route"
+                      data-en="Not sure yet / custom route"
+                    >
+                      Noch unsicher / individuelle Route
+                    </option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="field full">
+                  <label
+                    data-de="Besondere Wünsche (optional)"
+                    data-en="Special Request (optional)"
+                    >Besondere Wünsche (optional)</label
+                  >
+                  <textarea
+                    id="cf-message"
+                    name="message"
+                    rows="4"
+                    data-de-placeholder="z. B. Reisedaten, Ernährungswünsche, Barrierefreiheit…"
+                    data-en-placeholder="e.g. travel dates, dietary needs, accessibility…"
+                    placeholder="z. B. Reisedaten, Ernährungswünsche, Barrierefreiheit…"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="send-actions">
+                <button
+                  type="button"
+                  id="send-whatsapp"
+                  class="send-btn whatsapp"
+                >
+                  <svg
+                    viewBox="0 0 32 32"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.39.7 4.63 1.9 6.5L4 29l7.68-1.85a11.9 11.9 0 0 0 4.33.82h.01c6.63 0 12.01-5.38 12.01-12.01C28.02 8.38 22.64 3 16.01 3zm0 21.86h-.01c-1.4 0-2.77-.36-3.98-1.05l-.29-.17-4.7 1.13 1.15-4.58-.19-.3a9.83 9.83 0 0 1-1.52-5.28c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 6.99c0 5.46-4.44 9.9-9.9 9.9zm5.42-7.41c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.66-1.6-.91-2.19-.24-.57-.48-.5-.66-.51h-.56c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.08 3.18 5.04 4.46.7.3 1.25.48 1.68.62.7.22 1.35.19 1.85.11.57-.08 1.75-.71 2-1.4.24-.68.24-1.27.17-1.4-.07-.12-.27-.2-.56-.35z"
+                    />
+                  </svg>
+                  <span data-de="Per WhatsApp" data-en="Via WhatsApp"
+                    >Per WhatsApp</span
+                  >
+                </button>
+                <button type="button" id="send-email" class="send-btn email">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M2 5.5A1.5 1.5 0 0 1 3.5 4h17A1.5 1.5 0 0 1 22 5.5v13a1.5 1.5 0 0 1-1.5 1.5h-17A1.5 1.5 0 0 1 2 18.5v-13Zm2.2.5 7.8 5.85L19.8 6H4.2Zm15.8 1.6-7.36 5.52a1.5 1.5 0 0 1-1.78 0L4 7.6V18h16V7.6Z"
+                    />
+                  </svg>
+                  <span data-de="Per E-Mail" data-en="Via Email"
+                    >Per E-Mail</span
+                  >
+                </button>
+                <a
+                  href="tel:+255671525305"
+                  id="send-call"
+                  class="send-btn call"
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.61 21 3 13.39 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2Z"
+                    />
+                  </svg>
+                  <span data-de="Jetzt anrufen" data-en="Call Now"
+                    >Jetzt anrufen</span
+                  >
+                </a>
+              </div>
+              <div
+                class="send-note"
+                data-de="Name und Telefonnummer sind erforderlich, um über WhatsApp oder E-Mail zu senden."
+                data-en="Name and phone number are required to send via WhatsApp or Email."
+              >
+                Name und Telefonnummer sind erforderlich, um über WhatsApp oder
+                E-Mail zu senden.
+              </div>
+            </form>
+
+            <!-- Quick contact side panel -->
+            <aside class="contact-side reveal">
+              <div>
+                <h3 data-de="Direkter Kontakt" data-en="Direct Contact">
+                  Direkter Kontakt
+                </h3>
+                <p
+                  class="small"
+                  data-de="Lieber direkt schreiben oder anrufen? Kein Problem."
+                  data-en="Prefer to write or call directly? No problem."
+                >
+                  Lieber direkt schreiben oder anrufen? Kein Problem.
+                </p>
+              </div>
+              <div class="row">
+                📞 <a href="tel:+255671525305">+255 671 525 305</a>
+              </div>
+              <div class="row">
+                ✉️
+                <a href="mailto:donyarossa@gmail.com">donyarossa@gmail.com</a>
+              </div>
+              <div class="row">
+                📍
+                <span data-de="Sansibar, Tansania" data-en="Zanzibar, Tanzania"
+                  >Sansibar, Tansania</span
+                >
+              </div>
+              <div
+                class="social-row"
+                aria-label="Soziale Netzwerke"
+                style="margin-top: 4px"
+              >
+                <a
+                  href="https://www.facebook.com/share/18nZJRpYqY/"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Facebook"
+                  style="background: var(--sand); color: var(--ink)"
+                  >FB</a
+                >
+                <a
+                  href="https://www.tiktok.com/@zanblaueurhimmeltour"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="TikTok"
+                  style="background: var(--sand); color: var(--ink)"
+                  >TT</a
+                >
+                <a
+                  href="https://www.instagram.com/ZanBlauerhimmeltour_safari"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Instagram"
+                  style="background: var(--sand); color: var(--ink)"
+                  >IG</a
+                >
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (same as homepage) -->
+    <footer>
+      <div class="container">
+        <div class="cols">
+          <div>
+            <a class="brand" href="index.html" style="color: #c9d6df">
+              <div
+                class="brand-logo"
+                style="background: linear-gradient(135deg, #ffd166, #ffe08a)"
+              >
+                <img
+                  src="./images/logo.jpg"
+                  alt="ZanBlauerhimmel Tour Safari Logo"
+                />
+              </div>
+              <div class="brand-name">ZanBlauerhimmel Tour Safari</div>
+            </a>
+            <p
+              class="small"
+              style="margin-top: 10px"
+              data-de="Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen."
+              data-en="Authentic Zanzibar experiences: Stone Town, spice, sea and smiles — guided in German. Karibu — you are most welcome."
+            >
+              Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und
+              Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen.
+            </p>
+            <div class="social-row" aria-label="Soziale Netzwerke">
+              <a
+                href="https://www.facebook.com/share/1EjKrh5Tua/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                >FB</a
+              >
+              <a
+                href="https://www.tiktok.com/@zanblaueurhimmeltour.safari"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+                >TT</a
+              >
+              <a
+                href="https://www.instagram.com/ZanBlauerhimmeltour_safari"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+                >IG</a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 data-de="Entdecken" data-en="Explore">Entdecken</h4>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <a
+                href="index.html#destinations"
+                data-de="Reiseziele"
+                data-en="Destinations"
+                >Reiseziele</a
+              >
+              <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
+              <a href="gallery.html" data-de="Galerie" data-en="Gallery"
+                >Galerie</a
+              >
+              <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
+              <a href="about.html" data-de="Über uns" data-en="About Us"
+                >Über uns</a
+              >
+              <a href="contact.html" data-de="Kontakt" data-en="Contact"
+                >Kontakt</a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 data-de="Kontakt" data-en="Info">Kontakt</h4>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <span data-de="Sansibar, Tansania" data-en="Zanzibar, Tanzania"
+                >Sansibar, Tansania</span
+              >
+              <span>+255 671 525 305</span>
+              <a
+                href="mailto:donyarossa@gmail.com"
+                style="color: inherit; text-decoration: underline"
+                >donyarossa@gmail.com</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="small" style="margin-top: 24px; opacity: 0.6">
+          © <span id="year"></span> ZanBlauerhimmel Tour Safari.
+          <span
+            data-de="Alle Rechte vorbehalten."
+            data-en="All rights reserved."
+            >Alle Rechte vorbehalten.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/lang.js"></script>
+
+    <!-- Scroll Reveal observer script for scroll animations -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => observer.observe(el));
+      });
+    </script>
+
+    <!-- Contact form: build the message and hand off to WhatsApp / Email -->
+    <script>
+      (function () {
+        var BUSINESS_PHONE = "255671525305"; // no + or spaces, for wa.me
+        var BUSINESS_EMAIL = "donyarossa@gmail.com";
+        var form = document.getElementById("contactForm");
+
+        function buildMessage() {
+          var name = document.getElementById("cf-name").value.trim();
+          var email = document.getElementById("cf-email").value.trim();
+          var phone = document.getElementById("cf-phone").value.trim();
+          var groupsize = document.getElementById("cf-groupsize").value.trim();
+          var tour = document.getElementById("cf-tour").value.trim();
+          var message = document.getElementById("cf-message").value.trim();
+          var isEn = document.documentElement.getAttribute("lang") === "en";
+
+          var lines = isEn
+            ? [
+                "New enquiry from " + name,
+                "Phone: " + phone,
+                "Email: " + (email || "-"),
+                "Group size: " + (groupsize || "-"),
+                "Tour of interest: " + (tour || "-"),
+                "Special request: " + (message || "-"),
+              ]
+            : [
+                "Neue Anfrage von " + name,
+                "Telefon: " + phone,
+                "E-Mail: " + (email || "-"),
+                "Gruppengröße: " + (groupsize || "-"),
+                "Interessierte Tour: " + (tour || "-"),
+                "Besondere Wünsche: " + (message || "-"),
+              ];
+          return lines.join("\n");
+        }
+
+        function validateRequired() {
+          // Uses the form's native required attributes (name + phone) and shows
+          // the browser's built-in validation UI if something's missing.
+          if (!form.checkValidity()) {
+            form.reportValidity();
+            return false;
+          }
+          return true;
+        }
+
+        document
+          .getElementById("send-whatsapp")
+          .addEventListener("click", function () {
+            if (!validateRequired()) return;
+            var text = encodeURIComponent(buildMessage());
+            window.open(
+              "https://wa.me/" + BUSINESS_PHONE + "?text=" + text,
+              "_blank",
+              "noopener",
+            );
+          });
+
+        document
+          .getElementById("send-email")
+          .addEventListener("click", function () {
+            if (!validateRequired()) return;
+            var name = document.getElementById("cf-name").value.trim();
+            var isEn = document.documentElement.getAttribute("lang") === "en";
+            var subject = encodeURIComponent(
+              (isEn ? "New enquiry from " : "Neue Anfrage von ") + name,
+            );
+            var body = encodeURIComponent(buildMessage());
+            window.location.href =
+              "mailto:" +
+              BUSINESS_EMAIL +
+              "?subject=" +
+              subject +
+              "&body=" +
+              body;
+          });
+      })();
+    </script>
+
+    <!-- Fallback auto-translate (Google Translate widget) -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "de",
+            includedLanguages: "en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element",
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+  </body>
+</html>

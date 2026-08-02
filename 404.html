@@ -1,0 +1,44 @@
+//generate 404 page code to redirect users to homepage after 1 second delay,
+also add manual redirect link in german and translate option into english
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="refresh" content="1;url=/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seite nicht gefunden</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+      h1 {
+        font-size: 50px;
+      }
+      p {
+        font-size: 20px;
+      }
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>404 - Seite nicht gefunden</h1>
+    <p>
+      Die angeforderte Seite konnte nicht gefunden werden. Sie werden in 1
+      Sekunde zur Startseite weitergeleitet.
+    </p>
+    <p>
+      Wenn Sie nicht automatisch weitergeleitet werden, klicken Sie bitte
+      <a href="/">hier</a>.
+    </p>
+    <p>Click <a href="/">here</a>.</p>
+  </body>
+</html>

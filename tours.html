@@ -1,0 +1,833 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Touren — ZanBlauerhimmel Tour Safari | Sansibar & Mikumi</title>
+    <meta
+      name="description"
+      content="Alle Touren von ZanBlauerhimmel Tour Safari — Sansibar-Ausflüge und Mikumi-Safaris, auf Deutsch begleitet."
+    />
+    <meta property="og:title" content="Touren — ZanBlauerhimmel Tour Safari" />
+    <meta
+      property="og:description"
+      content="Entdecken Sie unsere Sansibar- und Mikumi-Touren — von Stone Town bis zur Savanne, auf Deutsch begleitet."
+    />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Shared site styles -->
+    <link rel="stylesheet" href="styles/index.css" />
+    <noscript>
+      <style>
+        .reveal {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
+
+    <!-- Page-specific styles for tours.html only (everything reusable lives in styles/index.css) -->
+    <style>
+      /* Compact page banner, replacing the full homepage hero on inner pages */
+      .page-banner {
+        position: relative;
+        padding: 64px 0 46px;
+        color: var(--cloud);
+        background: linear-gradient(135deg, var(--ink-2), var(--sea));
+        overflow: hidden;
+      }
+      .page-banner::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: url("./images/animals.jpg") center/cover no-repeat;
+        opacity: 0.22;
+      }
+      .page-banner .container {
+        position: relative;
+        z-index: 1;
+      }
+      .page-banner h1 {
+        font-size: clamp(28px, 5vw, 46px);
+        margin: 10px 0 8px;
+      }
+      .page-banner p {
+        max-width: 620px;
+        opacity: 0.92;
+        font-size: clamp(14px, 2vw, 16px);
+      }
+      .breadcrumb {
+        font-size: 13px;
+        opacity: 0.8;
+      }
+      .breadcrumb a {
+        color: var(--cloud);
+        text-decoration: none;
+        opacity: 0.85;
+      }
+      .breadcrumb a:hover {
+        opacity: 1;
+      }
+
+      /* Filter-style chips indicating trip origin — decorative only on this pass */
+      .origin-chips {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+      }
+      .origin-chips .chip {
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      /* Tours grid: 3 columns desktop, 2 tablet, 1 mobile */
+      .tours-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      @media (max-width: 980px) {
+        .tours-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 620px) {
+        .tours-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Tour card — image, badge for origin (Sansibar / Mikumi), title, description */
+      .tour-card {
+        position: relative;
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-direction: column;
+      }
+      .tour-card .flag-edge {
+        z-index: 3;
+      }
+      .tour-card .cover {
+        position: relative;
+        aspect-ratio: 4/3;
+        background-size: cover;
+        background-position: center;
+      }
+      .tour-card .origin-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 2;
+        background: rgba(11, 30, 45, 0.75);
+        color: #fff;
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        padding: 5px 10px;
+        border-radius: 999px;
+      }
+      .tour-card .body {
+        padding: 18px 18px 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+      }
+      .tour-card h3 {
+        margin: 0;
+        font-size: 18px;
+      }
+      .tour-card p {
+        margin: 0;
+        font-size: 13.5px;
+        line-height: 1.55;
+        opacity: 0.85;
+        flex: 1;
+      }
+      .tour-card .cta-row {
+        margin-top: 8px;
+      }
+      .tour-card .cta-row a {
+        text-decoration: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header (same as homepage) -->
+    <header class="header" id="top">
+      <div class="container">
+        <nav class="nav" aria-label="Hauptnavigation">
+          <a href="index.html" class="brand">
+            <div class="brand-logo">
+              <img
+                src="./images/logo.jpg"
+                alt="ZanBlauerhimmel Tour Safari Logo"
+              />
+            </div>
+            <div class="brand-name">ZanBlauerhimmel Tour Safari</div>
+          </a>
+          <button class="burger" aria-label="Menü öffnen" id="burger">
+            ☰
+          </button>
+          <div class="menu" id="menu">
+            <a
+              href="index.html#destinations"
+              data-de="Reiseziele"
+              data-en="Destinations"
+              >Reiseziele</a
+            >
+            <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
+            <a href="gallery.html" data-de="Galerie" data-en="Gallery"
+              >Galerie</a
+            >
+            <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
+            <a href="contact.html" data-de="Kontakt" data-en="Contact"
+              >Kontakt</a
+            >
+            <a href="tours.html" data-de="FAQs" data-en="FAQs">FAQs</a>
+
+            <a
+              href="contact.html"
+              class="cta"
+              style="color: #1a1a1a"
+              data-de="Reise planen"
+              data-en="Plan Your Trip"
+              >Reise planen</a
+            >
+            <div class="lang-toggle" aria-label="Sprache wählen">
+              <button type="button" data-lang-btn="de" class="active">
+                DE
+              </button>
+              <button type="button" data-lang-btn="en">EN</button>
+            </div>
+            <div
+              id="google_translate_element"
+              class="gt-fallback"
+              title="Automatische Übersetzung (Google)"
+            ></div>
+          </div>
+        </nav>
+        <div class="mobile" id="mobileMenu" aria-label="Mobile Navigation">
+          <a
+            href="index.html#destinations"
+            data-de="Reiseziele"
+            data-en="Destinations"
+            >Reiseziele</a
+          >
+          <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
+          <a href="gallery.html" data-de="Galerie" data-en="Gallery">Galerie</a>
+          <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
+          <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
+          <div class="lang-toggle" style="margin: 14px 20px">
+            <button type="button" data-lang-btn="de" class="active">DE</button>
+            <button type="button" data-lang-btn="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Page banner -->
+    <section class="page-banner">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="index.html" data-de="Startseite" data-en="Home"
+            >Startseite</a
+          >
+          /
+          <span data-de="Touren" data-en="Tours">Touren</span>
+        </div>
+        <h1 data-de="Unsere Touren" data-en="Our Tours">Unsere Touren</h1>
+        <p
+          data-de="Von den Gassen der Stone Town bis zur Savanne von Mikumi — hier finden Sie eine Auswahl unserer beliebtesten Ausflüge, auf Deutsch begleitet."
+          data-en="From the alleys of Stone Town to the Mikumi savanna — here's a selection of our most popular trips, guided in German."
+        >
+          Von den Gassen der Stone Town bis zur Savanne von Mikumi — hier finden
+          Sie eine Auswahl unserer beliebtesten Ausflüge, auf Deutsch begleitet.
+        </p>
+        <div class="origin-chips" aria-label="Reiseregionen">
+          <div
+            class="chip"
+            data-de="Sansibar-Ausflüge"
+            data-en="Zanzibar trips"
+          >
+            Sansibar-Ausflüge
+          </div>
+          <div class="chip" data-de="Mikumi-Safaris" data-en="Mikumi safaris">
+            Mikumi-Safaris
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path
+          class="de-line de-line-black"
+          d="M0,10 C 200,32 400,-4 600,18 C 800,40 1000,4 1200,26"
+          fill="none"
+        />
+        <path
+          class="de-line de-line-red"
+          d="M0,20 C 200,-2 400,36 600,14 C 800,-4 1000,32 1200,10"
+          fill="none"
+        />
+        <path
+          class="de-line de-line-gold"
+          d="M0,30 C 200,8 400,22 600,32 C 800,18 1000,8 1200,20"
+          fill="none"
+        />
+      </svg>
+    </div>
+
+    <main>
+      <section class="section" id="alle-touren">
+        <div class="container">
+          <div class="section-title reveal">
+            <div>
+              <h2 data-de="Alle Touren" data-en="All Tours">Alle Touren</h2>
+              <div
+                class="sub"
+                data-de="9 beliebte Erlebnisse — weitere folgen in Kürze"
+                data-en="9 popular experiences — more coming soon"
+              >
+                9 beliebte Erlebnisse — weitere folgen in Kürze
+              </div>
+            </div>
+          </div>
+
+          <div class="tours-grid reveal-group">
+            <!-- 1 -->
+            <article class="tour-card reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="
+                  background-image: url(&quot;./images/stonetown.jpeg&quot;);
+                "
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Stone Town Altstadt-Tour"
+                  data-en="Stone Town Heritage Walk"
+                >
+                  Stone Town Altstadt-Tour
+                </h3>
+                <p
+                  data-de="Verzierte Türen, der Gewürzmarkt, das Haus von Freddie Mercury und der Forodhani-Markt am Abend."
+                  data-en="Ornate doors, the spice market, Freddie Mercury's house and the Forodhani night market."
+                >
+                  Verzierte Türen, der Gewürzmarkt, das Haus von Freddie Mercury
+                  und der Forodhani-Markt am Abend.
+                </p>
+                <div class="cta-row">
+                  <a
+                    href="contact.html"
+                    class="see"
+                    data-de="Anfragen"
+                    data-en="Enquire"
+                    >Anfragen</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 2 -->
+            <article class="tour-card reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/beach\ 1.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3 data-de="Nungwi Beach Strandtag" data-en="Nungwi Beach Day">
+                  Nungwi Beach Strandtag
+                </h3>
+                <p
+                  data-de="Türkisfarbenes Wasser, feiner Sand und ein Dhau-Sonnenuntergang am nördlichsten Zipfel der Insel."
+                  data-en="Turquoise water, fine sand and a dhow sunset at the island's northern tip."
+                >
+                  Türkisfarbenes Wasser, feiner Sand und ein
+                  Dhau-Sonnenuntergang am nördlichsten Zipfel der Insel.
+                </p>
+                <div class="cta-row">
+                  <a
+                    href="contact.html"
+                    class="see"
+                    data-de="Anfragen"
+                    data-en="Enquire"
+                    >Anfragen</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 3 -->
+            <article class="tour-card reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/kima\ 2.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Jozani Forest Dschungeltour"
+                  data-en="Jozani Forest Jungle Tour"
+                >
+                  Jozani Forest Dschungeltour
+                </h3>
+                <p
+                  data-de="Rote Stummelaffen aus nächster Nähe und ein Spaziergang durch die Mangrovenwälder Sansibars."
+                  data-en="Red colobus monkeys up close, and a walk through Zanzibar's mangrove forests."
+                >
+                  Rote Stummelaffen aus nächster Nähe und ein Spaziergang durch
+                  die Mangrovenwälder Sansibars.
+                </p>
+                <div class="cta-row">
+                  <a
+                    href="contact.html"
+                    class="see"
+                    data-de="Anfragen"
+                    data-en="Enquire"
+                    >Anfragen</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 4 -->
+            <article class="tour-card reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/kobe.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Prison Island Ausflug"
+                  data-en="Prison Island Trip"
+                >
+                  Prison Island Ausflug
+                </h3>
+                <p
+                  data-de="Riesenschildkröten besuchen und anschließend an den Korallenriffen der Insel schnorcheln."
+                  data-en="Meet giant tortoises, then snorkel the island's coral reefs."
+                >
+                  Riesenschildkröten besuchen und anschließend an den
+                  Korallenriffen der Insel schnorcheln.
+                </p>
+                <div class="cta-row">
+                  <a
+                    href="contact.html"
+                    class="see"
+                    data-de="Anfragen"
+                    data-en="Enquire"
+                    >Anfragen</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 5 -->
+            <article class="tour-card reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/starfish.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Schnorcheln am Mnemba-Atoll"
+                  data-en="Mnemba Atoll Snorkeling"
+                >
+                  Schnorcheln am Mnemba-Atoll
+                </h3>
+                <p
+                  data-de="Kristallklares Wasser, bunte Riffe und Delfine bei Matemwe — Ausrüstung und Boot inklusive."
+                  data-en="Crystal-clear water, colorful reefs and dolphins near Matemwe — gear and boat included."
+                >
+                  Kristallklares Wasser, bunte Riffe und Delfine bei Matemwe —
+                  Ausrüstung und Boot inklusive.
+                </p>
+                <div class="cta-row">
+                  <a
+                    href="contact.html"
+                    class="see"
+                    data-de="Anfragen"
+                    data-en="Enquire"
+                    >Anfragen</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 6 -->
+            <article class="tour-card reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/spices.jpeg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Gewürzfarm & Kochkurs"
+                  data-en="Spice Farm & Cooking"
+                >
+                  Gewürzfarm & Kochkurs
+                </h3>
+                <p
+                  data-de="Nelken, Vanille und Zimt entdecken, dann mit einem einheimischen Koch Suaheli-Gerichte zubereiten."
+                  data-en="Discover cloves, vanilla and cinnamon, then cook Swahili dishes with a local chef."
+                >
+                  Nelken, Vanille und Zimt entdecken, dann mit einem
+                  einheimischen Koch Suaheli-Gerichte zubereiten.
+                </p>
+                <div class="cta-row">
+                  <a
+                    href="contact.html"
+                    class="see"
+                    data-de="Anfragen"
+                    data-en="Enquire"
+                    >Anfragen</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 7 -->
+            <article class="tour-card reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/dolphin.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Delfintour bei Kizimkazi"
+                  data-en="Kizimkazi Dolphin Tour"
+                >
+                  Delfintour bei Kizimkazi
+                </h3>
+                <p
+                  data-de="Frühmorgens per Boot hinaus, um wilde Delfine in ihrem natürlichen Lebensraum zu beobachten."
+                  data-en="An early-morning boat trip to watch wild dolphins in their natural habitat."
+                >
+                  Frühmorgens per Boot hinaus, um wilde Delfine in ihrem
+                  natürlichen Lebensraum zu beobachten.
+                </p>
+                <div class="cta-row">
+                  <a
+                    href="contact.html"
+                    class="see"
+                    data-de="Anfragen"
+                    data-en="Enquire"
+                    >Anfragen</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 8 -->
+            <article class="tour-card reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/zebra.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Mikumi" data-en="Mikumi"
+                  >Mikumi</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Mikumi Nationalpark Tagessafari"
+                  data-en="Mikumi National Park Day Safari"
+                >
+                  Mikumi Nationalpark Tagessafari
+                </h3>
+                <p
+                  data-de="Löwen, Elefanten, Giraffen und Zebras auf einer Tages-Safari in einem von Tansanias großen Nationalparks."
+                  data-en="Lions, elephants, giraffes and zebras on a day safari in one of Tanzania's great national parks."
+                >
+                  Löwen, Elefanten, Giraffen und Zebras auf einer Tages-Safari
+                  in einem von Tansanias großen Nationalparks.
+                </p>
+                <div class="cta-row">
+                  <a
+                    href="contact.html"
+                    class="see"
+                    data-de="Anfragen"
+                    data-en="Enquire"
+                    >Anfragen</a
+                  >
+                </div>
+              </div>
+            </article>
+
+            <!-- 9 -->
+            <article class="tour-card reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/huh.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Mikumi" data-en="Mikumi"
+                  >Mikumi</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Mikumi 2-Tage-Safari mit Übernachtung"
+                  data-en="Mikumi 2-Day Safari with Overnight Stay"
+                >
+                  Mikumi 2-Tage-Safari mit Übernachtung
+                </h3>
+                <p
+                  data-de="Zwei volle Tage Safari mit Übernachtung in der Nähe des Parks — mehr Zeit für Tierbeobachtungen bei Sonnenauf- und -untergang."
+                  data-en="Two full days of safari with an overnight stay near the park — more time for sunrise and sunset game viewing."
+                >
+                  Zwei volle Tage Safari mit Übernachtung in der Nähe des Parks
+                  — mehr Zeit für Tierbeobachtungen bei Sonnenauf- und
+                  -untergang.
+                </p>
+                <div class="cta-row">
+                  <a
+                    href="contact.html"
+                    class="see"
+                    data-de="Anfragen"
+                    data-en="Enquire"
+                    >Anfragen</a
+                  >
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div style="margin-top: 30px" class="cta-band reveal">
+            <div>
+              <h3
+                style="margin: 0 0 6px"
+                data-de="Ihre Wunschtour ist nicht dabei?"
+                data-en="Don't see the trip you want?"
+              >
+                Ihre Wunschtour ist nicht dabei?
+              </h3>
+              <div
+                class="small"
+                style="opacity: 0.95"
+                data-de="Schreiben Sie uns Ihre Wünsche — wir stellen Ihnen gerne eine individuelle Route zusammen."
+                data-en="Tell us what you're after — we're happy to put together a custom itinerary."
+              >
+                Schreiben Sie uns Ihre Wünsche — wir stellen Ihnen gerne eine
+                individuelle Route zusammen.
+              </div>
+            </div>
+            <a
+              href="contact.html"
+              class="btn btn-primary"
+              style="background: var(--gold); color: #1a1a1a"
+              data-de="Kontakt aufnehmen"
+              data-en="Get in Touch"
+              >Kontakt aufnehmen</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (same as homepage) -->
+    <footer>
+      <div class="container">
+        <div class="cols">
+          <div>
+            <a class="brand" href="index.html" style="color: #c9d6df">
+              <div
+                class="brand-logo"
+                style="background: linear-gradient(135deg, #ffd166, #ffe08a)"
+              >
+                <img
+                  src="./images/logo.jpg"
+                  alt="ZanBlauerhimmel Tour Safari Logo"
+                />
+              </div>
+              <div class="brand-name">ZanBlauerhimmel Tour Safari</div>
+            </a>
+            <p
+              class="small"
+              style="margin-top: 10px"
+              data-de="Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen."
+              data-en="Authentic Zanzibar experiences: Stone Town, spice, sea and smiles — guided in German. Karibu — you are most welcome."
+            >
+              Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und
+              Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen.
+            </p>
+            <div class="social-row" aria-label="Soziale Netzwerke">
+              <a
+                href="https://www.facebook.com/share/1EjKrh5Tua/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                >FB</a
+              >
+              <a
+                href="https://www.tiktok.com/@zanblaueurhimmeltour"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+                >TT</a
+              >
+              <a
+                href="https://www.instagram.com/ZanBlauerhimmeltour_safari"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+                >IG</a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 data-de="Entdecken" data-en="Explore">Entdecken</h4>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <a
+                href="index.html#destinations"
+                data-de="Reiseziele"
+                data-en="Destinations"
+                >Reiseziele</a
+              >
+              <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
+              <a href="gallery.html" data-de="Galerie" data-en="Gallery"
+                >Galerie</a
+              >
+              <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
+              <a href="about.html" data-de="Über uns" data-en="About Us"
+                >Über uns</a
+              >
+              <a href="contact.html" data-de="Kontakt" data-en="Contact"
+                >Kontakt</a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 data-de="Kontakt" data-en="Info">Kontakt</h4>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <span data-de="Sansibar, Tansania" data-en="Zanzibar, Tanzania"
+                >Sansibar, Tansania</span
+              >
+              <span>+255 671 525 305</span>
+              <a
+                href="mailto:donyarossa@gmail.com"
+                style="color: inherit; text-decoration: underline"
+                >donyarossa@gmail.com</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="small" style="margin-top: 24px; opacity: 0.6">
+          © <span id="year"></span> ZanBlauerhimmel Tour Safari.
+          <span
+            data-de="Alle Rechte vorbehalten."
+            data-en="All rights reserved."
+            >Alle Rechte vorbehalten.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/255671525305?text=Hallo%20ZanBlauerhimmel%20Tour%20Safari%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Reise%20nach%20Sansibar."
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat auf WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+        <path
+          d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.39.7 4.63 1.9 6.5L4 29l7.68-1.85a11.9 11.9 0 0 0 4.33.82h.01c6.63 0 12.01-5.38 12.01-12.01C28.02 8.38 22.64 3 16.01 3zm0 21.86h-.01c-1.4 0-2.77-.36-3.98-1.05l-.29-.17-4.7 1.13 1.15-4.58-.19-.3a9.83 9.83 0 0 1-1.52-5.28c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 6.99c0 5.46-4.44 9.9-9.9 9.9zm5.42-7.41c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.66-1.6-.91-2.19-.24-.57-.48-.5-.66-.51h-.56c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.08 3.18 5.04 4.46.7.3 1.25.48 1.68.62.7.22 1.35.19 1.85.11.57-.08 1.75-.71 2-1.4.24-.68.24-1.27.17-1.4-.07-.12-.27-.2-.56-.35z"
+        />
+      </svg>
+    </a>
+
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/lang.js"></script>
+
+    <!-- Scroll Reveal observer script for scroll animations -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("in-view");
+              }
+            });
+          },
+          { threshold: 0.15 },
+        );
+
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => observer.observe(el));
+      });
+    </script>
+
+    <!-- Fallback auto-translate (Google Translate widget) -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "de",
+            includedLanguages: "en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element",
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+  </body>
+</html>
