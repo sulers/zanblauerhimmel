@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Touren — ZanBlauerhimmel Tour Safari | Sansibar & Mikumi</title>
+    <title>Ausflugspakete — ZanBlauerhimmel Tour Safari | Sansibar & Mikumi</title>
     <meta
       name="description"
-      content="Alle Touren von ZanBlauerhimmel Tour Safari — Sansibar-Ausflüge und Mikumi-Safaris, auf Deutsch begleitet."
+      content="Alle Pakete von ZanBlauerhimmel Tour Safari — Sansibar-Ausflüge und Mikumi-Safaris, auf Deutsch begleitet."
     />
-    <meta property="og:title" content="Touren — ZanBlauerhimmel Tour Safari" />
+    <meta property="og:title" content="Pakete — ZanBlauerhimmel Tour Safari" />
     <meta
       property="og:description"
-      content="Entdecken Sie unsere Sansibar- und Mikumi-Touren — von Stone Town bis zur Savanne, auf Deutsch begleitet."
+      content="Entdecken Sie unsere Sansibar- und Mikumi-Pakete — von Stone Town bis zur Savanne, auf Deutsch begleitet."
     />
     <meta property="og:type" content="website" />
 
@@ -21,7 +21,6 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <!-- Shared site styles -->
     <link rel="stylesheet" href="styles/index.css" />
     <noscript>
       <style>
@@ -32,9 +31,7 @@
       </style>
     </noscript>
 
-    <!-- Page-specific styles for tours.html only (everything reusable lives in styles/index.css) -->
     <style>
-      /* Compact page banner, replacing the full homepage hero on inner pages */
       .page-banner {
         position: relative;
         padding: 64px 0 46px;
@@ -75,7 +72,6 @@
         opacity: 1;
       }
 
-      /* Filter-style chips indicating trip origin — decorative only on this pass */
       .origin-chips {
         display: flex;
         gap: 10px;
@@ -86,7 +82,6 @@
         background: rgba(255, 255, 255, 0.16);
       }
 
-      /* Tours grid: 3 columns desktop, 2 tablet, 1 mobile */
       .tours-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -103,7 +98,6 @@
         }
       }
 
-      /* Tour card — image, badge for origin (Sansibar / Mikumi), title, description */
       .tour-card {
         position: relative;
         background: #fff;
@@ -153,8 +147,14 @@
         opacity: 0.85;
         flex: 1;
       }
+      .tour-card .price-tag {
+        font-weight: 700;
+        color: var(--sea);
+        font-size: 15px;
+        margin-top: 4px;
+      }
       .tour-card .cta-row {
-        margin-top: 8px;
+        margin-top: 10px;
       }
       .tour-card .cta-row a {
         text-decoration: none;
@@ -162,7 +162,7 @@
     </style>
   </head>
   <body>
-    <!-- Header (same as homepage) -->
+    <!-- Header -->
     <header class="header" id="top">
       <div class="container">
         <nav class="nav" aria-label="Hauptnavigation">
@@ -185,7 +185,7 @@
               data-en="Destinations"
               >Reiseziele</a
             >
-            <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
+            <a href="tours.html" data-de="Pakete" data-en="Packages">Pakete</a>
             <a href="gallery.html" data-de="Galerie" data-en="Gallery"
               >Galerie</a
             >
@@ -193,7 +193,7 @@
             <a href="contact.html" data-de="Kontakt" data-en="Contact"
               >Kontakt</a
             >
-            <a href="tours.html" data-de="FAQs" data-en="FAQs">FAQs</a>
+            <a href="faqs.html" data-de="FAQs" data-en="FAQs">FAQs</a>
 
             <a
               href="contact.html"
@@ -223,7 +223,7 @@
             data-en="Destinations"
             >Reiseziele</a
           >
-          <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
+          <a href="tours.html" data-de="Pakete" data-en="Packages">Pakete</a>
           <a href="gallery.html" data-de="Galerie" data-en="Gallery">Galerie</a>
           <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
           <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
@@ -243,15 +243,14 @@
             >Startseite</a
           >
           /
-          <span data-de="Touren" data-en="Tours">Touren</span>
+          <span data-de="Pakete" data-en="Packages">Pakete</span>
         </div>
-        <h1 data-de="Unsere Touren" data-en="Our Tours">Unsere Touren</h1>
+        <h1 data-de="Unsere Ausflugspakete" data-en="Our Tour Packages">Unsere Ausflugspakete</h1>
         <p
-          data-de="Von den Gassen der Stone Town bis zur Savanne von Mikumi — hier finden Sie eine Auswahl unserer beliebtesten Ausflüge, auf Deutsch begleitet."
-          data-en="From the alleys of Stone Town to the Mikumi savanna — here's a selection of our most popular trips, guided in German."
+          data-de="Von Kombi-Paketen in Stone Town und Ausflügen zu Sandbänken bis hin zu Safaris in Mikumi — entdecken Sie unsere beliebtesten Erlebnisse."
+          data-en="From Stone Town combination packages and sandbank excursions to Mikumi safaris — discover our popular experiences."
         >
-          Von den Gassen der Stone Town bis zur Savanne von Mikumi — hier finden
-          Sie eine Auswahl unserer beliebtesten Ausflüge, auf Deutsch begleitet.
+          Von Kombi-Paketen in Stone Town und Ausflügen zu Sandbänken bis hin zu Safaris in Mikumi — entdecken Sie unsere beliebtesten Erlebnisse.
         </p>
         <div class="origin-chips" aria-label="Reiseregionen">
           <div
@@ -263,6 +262,9 @@
           </div>
           <div class="chip" data-de="Mikumi-Safaris" data-en="Mikumi safaris">
             Mikumi-Safaris
+          </div>
+          <div class="chip" data-de="Soziale Besuche" data-en="Community Visits">
+            Soziale Besuche
           </div>
         </div>
       </div>
@@ -293,13 +295,13 @@
         <div class="container">
           <div class="section-title reveal">
             <div>
-              <h2 data-de="Alle Touren" data-en="All Tours">Alle Touren</h2>
+              <h2 data-de="Alle Pakete" data-en="All Packages">Alle Pakete</h2>
               <div
                 class="sub"
-                data-de="9 beliebte Erlebnisse — weitere folgen in Kürze"
-                data-en="9 popular experiences — more coming soon"
+                data-de="Exklusive Ausflugspakete für unvergessliche Erlebnisse"
+                data-en="Exclusive packages for unforgettable experiences"
               >
-                9 beliebte Erlebnisse — weitere folgen in Kürze
+                Exklusive Ausflugspakete für unvergessliche Erlebnisse
               </div>
             </div>
           </div>
@@ -314,32 +316,19 @@
                   background-image: url(&quot;./images/stonetown.jpeg&quot;);
                 "
               >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
-                  >Sansibar</span
-                >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
               </div>
               <div class="body">
-                <h3
-                  data-de="Stone Town Altstadt-Tour"
-                  data-en="Stone Town Heritage Walk"
-                >
-                  Stone Town Altstadt-Tour
-                </h3>
+                <h3>Spice Tour + Prison Island + Stone Town</h3>
                 <p
-                  data-de="Verzierte Türen, der Gewürzmarkt, das Haus von Freddie Mercury und der Forodhani-Markt am Abend."
-                  data-en="Ornate doors, the spice market, Freddie Mercury's house and the Forodhani night market."
+                  data-de="Erleben Sie Gewürzplantagen, besuchen Sie Riesenschildkröten auf Prison Island und machen Sie einen Führung durch Stone Town inklusive Nachtmarkt-Spaziergang."
+                  data-en="Experience spice plantations, visit giant tortoises on Prison Island, and take a Stone Town walk including the evening night market."
                 >
-                  Verzierte Türen, der Gewürzmarkt, das Haus von Freddie Mercury
-                  und der Forodhani-Markt am Abend.
+                  Erleben Sie Gewürzplantagen, besuchen Sie Riesenschildkröten auf Prison Island und machen Sie einen Führung durch Stone Town inklusive Nachtmarkt-Spaziergang.
                 </p>
+                <div class="price-tag">€230 / $250 (2 Persons)</div>
                 <div class="cta-row">
-                  <a
-                    href="contact.html"
-                    class="see"
-                    data-de="Anfragen"
-                    data-en="Enquire"
-                    >Anfragen</a
-                  >
+                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
                 </div>
               </div>
             </article>
@@ -351,29 +340,19 @@
                 class="cover"
                 style="background-image: url(&quot;./images/beach\ 1.jpg&quot;)"
               >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
-                  >Sansibar</span
-                >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
               </div>
               <div class="body">
-                <h3 data-de="Nungwi Beach Strandtag" data-en="Nungwi Beach Day">
-                  Nungwi Beach Strandtag
-                </h3>
+                <h3>Stone Town + Prison Island + Nakupenda Sandbank</h3>
                 <p
-                  data-de="Türkisfarbenes Wasser, feiner Sand und ein Dhau-Sonnenuntergang am nördlichsten Zipfel der Insel."
-                  data-en="Turquoise water, fine sand and a dhow sunset at the island's northern tip."
+                  data-de="Historischer Stadtrundgang mit Nachtmarkt, Schildkröten auf Prison Island und Entspannung an der Traum-Sandbank Nakupenda."
+                  data-en="Historic city walk with night market, tortoises on Prison Island, and relaxation on Nakupenda sandbank."
                 >
-                  Türkisfarbenes Wasser, feiner Sand und ein
-                  Dhau-Sonnenuntergang am nördlichsten Zipfel der Insel.
+                  Historischer Stadtrundgang mit Nachtmarkt, Schildkröten auf Prison Island und Entspannung an der Traum-Sandbank Nakupenda.
                 </p>
+                <div class="price-tag">€240 (2 Persons)</div>
                 <div class="cta-row">
-                  <a
-                    href="contact.html"
-                    class="see"
-                    data-de="Anfragen"
-                    data-en="Enquire"
-                    >Anfragen</a
-                  >
+                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
                 </div>
               </div>
             </article>
@@ -383,34 +362,21 @@
               <div class="flag-edge"></div>
               <div
                 class="cover"
-                style="background-image: url(&quot;./images/kima\ 2.jpg&quot;)"
+                style="background-image: url(&quot;./images/beach\ kidau\ 2.jpg&quot;)"
               >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
-                  >Sansibar</span
-                >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
               </div>
               <div class="body">
-                <h3
-                  data-de="Jozani Forest Dschungeltour"
-                  data-en="Jozani Forest Jungle Tour"
-                >
-                  Jozani Forest Dschungeltour
-                </h3>
+                <h3>Safari Blue</h3>
                 <p
-                  data-de="Rote Stummelaffen aus nächster Nähe und ein Spaziergang durch die Mangrovenwälder Sansibars."
-                  data-en="Red colobus monkeys up close, and a walk through Zanzibar's mangrove forests."
+                  data-de="Ein unvergesslicher Segeltausflug mit Dhau, Schnorcheln, Meeresfrüchte-BBQ. Inklusive Bier (Safari / Kilimanjaro)."
+                  data-en="Unforgettable dhow sailing trip with snorkeling, seafood BBQ. Beer included (Safari / Kilimanjaro)."
                 >
-                  Rote Stummelaffen aus nächster Nähe und ein Spaziergang durch
-                  die Mangrovenwälder Sansibars.
+                  Ein unvergesslicher Segeltausflug mit Dhau, Schnorcheln, Meeresfrüchte-BBQ. Inklusive Bier (Safari / Kilimanjaro).
                 </p>
+                <div class="price-tag">€240 (2 Persons)</div>
                 <div class="cta-row">
-                  <a
-                    href="contact.html"
-                    class="see"
-                    data-de="Anfragen"
-                    data-en="Enquire"
-                    >Anfragen</a
-                  >
+                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
                 </div>
               </div>
             </article>
@@ -420,34 +386,21 @@
               <div class="flag-edge"></div>
               <div
                 class="cover"
-                style="background-image: url(&quot;./images/kobe.jpg&quot;)"
+                style="background-image: url(&quot;./images/kima\ 2.jpg&quot;)"
               >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
-                  >Sansibar</span
-                >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
               </div>
               <div class="body">
-                <h3
-                  data-de="Prison Island Ausflug"
-                  data-en="Prison Island Trip"
-                >
-                  Prison Island Ausflug
-                </h3>
+                <h3>Jozani + Salam Cave + Mtende Beach + Butterfly Centre</h3>
                 <p
-                  data-de="Riesenschildkröten besuchen und anschließend an den Korallenriffen der Insel schnorcheln."
-                  data-en="Meet giant tortoises, then snorkel the island's coral reefs."
+                  data-de="Rote Stummelaffen im Jozani, Schwimmen in der Salam Cave, die Felsen von Mtende Beach und schmetterlingsreiche Natur."
+                  data-en="Red colobus monkeys in Jozani, swimming in Salam Cave, rocks of Mtende Beach and butterfly paradise."
                 >
-                  Riesenschildkröten besuchen und anschließend an den
-                  Korallenriffen der Insel schnorcheln.
+                  Rote Stummelaffen im Jozani, Schwimmen in der Salam Cave, die Felsen von Mtende Beach und schmetterlingsreiche Natur.
                 </p>
+                <div class="price-tag">€220 (2 Persons)</div>
                 <div class="cta-row">
-                  <a
-                    href="contact.html"
-                    class="see"
-                    data-de="Anfragen"
-                    data-en="Enquire"
-                    >Anfragen</a
-                  >
+                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
                 </div>
               </div>
             </article>
@@ -457,34 +410,21 @@
               <div class="flag-edge"></div>
               <div
                 class="cover"
-                style="background-image: url(&quot;./images/starfish.jpg&quot;)"
+                style="background-image: url(&quot;./images/fukwe\ 2.jpg&quot;)"
               >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
-                  >Sansibar</span
-                >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
               </div>
               <div class="body">
-                <h3
-                  data-de="Schnorcheln am Mnemba-Atoll"
-                  data-en="Mnemba Atoll Snorkeling"
-                >
-                  Schnorcheln am Mnemba-Atoll
-                </h3>
+                <h3>Jozani + Mtende Beach + The Rock Restaurant</h3>
                 <p
-                  data-de="Kristallklares Wasser, bunte Riffe und Delfine bei Matemwe — Ausrüstung und Boot inklusive."
-                  data-en="Crystal-clear water, colorful reefs and dolphins near Matemwe — gear and boat included."
+                  data-de="Affenbeobachtung im Jozani Forest, traumhafter Strandaufenthalt in Mtende und Fotostopp/Einkehr beim berühmten The Rock Restaurant."
+                  data-en="Monkey watching in Jozani Forest, gorgeous Mtende beach stay, and visit to the famous The Rock Restaurant."
                 >
-                  Kristallklares Wasser, bunte Riffe und Delfine bei Matemwe —
-                  Ausrüstung und Boot inklusive.
+                  Affenbeobachtung im Jozani Forest, traumhafter Strandaufenthalt in Mtende und Fotostopp/Einkehr beim berühmten The Rock Restaurant.
                 </p>
+                <div class="price-tag">€200 (2 Persons)</div>
                 <div class="cta-row">
-                  <a
-                    href="contact.html"
-                    class="see"
-                    data-de="Anfragen"
-                    data-en="Enquire"
-                    >Anfragen</a
-                  >
+                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
                 </div>
               </div>
             </article>
@@ -494,34 +434,21 @@
               <div class="flag-edge"></div>
               <div
                 class="cover"
-                style="background-image: url(&quot;./images/spices.jpeg&quot;)"
+                style="background-image: url(&quot;./images/dolphin.jpg&quot;)"
               >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
-                  >Sansibar</span
-                >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
               </div>
               <div class="body">
-                <h3
-                  data-de="Gewürzfarm & Kochkurs"
-                  data-en="Spice Farm & Cooking"
-                >
-                  Gewürzfarm & Kochkurs
-                </h3>
+                <h3>Mnemba Dolphin + Aquarium</h3>
                 <p
-                  data-de="Nelken, Vanille und Zimt entdecken, dann mit einem einheimischen Koch Suaheli-Gerichte zubereiten."
-                  data-en="Discover cloves, vanilla and cinnamon, then cook Swahili dishes with a local chef."
+                  data-de="Delfinbeobachtung am Mnemba Atoll, Schnorcheln in glasklarem Wasser und Besuch des Schildkröten-Aquariums."
+                  data-en="Dolphin watching at Mnemba Atoll, snorkeling in crystal-clear waters, and visit to the turtle aquarium."
                 >
-                  Nelken, Vanille und Zimt entdecken, dann mit einem
-                  einheimischen Koch Suaheli-Gerichte zubereiten.
+                  Delfinbeobachtung am Mnemba Atoll, Schnorcheln in glasklarem Wasser und Besuch des Schildkröten-Aquariums.
                 </p>
+                <div class="price-tag">€200 (2 Persons)</div>
                 <div class="cta-row">
-                  <a
-                    href="contact.html"
-                    class="see"
-                    data-de="Anfragen"
-                    data-en="Enquire"
-                    >Anfragen</a
-                  >
+                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
                 </div>
               </div>
             </article>
@@ -531,34 +458,21 @@
               <div class="flag-edge"></div>
               <div
                 class="cover"
-                style="background-image: url(&quot;./images/dolphin.jpg&quot;)"
+                style="background-image: url(&quot;./images/spices.jpeg&quot;)"
               >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
-                  >Sansibar</span
-                >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
               </div>
               <div class="body">
-                <h3
-                  data-de="Delfintour bei Kizimkazi"
-                  data-en="Kizimkazi Dolphin Tour"
-                >
-                  Delfintour bei Kizimkazi
-                </h3>
+                <h3>Jozani + Spice Tour + Stone Town</h3>
                 <p
-                  data-de="Frühmorgens per Boot hinaus, um wilde Delfine in ihrem natürlichen Lebensraum zu beobachten."
-                  data-en="An early-morning boat trip to watch wild dolphins in their natural habitat."
+                  data-de="Drei Highlights an einem Tag: Natur im Jozani Forest, Dufterlebnisse auf der Gewürzfarm und Stone Town Altstadtrundgang inkl. Nachtmarkt."
+                  data-en="Three highlights in one day: nature in Jozani Forest, aromas on the spice farm, and Stone Town walk including night market."
                 >
-                  Frühmorgens per Boot hinaus, um wilde Delfine in ihrem
-                  natürlichen Lebensraum zu beobachten.
+                  Drei Highlights an einem Tag: Natur im Jozani Forest, Dufterlebnisse auf der Gewürzfarm und Stone Town Altstadtrundgang inkl. Nachtmarkt.
                 </p>
+                <div class="price-tag">€200 (2 Persons)</div>
                 <div class="cta-row">
-                  <a
-                    href="contact.html"
-                    class="see"
-                    data-de="Anfragen"
-                    data-en="Enquire"
-                    >Anfragen</a
-                  >
+                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
                 </div>
               </div>
             </article>
@@ -568,34 +482,21 @@
               <div class="flag-edge"></div>
               <div
                 class="cover"
-                style="background-image: url(&quot;./images/zebra.jpg&quot;)"
+                style="background-image: url(&quot;./images/g.jpg&quot;)"
               >
-                <span class="origin-badge" data-de="Mikumi" data-en="Mikumi"
-                  >Mikumi</span
-                >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
               </div>
               <div class="body">
-                <h3
-                  data-de="Mikumi Nationalpark Tagessafari"
-                  data-en="Mikumi National Park Day Safari"
-                >
-                  Mikumi Nationalpark Tagessafari
-                </h3>
+                <h3>Spice Tour + Stone Town</h3>
                 <p
-                  data-de="Löwen, Elefanten, Giraffen und Zebras auf einer Tages-Safari in einem von Tansanias großen Nationalparks."
-                  data-en="Lions, elephants, giraffes and zebras on a day safari in one of Tanzania's great national parks."
+                  data-de="Aromatische Gewürztour gefolgt von einer geführten Tour durch Stone Town mit Abends-Nachtmarkt-Spaziergang."
+                  data-en="Aromatic spice tour followed by a guided walk through Stone Town featuring the evening night market."
                 >
-                  Löwen, Elefanten, Giraffen und Zebras auf einer Tages-Safari
-                  in einem von Tansanias großen Nationalparks.
+                  Aromatische Gewürztour gefolgt von einer geführten Tour durch Stone Town mit Abends-Nachtmarkt-Spaziergang.
                 </p>
+                <div class="price-tag">€170 (2 Persons)</div>
                 <div class="cta-row">
-                  <a
-                    href="contact.html"
-                    class="see"
-                    data-de="Anfragen"
-                    data-en="Enquire"
-                    >Anfragen</a
-                  >
+                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
                 </div>
               </div>
             </article>
@@ -605,35 +506,46 @@
               <div class="flag-edge"></div>
               <div
                 class="cover"
-                style="background-image: url(&quot;./images/huh.jpg&quot;)"
+                style="background-image: url(&quot;./images/zebra.jpg&quot;)"
               >
-                <span class="origin-badge" data-de="Mikumi" data-en="Mikumi"
-                  >Mikumi</span
-                >
+                <span class="origin-badge" data-de="Mikumi" data-en="Mikumi">Mikumi</span>
               </div>
               <div class="body">
-                <h3
-                  data-de="Mikumi 2-Tage-Safari mit Übernachtung"
-                  data-en="Mikumi 2-Day Safari with Overnight Stay"
+                <h3>Safari Mikumi</h3>
+                <p
+                  data-de="Faszination Festland-Tansania: Löwen, Elefanten, Giraffen und Zebras hautnah im Mikumi-Nationalpark erleben."
+                  data-en="Mainland Tanzania safari: Experience lions, elephants, giraffes, and zebras in Mikumi National Park."
                 >
-                  Mikumi 2-Tage-Safari mit Übernachtung
+                  Faszination Festland-Tansania: Löwen, Elefanten, Giraffen und Zebras hautnah im Mikumi-Nationalpark erleben.
+                </p>
+                <div class="price-tag">€430 (1 Person)</div>
+                <div class="cta-row">
+                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
+                </div>
+              </div>
+            </article>
+
+            <!-- 10 (Custom Addition: Social & Community Visits - No Price) -->
+            <article class="tour-card reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/wanaume.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Kultur" data-en="Culture">Kultur</span>
+              </div>
+              <div class="body">
+                <h3 data-de="Dorf-, Schul- & Waisenhausbesuche" data-en="Village, School & Orphanage Visits">
+                  Dorf-, Schul- & Waisenhausbesuche
                 </h3>
                 <p
-                  data-de="Zwei volle Tage Safari mit Übernachtung in der Nähe des Parks — mehr Zeit für Tierbeobachtungen bei Sonnenauf- und -untergang."
-                  data-en="Two full days of safari with an overnight stay near the park — more time for sunrise and sunset game viewing."
+                  data-de="Ein authentisches soziales Erlebnis: Besuchen Sie lokale Dörfer, Grundschulen und Waisenhäuser vor Ort, um Kultur und Menschen kennenzulernen."
+                  data-en="An authentic community experience: Visit local villages, schools, and orphanages to connect with the local culture and people."
                 >
-                  Zwei volle Tage Safari mit Übernachtung in der Nähe des Parks
-                  — mehr Zeit für Tierbeobachtungen bei Sonnenauf- und
-                  -untergang.
+                  Ein authentisches soziales Erlebnis: Besuchen Sie lokale Dörfer, Grundschulen und Waisenhäuser vor Ort, um Kultur und Menschen kennenzulernen.
                 </p>
                 <div class="cta-row">
-                  <a
-                    href="contact.html"
-                    class="see"
-                    data-de="Anfragen"
-                    data-en="Enquire"
-                    >Anfragen</a
-                  >
+                  <a href="contact.html" class="see" data-de="Anfragen / Details" data-en="Enquire / Details">Anfragen / Details</a>
                 </div>
               </div>
             </article>
@@ -671,7 +583,7 @@
       </section>
     </main>
 
-    <!-- Footer (same as homepage) -->
+    <!-- Footer -->
     <footer>
       <div class="container">
         <div class="cols">
@@ -733,7 +645,7 @@
                 data-en="Destinations"
                 >Reiseziele</a
               >
-              <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
+              <a href="tours.html" data-de="Pakete" data-en="Packages">Pakete</a>
               <a href="gallery.html" data-de="Galerie" data-en="Gallery"
                 >Galerie</a
               >
@@ -792,7 +704,6 @@
     <script src="scripts/nav.js"></script>
     <script src="scripts/lang.js"></script>
 
-    <!-- Scroll Reveal observer script for scroll animations -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const observer = new IntersectionObserver(
@@ -812,7 +723,6 @@
       });
     </script>
 
-    <!-- Fallback auto-translate (Google Translate widget) -->
     <script type="text/javascript">
       function googleTranslateElementInit() {
         new google.translate.TranslateElement(
