@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ausflugspakete — ZanBlauerhimmel Tour Safari | Sansibar & Mikumi</title>
+    <title>
+      Ausflugspakete — ZanBlauerhimmel Tour Safari | Sansibar & Mikumi
+    </title>
     <meta
       name="description"
       content="Alle Pakete von ZanBlauerhimmel Tour Safari — Sansibar-Ausflüge und Mikumi-Safaris, auf Deutsch begleitet."
@@ -32,6 +34,552 @@
     </noscript>
 
     <style>
+      /* ===== Zusätzliche Styles für tours.html ===== */
+
+      /* Inclusions-Banner */
+      .inclusions {
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 28px 24px;
+        box-shadow: var(--shadow);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px 40px;
+        margin: 0 0 32px 0;
+        align-items: center;
+        border-left: 6px solid var(--gold);
+      }
+      .inclusions h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+      }
+      .inclusions ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 24px;
+        font-size: 0.95rem;
+      }
+      .inclusions ul li {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        opacity: 0.85;
+      }
+      .inclusions ul li::before {
+        content: "✓";
+        color: var(--sea);
+        font-weight: 700;
+        margin-right: 4px;
+      }
+
+      /* Quiz-Button */
+      .quiz-trigger {
+        background: var(--gold);
+        color: #1a1a1a;
+        border: 0;
+        padding: 14px 28px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 1.05rem;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+        box-shadow: 0 4px 12px rgba(255, 183, 3, 0.3);
+        margin: 6px 0 18px 0;
+      }
+      .quiz-trigger:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 20px rgba(255, 183, 3, 0.45);
+      }
+
+      /* Modal – Quiz */
+      .quiz-modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(4px);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .quiz-modal.open {
+        display: flex;
+      }
+      .quiz-modal .modal-content {
+        background: #fff;
+        max-width: 560px;
+        width: 100%;
+        border-radius: 24px;
+        padding: 32px 28px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        position: relative;
+        max-height: 90vh;
+        overflow-y: auto;
+      }
+      .quiz-modal .close-btn {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        background: transparent;
+        border: 0;
+        font-size: 28px;
+        line-height: 1;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.2s;
+      }
+      .quiz-modal .close-btn:hover {
+        opacity: 1;
+      }
+
+      .quiz-step {
+        display: none;
+        animation: fadeIn 0.3s ease;
+      }
+      .quiz-step.active {
+        display: block;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .quiz-step h2 {
+        font-size: 1.4rem;
+        margin: 0 0 6px 0;
+      }
+      .quiz-step p {
+        margin: 0 0 18px 0;
+        opacity: 0.7;
+        font-size: 0.95rem;
+      }
+
+      .quiz-options {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 24px;
+      }
+      .quiz-options label {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--sand);
+        padding: 12px 16px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          border 0.2s;
+        border: 2px solid transparent;
+      }
+      .quiz-options label:hover {
+        background: #eae7e0;
+      }
+      .quiz-options input[type="radio"] {
+        accent-color: var(--sea);
+        width: 18px;
+        height: 18px;
+        flex-shrink: 0;
+      }
+      .quiz-options label.selected {
+        border-color: var(--gold);
+        background: #fef6e0;
+      }
+
+      .quiz-nav {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        margin-top: 6px;
+      }
+      .quiz-nav button {
+        background: var(--sea);
+        color: #fff;
+        border: 0;
+        padding: 10px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .quiz-nav button:hover {
+        background: var(--sea-2);
+      }
+      .quiz-nav button:disabled {
+        opacity: 0.4;
+        pointer-events: none;
+      }
+      .quiz-nav .prev-btn {
+        background: transparent;
+        color: var(--ink);
+        border: 1.5px solid #ccc;
+      }
+      .quiz-nav .prev-btn:hover {
+        background: #eee;
+      }
+
+      /* Ergebnis */
+      .result-card {
+        background: var(--sand);
+        border-radius: 16px;
+        padding: 20px;
+        margin: 14px 0 20px 0;
+        border-left: 5px solid var(--gold);
+      }
+      .result-card h3 {
+        margin: 0 0 4px 0;
+      }
+      .result-card p {
+        margin: 4px 0 0 0;
+        font-size: 0.95rem;
+        opacity: 0.85;
+      }
+      .result-card .price-tag {
+        font-weight: 700;
+        color: var(--sea);
+        margin-top: 6px;
+      }
+
+      .result-actions {
+        display: flex;
+        gap: 12px;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+      .result-actions a {
+        text-decoration: none;
+      }
+
+      /* Tour-Karten – zusätzliche Elemente (werden zu .tour hinzugefügt) */
+      .tour .body .highlights {
+        list-style: none;
+        padding: 0;
+        margin: 10px 0 6px 0;
+        font-size: 0.9rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 4px 14px;
+      }
+      .tour .body .highlights li {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        opacity: 0.8;
+      }
+      .tour .body .highlights li::before {
+        content: "•";
+        color: var(--gold);
+        font-weight: 700;
+        font-size: 1.2rem;
+      }
+
+      .tour .body .duration {
+        font-size: 0.85rem;
+        opacity: 0.65;
+        margin: 4px 0 0 0;
+      }
+
+      .tour .body .price-tag {
+        font-weight: 700;
+        color: var(--sea);
+        font-size: 1rem;
+        margin-top: 6px;
+      }
+
+      .origin-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        z-index: 2;
+        background: rgba(11, 30, 45, 0.75);
+        color: #fff;
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        padding: 5px 10px;
+        border-radius: 999px;
+      }
+
+      /* Anpassungen für das Raster (übernimmt die .tours-grid aus dem eingebetteten Style) */
+      .tours-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+      }
+      @media (max-width: 980px) {
+        .tours-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 620px) {
+        .tours-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Tour-Karten sind jetzt klickbar (öffnen das Detail-Modal) */
+      .tour {
+        cursor: pointer;
+        transition:
+          transform 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .tour:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 14px 30px rgba(11, 30, 45, 0.16);
+      }
+      .tour .cta-row .see {
+        position: relative;
+        z-index: 2;
+      }
+      .tour .body {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .tour .body h3 {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.3;
+      }
+      .tour .body .price-tag {
+        margin-top: 0;
+      }
+      .tour .body .duration {
+        margin: 0;
+      }
+
+      /* ===== TOUR DETAIL MODAL ===== */
+      .tour-modal {
+        display: none;
+        position: fixed;
+        z-index: 999;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(4px);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+      }
+      .tour-modal.open {
+        display: flex;
+      }
+      .tour-modal .modal-content {
+        background: #fff;
+        max-width: 640px;
+        width: 100%;
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+        position: relative;
+        max-height: 92vh;
+        overflow-y: auto;
+      }
+      .tour-modal .close-btn {
+        position: absolute;
+        top: 14px;
+        right: 16px;
+        z-index: 3;
+        background: rgba(11, 30, 45, 0.55);
+        color: #fff;
+        border: 0;
+        width: 34px;
+        height: 34px;
+        border-radius: 50%;
+        font-size: 22px;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.9;
+        transition: opacity 0.2s;
+      }
+      .tour-modal .close-btn:hover {
+        opacity: 1;
+      }
+      .tour-modal .modal-images {
+        display: flex;
+        gap: 8px;
+        padding: 14px 14px 0;
+        position: relative;
+      }
+      .tour-modal .modal-images .modal-thumb {
+        flex: 1;
+        aspect-ratio: 4/3;
+        background-size: cover;
+        background-position: center;
+        border-radius: 14px;
+      }
+      .tour-modal .modal-images .origin-badge {
+        position: absolute;
+        top: 24px;
+        left: 24px;
+      }
+      .tour-modal .modal-body {
+        padding: 20px 26px 28px;
+      }
+      .tour-modal .modal-body h2 {
+        margin: 0 0 10px;
+        font-size: 1.5rem;
+      }
+      .tour-modal .modal-body .modal-desc {
+        opacity: 0.85;
+        line-height: 1.6;
+        margin: 0 0 16px;
+      }
+      .tour-modal .modal-body .highlights {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 18px;
+        font-size: 0.95rem;
+      }
+      .tour-modal .modal-body .highlights li {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        opacity: 0.85;
+      }
+      .tour-modal .modal-body .highlights li::before {
+        content: "✓";
+        color: var(--sea);
+        font-weight: 700;
+      }
+      .tour-modal .modal-meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px 24px;
+        align-items: center;
+        margin: 0 0 22px;
+        padding: 14px 16px;
+        background: var(--sand);
+        border-radius: 14px;
+        border-left: 5px solid var(--gold);
+      }
+      .tour-modal .modal-meta .duration {
+        font-size: 0.9rem;
+        opacity: 0.75;
+      }
+      .tour-modal .modal-meta .price-tag {
+        font-weight: 700;
+        color: var(--sea);
+        font-size: 1.1rem;
+        margin-left: auto;
+      }
+
+      /* Booking-Formular im Modal */
+      .booking-form h3 {
+        margin: 0 0 14px;
+        font-size: 1.1rem;
+      }
+      .booking-form .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 14px;
+      }
+      .booking-form .field-full {
+        grid-column: 1 / -1;
+      }
+      .booking-form label {
+        display: block;
+        font-size: 0.82rem;
+        font-weight: 600;
+        margin-bottom: 5px;
+        opacity: 0.8;
+      }
+      .booking-form input,
+      .booking-form textarea {
+        width: 100%;
+        border: 1.5px solid #dcd7cc;
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-family: inherit;
+        font-size: 0.95rem;
+        background: #fff;
+        color: var(--ink);
+      }
+      .booking-form input:focus,
+      .booking-form textarea:focus {
+        outline: 2px solid var(--sea-2);
+        border-color: transparent;
+      }
+      .booking-form textarea {
+        resize: vertical;
+        min-height: 64px;
+      }
+      .booking-form .booking-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 18px;
+      }
+      .booking-form .booking-actions button,
+      .booking-form .booking-actions a {
+        flex: 1 1 200px;
+        text-align: center;
+        border: 0;
+        padding: 12px 18px;
+        border-radius: 999px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+      .booking-form .btn-whatsapp {
+        background: #25d366;
+        color: #fff;
+      }
+      .booking-form .btn-email {
+        background: transparent;
+        color: var(--ink);
+        border: 1.5px solid #ccc !important;
+      }
+      .booking-form .booking-actions button:hover,
+      .booking-form .booking-actions a:hover {
+        transform: scale(1.02);
+      }
+      .booking-form .booking-note {
+        font-size: 0.78rem;
+        opacity: 0.6;
+        margin: 10px 0 0;
+      }
+      @media (max-width: 560px) {
+        .booking-form .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Page banner (übernimmt den bestehenden Stil) */
       .page-banner {
         position: relative;
         padding: 64px 0 46px;
@@ -71,7 +619,6 @@
       .breadcrumb a:hover {
         opacity: 1;
       }
-
       .origin-chips {
         display: flex;
         gap: 10px;
@@ -82,82 +629,22 @@
         background: rgba(255, 255, 255, 0.16);
       }
 
-      .tours-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-      }
-      @media (max-width: 980px) {
-        .tours-grid {
-          grid-template-columns: repeat(2, 1fr);
+      /* Antworten im Quiz – kleine Anpassungen */
+      @media (max-width: 500px) {
+        .quiz-modal .modal-content {
+          padding: 24px 18px;
         }
-      }
-      @media (max-width: 620px) {
-        .tours-grid {
-          grid-template-columns: 1fr;
+        .quiz-options label {
+          padding: 10px 12px;
+          font-size: 0.95rem;
         }
-      }
-
-      .tour-card {
-        position: relative;
-        background: #fff;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
-        display: flex;
-        flex-direction: column;
-      }
-      .tour-card .flag-edge {
-        z-index: 3;
-      }
-      .tour-card .cover {
-        position: relative;
-        aspect-ratio: 4/3;
-        background-size: cover;
-        background-position: center;
-      }
-      .tour-card .origin-badge {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        z-index: 2;
-        background: rgba(11, 30, 45, 0.75);
-        color: #fff;
-        font-size: 11.5px;
-        font-weight: 600;
-        letter-spacing: 0.3px;
-        padding: 5px 10px;
-        border-radius: 999px;
-      }
-      .tour-card .body {
-        padding: 18px 18px 20px;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        flex: 1;
-      }
-      .tour-card h3 {
-        margin: 0;
-        font-size: 18px;
-      }
-      .tour-card p {
-        margin: 0;
-        font-size: 13.5px;
-        line-height: 1.55;
-        opacity: 0.85;
-        flex: 1;
-      }
-      .tour-card .price-tag {
-        font-weight: 700;
-        color: var(--sea);
-        font-size: 15px;
-        margin-top: 4px;
-      }
-      .tour-card .cta-row {
-        margin-top: 10px;
-      }
-      .tour-card .cta-row a {
-        text-decoration: none;
+        .inclusions ul {
+          flex-direction: column;
+          gap: 6px;
+        }
+        .result-actions {
+          flex-direction: column;
+        }
       }
     </style>
   </head>
@@ -245,12 +732,15 @@
           /
           <span data-de="Pakete" data-en="Packages">Pakete</span>
         </div>
-        <h1 data-de="Unsere Ausflugspakete" data-en="Our Tour Packages">Unsere Ausflugspakete</h1>
+        <h1 data-de="Unsere Ausflugspakete" data-en="Our Tour Packages">
+          Unsere Ausflugspakete
+        </h1>
         <p
           data-de="Von Kombi-Paketen in Stone Town und Ausflügen zu Sandbänken bis hin zu Safaris in Mikumi — entdecken Sie unsere beliebtesten Erlebnisse."
           data-en="From Stone Town combination packages and sandbank excursions to Mikumi safaris — discover our popular experiences."
         >
-          Von Kombi-Paketen in Stone Town und Ausflügen zu Sandbänken bis hin zu Safaris in Mikumi — entdecken Sie unsere beliebtesten Erlebnisse.
+          Von Kombi-Paketen in Stone Town und Ausflügen zu Sandbänken bis hin zu
+          Safaris in Mikumi — entdecken Sie unsere beliebtesten Erlebnisse.
         </p>
         <div class="origin-chips" aria-label="Reiseregionen">
           <div
@@ -263,7 +753,11 @@
           <div class="chip" data-de="Mikumi-Safaris" data-en="Mikumi safaris">
             Mikumi-Safaris
           </div>
-          <div class="chip" data-de="Soziale Besuche" data-en="Community Visits">
+          <div
+            class="chip"
+            data-de="Soziale Besuche"
+            data-en="Community Visits"
+          >
             Soziale Besuche
           </div>
         </div>
@@ -293,6 +787,95 @@
     <main>
       <section class="section" id="alle-touren">
         <div class="container">
+          <!-- ===== INCLUSIONS ===== -->
+          <div class="inclusions reveal">
+            <h3>
+              <span
+                data-de="✅ Inklusive bei allen Touren"
+                data-en="✅ Included in all tours"
+                >✅ Inklusive bei allen Touren</span
+              >
+            </h3>
+            <ul>
+              <li
+                data-de="Abholung vom Hotel / Flughafen"
+                data-en="Hotel / airport pickup"
+              >
+                Abholung vom Hotel / Flughafen
+              </li>
+              <li
+                data-de="Transport in klimatisierten Fahrzeugen"
+                data-en="Transport in A/C vehicles"
+              >
+                Transport in klimatisierten Fahrzeugen
+              </li>
+              <li
+                data-de="Alle Eintrittsgelder &amp; Gebühren"
+                data-en="All entry fees &amp; taxes"
+              >
+                Alle Eintrittsgelder &amp; Gebühren
+              </li>
+              <li
+                data-de="Mittagessen (oder Frühstück je nach Tour)"
+                data-en="Lunch (or breakfast depending on tour)"
+              >
+                Mittagessen (oder Frühstück je nach Tour)
+              </li>
+              <li
+                data-de="Getränke (Wasser, Tee, Kaffee)"
+                data-en="Drinks (water, tea, coffee)"
+              >
+                Getränke (Wasser, Tee, Kaffee)
+              </li>
+              <li
+                data-de="Berücksichtigung von Allergien &amp; Diäten (bitte vorab mitteilen)"
+                data-en="Allergies &amp; diets catered for (please inform us ahead)"
+              >
+                Berücksichtigung von Allergien &amp; Diäten (bitte vorab
+                mitteilen)
+              </li>
+              <li
+                data-de="Deutschsprachige Reiseleitung"
+                data-en="German-speaking guide"
+              >
+                Deutschsprachige Reiseleitung
+              </li>
+            </ul>
+            <p
+              style="
+                margin: 8px 0 0 0;
+                font-size: 0.9rem;
+                opacity: 0.7;
+                width: 100%;
+              "
+            >
+              <span
+                data-de="Alle Preise verstehen sich in Euro (€) pro Person, basierend auf 2 Personen. Bei größeren Gruppen oder individuellen Wünschen fragen Sie uns gerne an."
+                data-en="All prices are in Euros (€) per person, based on 2 persons. Please ask for group discounts or custom wishes."
+              >
+                Alle Preise verstehen sich in Euro (€) pro Person, basierend auf
+                2 Personen. Bei größeren Gruppen oder individuellen Wünschen
+                fragen Sie uns gerne an.
+              </span>
+            </p>
+          </div>
+
+          <!-- ===== QUIZ TRIGGER ===== -->
+          <div
+            class="reveal"
+            style="display: flex; justify-content: center; margin-bottom: 10px"
+          >
+            <button class="quiz-trigger" id="quizTrigger">
+              <span
+                data-de="🤔 Nicht sicher, welches Paket passt? – Tour-Finder starten"
+                data-en="🤔 Not sure which package? – Start Tour Finder"
+              >
+                🤔 Nicht sicher, welches Paket passt? – Tour-Finder starten
+              </span>
+            </button>
+          </div>
+
+          <!-- ===== TOUR GRID ===== -->
           <div class="section-title reveal">
             <div>
               <h2 data-de="Alle Pakete" data-en="All Packages">Alle Pakete</h2>
@@ -308,7 +891,331 @@
 
           <div class="tours-grid reveal-group">
             <!-- 1 -->
-            <article class="tour-card reveal">
+            <article class="tour reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/zebra.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Stone Town, Prison Island, Gewürztour"
+                  data-en="Stone Town, Prison Island, Spice Tour"
+                >
+                  Stone Town, Prison Island, Gewürztour
+                </h3>
+                <div
+                  class="price-tag"
+                  data-de="230 € für 2 Personen"
+                  data-en="€230 for 2 people"
+                >
+                  230 € für 2 Personen
+                </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: ganztägig (ca. 8–9 Std.)"
+                  data-en="Duration: full day (approx. 8–9 hrs)"
+                >
+                  Dauer: ganztägig (ca. 8–9 Std.)
+                </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Tagesausflug mit deutschsprachigem Reiseleiter: Entdecken Sie Stone Town auf dem besten Stadtrundgang, besuchen Sie Prison Island mit Bootsfahrt und erleben Sie eine Gewürztour mit Verkostung. Abholung/Taxi inklusive – ab 4 Personen 25% Rabatt."
+                  data-en="Full-day trip with a German-speaking guide: discover Stone Town on the best city tour, visit Prison Island with a boat trip, and enjoy a spice tour with tasting. Hotel/taxi pickup included – 25% discount for groups of 4 or more."
+                >
+                  Tagesausflug mit deutschsprachigem Reiseleiter: Entdecken Sie
+                  Stone Town auf dem besten Stadtrundgang, besuchen Sie Prison
+                  Island mit Bootsfahrt und erleben Sie eine Gewürztour mit
+                  Verkostung. Abholung/Taxi inklusive – ab 4 Personen 25%
+                  Rabatt.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Stone Town Tour – der beste Stadtrundgang"
+                    data-en="Stone Town Tour – the best city walk"
+                  >
+                    Stone Town Tour – der beste Stadtrundgang
+                  </li>
+                  <li
+                    data-de="Inkl. Eintritt alter Sklavenmarkt"
+                    data-en="Incl. entry to the old slave market"
+                  >
+                    Inkl. Eintritt alter Sklavenmarkt
+                  </li>
+                  <li
+                    data-de="Prison Island Tour inkl. Bootsfahrt &amp; Inseleintritt"
+                    data-en="Prison Island Tour incl. boat trip &amp; island entry"
+                  >
+                    Prison Island Tour inkl. Bootsfahrt &amp; Inseleintritt
+                  </li>
+                  <li
+                    data-de="Gewürztour inkl. Eintritt Gewürzplantage &amp; Verkostung"
+                    data-en="Spice tour incl. spice plantation entry &amp; tasting"
+                  >
+                    Gewürztour inkl. Eintritt Gewürzplantage &amp; Verkostung
+                  </li>
+                  <li
+                    data-de="Abholung/Taxi inklusive"
+                    data-en="Hotel pickup/taxi included"
+                  >
+                    Abholung/Taxi inklusive
+                  </li>
+                  <li
+                    data-de="Ab 4 Personen 25% Rabatt"
+                    data-en="25% discount for groups of 4 or more"
+                  >
+                    Ab 4 Personen 25% Rabatt
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 2 -->
+            <article class="tour reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/spices.jpeg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Prison Island Tour, Nakupenda Sandbank, Stone Town Tour"
+                  data-en="Prison Island Tour, Nakupenda Sandbank, Stone Town Tour"
+                >
+                  Prison Island Tour, Nakupenda Sandbank, Stone Town Tour
+                </h3>
+                <div
+                  class="price-tag"
+                  data-de="240 € für 2 Personen"
+                  data-en="€240 for 2 people"
+                >
+                  240 € für 2 Personen
+                </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: ganztägig (ca. 8 Std.)"
+                  data-en="Duration: full day (approx. 8 hrs)"
+                >
+                  Dauer: ganztägig (ca. 8 Std.)
+                </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Kombinieren Sie Kultur und Strand: eine Stadtführung durch Stone Town, eine Bootsfahrt zu Prison Island mit den Riesenschildkröten und Entspannung auf der traumhaften Nakupenda-Sandbank – inklusive Mittagessen."
+                  data-en="Combine culture and beach: a guided tour through Stone Town, a boat trip to Prison Island with its giant tortoises, and relaxation on the dreamy Nakupenda sandbank – lunch included."
+                >
+                  Kombinieren Sie Kultur und Strand: eine Stadtführung durch
+                  Stone Town, eine Bootsfahrt zu Prison Island mit den
+                  Riesenschildkröten und Entspannung auf der traumhaften
+                  Nakupenda-Sandbank – inklusive Mittagessen.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Nakupenda Sandbank – inkl. Bootsfahrt, Schwimmen &amp; Entspannen"
+                    data-en="Nakupenda Sandbank – incl. boat trip, swimming &amp; relaxing"
+                  >
+                    Nakupenda Sandbank – inkl. Bootsfahrt, Schwimmen &amp;
+                    Entspannen
+                  </li>
+                  <li
+                    data-de="Stone Town Tour – Besuch des ehemaligen Sklavenmarktes &amp; der Hauptsehenswürdigkeiten"
+                    data-en="Stone Town Tour – visit the former slave market &amp; main sights"
+                  >
+                    Stone Town Tour – Besuch des ehemaligen Sklavenmarktes &amp;
+                    der Hauptsehenswürdigkeiten
+                  </li>
+                  <li
+                    data-de="Mittagessen inklusive (Hähnchen oder Meeresfrüchte, Getränke)"
+                    data-en="Lunch included (chicken or seafood, refreshments)"
+                  >
+                    Mittagessen inklusive (Hähnchen oder Meeresfrüchte,
+                    Getränke)
+                  </li>
+                  <li
+                    data-de="Prison Island Tour – Riesenschildkröten, historische Führung, Bootsfahrt"
+                    data-en="Prison Island Tour – giant tortoises, historical guide, boat trip"
+                  >
+                    Prison Island Tour – Riesenschildkröten, historische
+                    Führung, Bootsfahrt
+                  </li>
+                  <li
+                    data-de="Hoteltransfer gegen Aufpreis möglich"
+                    data-en="Hotel transfer available for an extra charge"
+                  >
+                    Hoteltransfer gegen Aufpreis möglich
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 3 -->
+            <article class="tour reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/dolphin.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3 data-de="Safari Blue" data-en="Safari Blue">Safari Blue</h3>
+                <div
+                  class="price-tag"
+                  data-de="240 € für 2 Personen"
+                  data-en="€240 for 2 people"
+                >
+                  240 € für 2 Personen
+                </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: ganztägig (ca. 7–8 Std.)"
+                  data-en="Duration: full day (approx. 7–8 hrs)"
+                >
+                  Dauer: ganztägig (ca. 7–8 Std.)
+                </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Ein unvergesslicher Ganztagesausflug mit dem Boot: Schnorcheln an bunten Riffen, Schwimmen in der Blauen Lagune und Entspannen auf einer traumhaften Sandbank – inklusive Hoteltransfer, Mittagessen und kompletter Schnorchelausrüstung."
+                  data-en="An unforgettable full-day boat trip: snorkeling at colourful reefs, swimming in the Blue Lagoon, and relaxing on a dreamy sandbank – includes hotel transfer, lunch, and full snorkeling gear."
+                >
+                  Ein unvergesslicher Ganztagesausflug mit dem Boot: Schnorcheln
+                  an bunten Riffen, Schwimmen in der Blauen Lagune und
+                  Entspannen auf einer traumhaften Sandbank – inklusive
+                  Hoteltransfer, Mittagessen und kompletter
+                  Schnorchelausrüstung.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Schnorcheln mit bunten Fischen"
+                    data-en="Snorkeling with colourful fish"
+                  >
+                    Schnorcheln mit bunten Fischen
+                  </li>
+                  <li
+                    data-de="Schwimmen in der Blauen Lagune"
+                    data-en="Swimming in the Blue Lagoon"
+                  >
+                    Schwimmen in der Blauen Lagune
+                  </li>
+                  <li
+                    data-de="Besuch einer wunderschönen Sandbank"
+                    data-en="Visit to a beautiful sandbank"
+                  >
+                    Besuch einer wunderschönen Sandbank
+                  </li>
+                  <li
+                    data-de="Deutschsprachiger Reiseleiter &amp; Hoteltransfer"
+                    data-en="German-speaking guide &amp; hotel transfer"
+                  >
+                    Deutschsprachiger Reiseleiter &amp; Hoteltransfer
+                  </li>
+                  <li
+                    data-de="Mittagessen (Hähnchen oder Meeresfrüchte) &amp; frische Früchte"
+                    data-en="Lunch (chicken or seafood) &amp; fresh fruit"
+                  >
+                    Mittagessen (Hähnchen oder Meeresfrüchte) &amp; frische
+                    Früchte
+                  </li>
+                  <li
+                    data-de="Schnorchelausrüstung (Maske, Schnorchel, Flossen) &amp; Badeschuhe"
+                    data-en="Snorkel gear (mask, snorkel, fins) &amp; swim shoes"
+                  >
+                    Schnorchelausrüstung (Maske, Schnorchel, Flossen) &amp;
+                    Badeschuhe
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 4 -->
+            <article class="tour reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/wanaume.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Jozani-Nationalpark, Salam Cave, Mtende Beach, Butterfly Center"
+                  data-en="Jozani National Park, Salam Cave, Mtende Beach, Butterfly Center"
+                >
+                  Jozani-Nationalpark, Salam Cave, Mtende Beach, Butterfly
+                  Center
+                </h3>
+                <div
+                  class="price-tag"
+                  data-de="220 € für 2 Personen"
+                  data-en="€220 for 2 people"
+                >
+                  220 € für 2 Personen
+                </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: ganztägig (ca. 8 Std.)"
+                  data-en="Duration: full day (approx. 8 hrs)"
+                >
+                  Dauer: ganztägig (ca. 8 Std.)
+                </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Naturtag pur: Beobachten Sie die seltenen Roten Stummelaffen im Jozani-Nationalpark, bestaunen Sie bunte Schmetterlinge im Butterfly Center, schwimmen Sie mit Wasserschildkröten in der Salam Cave und entspannen Sie am wunderschönen Mtende Beach."
+                  data-en="A day full of nature: spot the rare red colobus monkeys in Jozani National Park, admire colourful butterflies at the Butterfly Center, swim with turtles in Salam Cave, and relax on the beautiful Mtende Beach."
+                >
+                  Naturtag pur: Beobachten Sie die seltenen Roten Stummelaffen
+                  im Jozani-Nationalpark, bestaunen Sie bunte Schmetterlinge im
+                  Butterfly Center, schwimmen Sie mit Wasserschildkröten in der
+                  Salam Cave und entspannen Sie am wunderschönen Mtende Beach.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Jozani-Nationalpark – Eintritt inklusive, Rote Stummelaffen"
+                    data-en="Jozani National Park – entry included, red colobus monkeys"
+                  >
+                    Jozani-Nationalpark – Eintritt inklusive, Rote Stummelaffen
+                  </li>
+                  <li
+                    data-de="Butterfly Center – Eintritt inklusive"
+                    data-en="Butterfly Center – entry included"
+                  >
+                    Butterfly Center – Eintritt inklusive
+                  </li>
+                  <li
+                    data-de="Salam Cave – Schwimmen mit Wasserschildkröten, Eintritt inklusive"
+                    data-en="Salam Cave – swimming with turtles, entry included"
+                  >
+                    Salam Cave – Schwimmen mit Wasserschildkröten, Eintritt
+                    inklusive
+                  </li>
+                  <li
+                    data-de="Mtende Beach – wunderschöner Strand, Beobachtung der Seesterne"
+                    data-en="Mtende Beach – beautiful beach, starfish watching"
+                  >
+                    Mtende Beach – wunderschöner Strand, Beobachtung der
+                    Seesterne
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 5 -->
+            <article class="tour reveal">
               <div class="flag-edge"></div>
               <div
                 class="cover"
@@ -316,241 +1223,600 @@
                   background-image: url(&quot;./images/stonetown.jpeg&quot;);
                 "
               >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
               </div>
               <div class="body">
-                <h3>Spice Tour + Prison Island + Stone Town</h3>
-                <p
-                  data-de="Erleben Sie Gewürzplantagen, besuchen Sie Riesenschildkröten auf Prison Island und machen Sie einen Führung durch Stone Town inklusive Nachtmarkt-Spaziergang."
-                  data-en="Experience spice plantations, visit giant tortoises on Prison Island, and take a Stone Town walk including the evening night market."
+                <h3
+                  data-de="Jozani-Nationalpark, Mtende Beach, The Rock Restaurant"
+                  data-en="Jozani National Park, Mtende Beach, The Rock Restaurant"
                 >
-                  Erleben Sie Gewürzplantagen, besuchen Sie Riesenschildkröten auf Prison Island und machen Sie einen Führung durch Stone Town inklusive Nachtmarkt-Spaziergang.
-                </p>
-                <div class="price-tag">€230 / $250 (2 Persons)</div>
-                <div class="cta-row">
-                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
+                  Jozani-Nationalpark, Mtende Beach, The Rock Restaurant
+                </h3>
+                <div
+                  class="price-tag"
+                  data-de="200 € für 2 Personen"
+                  data-en="€200 for 2 people"
+                >
+                  200 € für 2 Personen
+                </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: ganztägig (ca. 7 Std.)"
+                  data-en="Duration: full day (approx. 7 hrs)"
+                >
+                  Dauer: ganztägig (ca. 7 Std.)
                 </div>
               </div>
-            </article>
-
-            <!-- 2 -->
-            <article class="tour-card reveal">
-              <div class="flag-edge"></div>
-              <div
-                class="cover"
-                style="background-image: url(&quot;./images/beach\ 1.jpg&quot;)"
-              >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
-              </div>
-              <div class="body">
-                <h3>Stone Town + Prison Island + Nakupenda Sandbank</h3>
+              <div class="tour-extra" hidden>
                 <p
-                  data-de="Historischer Stadtrundgang mit Nachtmarkt, Schildkröten auf Prison Island und Entspannung an der Traum-Sandbank Nakupenda."
-                  data-en="Historic city walk with night market, tortoises on Prison Island, and relaxation on Nakupenda sandbank."
+                  data-de="Affen im Jozani-Nationalpark, ein Spaziergang durch die Mangroven und ein Fotostopp am berühmten The Rock Restaurant runden diesen Tag am traumhaften Mtende Beach ab. Hoteltransfer inklusive."
+                  data-en="Monkeys in Jozani National Park, a walk through the mangroves, and a photo stop at the famous The Rock Restaurant round off this day at the dreamy Mtende Beach. Hotel transfer included."
                 >
-                  Historischer Stadtrundgang mit Nachtmarkt, Schildkröten auf Prison Island und Entspannung an der Traum-Sandbank Nakupenda.
+                  Affen im Jozani-Nationalpark, ein Spaziergang durch die
+                  Mangroven und ein Fotostopp am berühmten The Rock Restaurant
+                  runden diesen Tag am traumhaften Mtende Beach ab.
+                  Hoteltransfer inklusive.
                 </p>
-                <div class="price-tag">€240 (2 Persons)</div>
-                <div class="cta-row">
-                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- 3 -->
-            <article class="tour-card reveal">
-              <div class="flag-edge"></div>
-              <div
-                class="cover"
-                style="background-image: url(&quot;./images/beach\ kidau\ 2.jpg&quot;)"
-              >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
-              </div>
-              <div class="body">
-                <h3>Safari Blue</h3>
-                <p
-                  data-de="Ein unvergesslicher Segeltausflug mit Dhau, Schnorcheln, Meeresfrüchte-BBQ. Inklusive Bier (Safari / Kilimanjaro)."
-                  data-en="Unforgettable dhow sailing trip with snorkeling, seafood BBQ. Beer included (Safari / Kilimanjaro)."
-                >
-                  Ein unvergesslicher Segeltausflug mit Dhau, Schnorcheln, Meeresfrüchte-BBQ. Inklusive Bier (Safari / Kilimanjaro).
-                </p>
-                <div class="price-tag">€240 (2 Persons)</div>
-                <div class="cta-row">
-                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- 4 -->
-            <article class="tour-card reveal">
-              <div class="flag-edge"></div>
-              <div
-                class="cover"
-                style="background-image: url(&quot;./images/kima\ 2.jpg&quot;)"
-              >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
-              </div>
-              <div class="body">
-                <h3>Jozani + Salam Cave + Mtende Beach + Butterfly Centre</h3>
-                <p
-                  data-de="Rote Stummelaffen im Jozani, Schwimmen in der Salam Cave, die Felsen von Mtende Beach und schmetterlingsreiche Natur."
-                  data-en="Red colobus monkeys in Jozani, swimming in Salam Cave, rocks of Mtende Beach and butterfly paradise."
-                >
-                  Rote Stummelaffen im Jozani, Schwimmen in der Salam Cave, die Felsen von Mtende Beach und schmetterlingsreiche Natur.
-                </p>
-                <div class="price-tag">€220 (2 Persons)</div>
-                <div class="cta-row">
-                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- 5 -->
-            <article class="tour-card reveal">
-              <div class="flag-edge"></div>
-              <div
-                class="cover"
-                style="background-image: url(&quot;./images/fukwe\ 2.jpg&quot;)"
-              >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
-              </div>
-              <div class="body">
-                <h3>Jozani + Mtende Beach + The Rock Restaurant</h3>
-                <p
-                  data-de="Affenbeobachtung im Jozani Forest, traumhafter Strandaufenthalt in Mtende und Fotostopp/Einkehr beim berühmten The Rock Restaurant."
-                  data-en="Monkey watching in Jozani Forest, gorgeous Mtende beach stay, and visit to the famous The Rock Restaurant."
-                >
-                  Affenbeobachtung im Jozani Forest, traumhafter Strandaufenthalt in Mtende und Fotostopp/Einkehr beim berühmten The Rock Restaurant.
-                </p>
-                <div class="price-tag">€200 (2 Persons)</div>
-                <div class="cta-row">
-                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
-                </div>
+                <ul class="highlights">
+                  <li
+                    data-de="Jozani-Nationalpark – Eintritt inklusive, Spaziergang durch die Mangroven"
+                    data-en="Jozani National Park – entry included, walk through the mangroves"
+                  >
+                    Jozani-Nationalpark – Eintritt inklusive, Spaziergang durch
+                    die Mangroven
+                  </li>
+                  <li
+                    data-de="The Rock Restaurant – Essen &amp; Getränke nicht im Preis enthalten"
+                    data-en="The Rock Restaurant – food &amp; drinks not included"
+                  >
+                    The Rock Restaurant – Essen &amp; Getränke nicht im Preis
+                    enthalten
+                  </li>
+                  <li
+                    data-de="Mtende Beach – Schwimmen im türkisblauen Wasser"
+                    data-en="Mtende Beach – swimming in turquoise water"
+                  >
+                    Mtende Beach – Schwimmen im türkisblauen Wasser
+                  </li>
+                  <li
+                    data-de="Hoteltransfer inklusive (Hin- und Rückfahrt)"
+                    data-en="Hotel transfer included (round trip)"
+                  >
+                    Hoteltransfer inklusive (Hin- und Rückfahrt)
+                  </li>
+                </ul>
               </div>
             </article>
 
             <!-- 6 -->
-            <article class="tour-card reveal">
-              <div class="flag-edge"></div>
-              <div
-                class="cover"
-                style="background-image: url(&quot;./images/dolphin.jpg&quot;)"
-              >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
-              </div>
-              <div class="body">
-                <h3>Mnemba Dolphin + Aquarium</h3>
-                <p
-                  data-de="Delfinbeobachtung am Mnemba Atoll, Schnorcheln in glasklarem Wasser und Besuch des Schildkröten-Aquariums."
-                  data-en="Dolphin watching at Mnemba Atoll, snorkeling in crystal-clear waters, and visit to the turtle aquarium."
-                >
-                  Delfinbeobachtung am Mnemba Atoll, Schnorcheln in glasklarem Wasser und Besuch des Schildkröten-Aquariums.
-                </p>
-                <div class="price-tag">€200 (2 Persons)</div>
-                <div class="cta-row">
-                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- 7 -->
-            <article class="tour-card reveal">
-              <div class="flag-edge"></div>
-              <div
-                class="cover"
-                style="background-image: url(&quot;./images/spices.jpeg&quot;)"
-              >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
-              </div>
-              <div class="body">
-                <h3>Jozani + Spice Tour + Stone Town</h3>
-                <p
-                  data-de="Drei Highlights an einem Tag: Natur im Jozani Forest, Dufterlebnisse auf der Gewürzfarm und Stone Town Altstadtrundgang inkl. Nachtmarkt."
-                  data-en="Three highlights in one day: nature in Jozani Forest, aromas on the spice farm, and Stone Town walk including night market."
-                >
-                  Drei Highlights an einem Tag: Natur im Jozani Forest, Dufterlebnisse auf der Gewürzfarm und Stone Town Altstadtrundgang inkl. Nachtmarkt.
-                </p>
-                <div class="price-tag">€200 (2 Persons)</div>
-                <div class="cta-row">
-                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
-                </div>
-              </div>
-            </article>
-
-            <!-- 8 -->
-            <article class="tour-card reveal">
+            <article class="tour reveal">
               <div class="flag-edge"></div>
               <div
                 class="cover"
                 style="background-image: url(&quot;./images/g.jpg&quot;)"
               >
-                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar">Sansibar</span>
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
               </div>
               <div class="body">
-                <h3>Spice Tour + Stone Town</h3>
-                <p
-                  data-de="Aromatische Gewürztour gefolgt von einer geführten Tour durch Stone Town mit Abends-Nachtmarkt-Spaziergang."
-                  data-en="Aromatic spice tour followed by a guided walk through Stone Town featuring the evening night market."
+                <h3
+                  data-de="Delfintour, Mnemba Island, Wasserschildkröten-Lagune"
+                  data-en="Dolphin Tour, Mnemba Island, Turtle Lagoon"
                 >
-                  Aromatische Gewürztour gefolgt von einer geführten Tour durch Stone Town mit Abends-Nachtmarkt-Spaziergang.
-                </p>
-                <div class="price-tag">€170 (2 Persons)</div>
-                <div class="cta-row">
-                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
+                  Delfintour, Mnemba Island, Wasserschildkröten-Lagune
+                </h3>
+                <div
+                  class="price-tag"
+                  data-de="200 € für 2 Personen"
+                  data-en="€200 for 2 people"
+                >
+                  200 € für 2 Personen
                 </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: halbtags (ca. 4–5 Std.)"
+                  data-en="Duration: half day (approx. 4–5 hrs)"
+                >
+                  Dauer: halbtags (ca. 4–5 Std.)
+                </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Schwimmen Sie mit Delfinen rund um Mnemba Island auf einem privaten Boot und entdecken Sie anschließend die farbenfrohe Unterwasserwelt der Wasserschildkröten-Lagune – frische Früchte und Abholung inklusive."
+                  data-en="Swim with dolphins around Mnemba Island on a private boat, then discover the colourful underwater world of the turtle lagoon – fresh fruit and hotel pickup included."
+                >
+                  Schwimmen Sie mit Delfinen rund um Mnemba Island auf einem
+                  privaten Boot und entdecken Sie anschließend die farbenfrohe
+                  Unterwasserwelt der Wasserschildkröten-Lagune – frische
+                  Früchte und Abholung inklusive.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Delfintour – Mnemba Island, privates Boot"
+                    data-en="Dolphin tour – Mnemba Island, private boat"
+                  >
+                    Delfintour – Mnemba Island, privates Boot
+                  </li>
+                  <li
+                    data-de="Mit Delfinen schwimmen, frische Früchte inklusive"
+                    data-en="Swim with dolphins, fresh fruit included"
+                  >
+                    Mit Delfinen schwimmen, frische Früchte inklusive
+                  </li>
+                  <li
+                    data-de="Wasserschildkröten-Lagune – farbenfrohe Schildkröten &amp; Fische"
+                    data-en="Turtle lagoon – colourful turtles &amp; fish"
+                  >
+                    Wasserschildkröten-Lagune – farbenfrohe Schildkröten &amp;
+                    Fische
+                  </li>
+                  <li
+                    data-de="Eintritt &amp; Abholung/Taxi inklusive"
+                    data-en="Entry &amp; hotel pickup/taxi included"
+                  >
+                    Eintritt &amp; Abholung/Taxi inklusive
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 7 -->
+            <article class="tour reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="
+                  background-image: url(&quot;./images/beach\ kidau\ 2.jpg&quot;);
+                "
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Jozani-Nationalpark, Gewürztour, Stone Town Tour"
+                  data-en="Jozani National Park, Spice Tour, Stone Town Tour"
+                >
+                  Jozani-Nationalpark, Gewürztour, Stone Town Tour
+                </h3>
+                <div
+                  class="price-tag"
+                  data-de="200 € für 2 Personen"
+                  data-en="€200 for 2 people"
+                >
+                  200 € für 2 Personen
+                </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: ganztägig (ca. 8–9 Std.)"
+                  data-en="Duration: full day (approx. 8–9 hrs)"
+                >
+                  Dauer: ganztägig (ca. 8–9 Std.)
+                </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Drei Highlights an einem Tag: Natur im Jozani-Nationalpark, aromatische Gewürzplantagen und eine ausführliche Führung durch das historische Stone Town – inklusive Hotelabholung. Mittagessen nicht im Preis enthalten."
+                  data-en="Three highlights in one day: nature in Jozani National Park, aromatic spice plantations, and an in-depth tour of historic Stone Town – hotel pickup included. Lunch not included."
+                >
+                  Drei Highlights an einem Tag: Natur im Jozani-Nationalpark,
+                  aromatische Gewürzplantagen und eine ausführliche Führung
+                  durch das historische Stone Town – inklusive Hotelabholung.
+                  Mittagessen nicht im Preis enthalten.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Jozani-Nationalpark – Eintritt inklusive, Rotstummelaffen"
+                    data-en="Jozani National Park – entry included, red colobus monkeys"
+                  >
+                    Jozani-Nationalpark – Eintritt inklusive, Rotstummelaffen
+                  </li>
+                  <li
+                    data-de="Gewürztour – Eintritt &amp; Verkostung exotischer Früchte inklusive"
+                    data-en="Spice tour – entry &amp; exotic fruit tasting included"
+                  >
+                    Gewürztour – Eintritt &amp; Verkostung exotischer Früchte
+                    inklusive
+                  </li>
+                  <li
+                    data-de="Stone Town Tour – Eintritt zum Alten Sklavenmarkt inklusive"
+                    data-en="Stone Town Tour – entry to the Old Slave Market included"
+                  >
+                    Stone Town Tour – Eintritt zum Alten Sklavenmarkt inklusive
+                  </li>
+                  <li
+                    data-de="Abholung vom Hotel &amp; Taxitransfer (Hin- und Rückfahrt) inklusive"
+                    data-en="Hotel pickup &amp; taxi transfer (round trip) included"
+                  >
+                    Abholung vom Hotel &amp; Taxitransfer (Hin- und Rückfahrt)
+                    inklusive
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 8 -->
+            <article class="tour reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/fukwe\ 2.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Gewürztour, Stone Town Tour"
+                  data-en="Spice Tour, Stone Town Tour"
+                >
+                  Gewürztour, Stone Town Tour
+                </h3>
+                <div
+                  class="price-tag"
+                  data-de="170 € für 2 Personen (inklusive aller Leistungen)"
+                  data-en="€170 for 2 people (all services included)"
+                >
+                  170 € für 2 Personen (inklusive aller Leistungen)
+                </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: halbtags (ca. 4–5 Std.)"
+                  data-en="Duration: half day (approx. 4–5 hrs)"
+                >
+                  Dauer: halbtags (ca. 4–5 Std.)
+                </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Ein halber Tag voller Aromen und Geschichte: Erkunden Sie eine Gewürzplantage mit allen Sinnen und lassen Sie sich anschließend durch die historische Altstadt von Stone Town führen – alle Leistungen inklusive."
+                  data-en="A half day full of aromas and history: explore a spice plantation with all your senses, then be guided through the historic old town of Stone Town – all services included."
+                >
+                  Ein halber Tag voller Aromen und Geschichte: Erkunden Sie eine
+                  Gewürzplantage mit allen Sinnen und lassen Sie sich
+                  anschließend durch die historische Altstadt von Stone Town
+                  führen – alle Leistungen inklusive.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Gewürztour – Eintritt Gewürzplantage &amp; Verkostung exotischer Früchte"
+                    data-en="Spice tour – plantation entry &amp; exotic fruit tasting"
+                  >
+                    Gewürztour – Eintritt Gewürzplantage &amp; Verkostung
+                    exotischer Früchte
+                  </li>
+                  <li
+                    data-de="Stone Town Tour – historische Altstadt, professionelle Führung"
+                    data-en="Stone Town Tour – historic old town, professional guide"
+                  >
+                    Stone Town Tour – historische Altstadt, professionelle
+                    Führung
+                  </li>
+                  <li
+                    data-de="Eintritt zum Alten Sklavenmarkt inklusive"
+                    data-en="Entry to the Old Slave Market included"
+                  >
+                    Eintritt zum Alten Sklavenmarkt inklusive
+                  </li>
+                  <li
+                    data-de="Abholung vom Hotel und Rückfahrt inklusive"
+                    data-en="Hotel pickup and return included"
+                  >
+                    Abholung vom Hotel und Rückfahrt inklusive
+                  </li>
+                  <li
+                    data-de="Mittagessen nicht im Preis enthalten"
+                    data-en="Lunch not included"
+                  >
+                    Mittagessen nicht im Preis enthalten
+                  </li>
+                </ul>
               </div>
             </article>
 
             <!-- 9 -->
-            <article class="tour-card reveal">
+            <article class="tour reveal">
               <div class="flag-edge"></div>
               <div
                 class="cover"
-                style="background-image: url(&quot;./images/zebra.jpg&quot;)"
+                style="background-image: url(&quot;./images/kima\ 2.jpg&quot;)"
               >
-                <span class="origin-badge" data-de="Mikumi" data-en="Mikumi">Mikumi</span>
+                <span class="origin-badge" data-de="Mikumi" data-en="Mikumi"
+                  >Mikumi</span
+                >
               </div>
               <div class="body">
-                <h3>Safari Mikumi</h3>
-                <p
-                  data-de="Faszination Festland-Tansania: Löwen, Elefanten, Giraffen und Zebras hautnah im Mikumi-Nationalpark erleben."
-                  data-en="Mainland Tanzania safari: Experience lions, elephants, giraffes, and zebras in Mikumi National Park."
+                <h3 data-de="Safari Mikumi" data-en="Mikumi Safari">
+                  Safari Mikumi
+                </h3>
+                <div
+                  class="price-tag"
+                  data-de="430 € pro Person"
+                  data-en="€430 per person"
                 >
-                  Faszination Festland-Tansania: Löwen, Elefanten, Giraffen und Zebras hautnah im Mikumi-Nationalpark erleben.
-                </p>
-                <div class="price-tag">€430 (1 Person)</div>
-                <div class="cta-row">
-                  <a href="contact.html" class="see" data-de="Anfragen" data-en="Enquire">Anfragen</a>
+                  430 € pro Person
                 </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: 2 Tage (individuell erweiterbar)"
+                  data-en="Duration: 2 days (individually extendable)"
+                >
+                  Dauer: 2 Tage (individuell erweiterbar)
+                </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Erleben Sie eine unvergessliche Tagessafari im Mikumi-Nationalpark und entdecken Sie Löwen, Elefanten, Giraffen, Zebras und viele weitere Tiere Tansanias – inklusive Flug, Hoteltransfer, Verpflegung und englischsprachigem Guide."
+                  data-en="Experience an unforgettable safari in Mikumi National Park and discover lions, elephants, giraffes, zebras, and many more of Tanzania&amp;#x27;s animals – includes flight, hotel transfer, meals, and an English-speaking guide."
+                >
+                  Erleben Sie eine unvergessliche Tagessafari im
+                  Mikumi-Nationalpark und entdecken Sie Löwen, Elefanten,
+                  Giraffen, Zebras und viele weitere Tiere Tansanias – inklusive
+                  Flug, Hoteltransfer, Verpflegung und englischsprachigem Guide.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Jeep-Safari (max. 6 Personen pro Jeep)"
+                    data-en="Jeep safari (max. 6 people per jeep)"
+                  >
+                    Jeep-Safari (max. 6 Personen pro Jeep)
+                  </li>
+                  <li
+                    data-de="Hoteltransfer inklusive (Hin- und Rückfahrt)"
+                    data-en="Hotel transfer included (round trip)"
+                  >
+                    Hoteltransfer inklusive (Hin- und Rückfahrt)
+                  </li>
+                  <li
+                    data-de="Flug nach Tansania inklusive"
+                    data-en="Flight to Tanzania included"
+                  >
+                    Flug nach Tansania inklusive
+                  </li>
+                  <li
+                    data-de="Eintritt in den Nationalpark inklusive"
+                    data-en="National park entry included"
+                  >
+                    Eintritt in den Nationalpark inklusive
+                  </li>
+                  <li
+                    data-de="Mittagessen &amp; Getränke inklusive"
+                    data-en="Lunch &amp; drinks included"
+                  >
+                    Mittagessen &amp; Getränke inklusive
+                  </li>
+                  <li
+                    data-de="Englischsprachiger Guide inklusive"
+                    data-en="English-speaking guide included"
+                  >
+                    Englischsprachiger Guide inklusive
+                  </li>
+                </ul>
               </div>
             </article>
 
-            <!-- 10 (Custom Addition: Social & Community Visits - No Price) -->
-            <article class="tour-card reveal">
+            <!-- 10 -->
+            <article class="tour reveal">
               <div class="flag-edge"></div>
               <div
                 class="cover"
-                style="background-image: url(&quot;./images/wanaume.jpg&quot;)"
+                style="background-image: url(&quot;./images/beach\ 1.jpg&quot;)"
               >
-                <span class="origin-badge" data-de="Kultur" data-en="Culture">Kultur</span>
+                <span class="origin-badge" data-de="Kultur" data-en="Culture"
+                  >Kultur</span
+                >
               </div>
               <div class="body">
-                <h3 data-de="Dorf-, Schul- & Waisenhausbesuche" data-en="Village, School & Orphanage Visits">
-                  Dorf-, Schul- & Waisenhausbesuche
-                </h3>
-                <p
-                  data-de="Ein authentisches soziales Erlebnis: Besuchen Sie lokale Dörfer, Grundschulen und Waisenhäuser vor Ort, um Kultur und Menschen kennenzulernen."
-                  data-en="An authentic community experience: Visit local villages, schools, and orphanages to connect with the local culture and people."
+                <h3
+                  data-de="Dorftour, Waisenhausbesuch, Schulbesuch, Abendlicher Nachtmarkt"
+                  data-en="Village Tour, Orphanage Visit, School Visit, Evening Night Market"
                 >
-                  Ein authentisches soziales Erlebnis: Besuchen Sie lokale Dörfer, Grundschulen und Waisenhäuser vor Ort, um Kultur und Menschen kennenzulernen.
-                </p>
-                <div class="cta-row">
-                  <a href="contact.html" class="see" data-de="Anfragen / Details" data-en="Enquire / Details">Anfragen / Details</a>
+                  Dorftour, Waisenhausbesuch, Schulbesuch, Abendlicher
+                  Nachtmarkt
+                </h3>
+
+                <div
+                  class="duration"
+                  data-de="Dauer: nach Absprache (halbtags oder ganztägig)"
+                  data-en="Duration: by arrangement (half or full day)"
+                >
+                  Dauer: nach Absprache (halbtags oder ganztägig)
                 </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Erleben Sie Sansibar authentisch, fernab der üblichen Touristenwege: Besuchen Sie ein traditionelles Dorf, ein Waisenhaus oder eine lokale Schule – oder erkunden Sie Stone Town und den Nachtmarkt am Abend."
+                  data-en="Experience Zanzibar authentically, away from the usual tourist paths: visit a traditional village, an orphanage, or a local school – or explore Stone Town and the night market in the evening."
+                >
+                  Erleben Sie Sansibar authentisch, fernab der üblichen
+                  Touristenwege: Besuchen Sie ein traditionelles Dorf, ein
+                  Waisenhaus oder eine lokale Schule – oder erkunden Sie Stone
+                  Town und den Nachtmarkt am Abend.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Village Tour – traditionelles Dorfleben &amp; Kultur der Einheimischen"
+                    data-en="Village tour – traditional village life &amp; local culture"
+                  >
+                    Village Tour – traditionelles Dorfleben &amp; Kultur der
+                    Einheimischen
+                  </li>
+                  <li
+                    data-de="Waisenhausbesuch – kultureller Austausch, Unterstützung vor Ort"
+                    data-en="Orphanage visit – cultural exchange, local support"
+                  >
+                    Waisenhausbesuch – kultureller Austausch, Unterstützung vor
+                    Ort
+                  </li>
+                  <li
+                    data-de="Schulbesuch – Einblick in den Alltag der Kinder"
+                    data-en="School visit – insight into children&amp;#x27;s daily life"
+                  >
+                    Schulbesuch – Einblick in den Alltag der Kinder
+                  </li>
+                  <li
+                    data-de="Abendliche Stone Town &amp; Nachtmarkt"
+                    data-en="Evening Stone Town &amp; night market"
+                  >
+                    Abendliche Stone Town &amp; Nachtmarkt
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 11 -->
+            <article class="tour reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="background-image: url(&quot;./images/dolphin.jpg&quot;)"
+              >
+                <span class="origin-badge" data-de="Sansibar" data-en="Zanzibar"
+                  >Sansibar</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Blue Lagoon Schnorcheltour, Seestern-Tour"
+                  data-en="Blue Lagoon Snorkeling Tour, Starfish Tour"
+                >
+                  Blue Lagoon Schnorcheltour, Seestern-Tour
+                </h3>
+                <div
+                  class="price-tag"
+                  data-de="200 € für 2 Personen (alles inklusive)"
+                  data-en="€200 for 2 people (all inclusive)"
+                >
+                  200 € für 2 Personen (alles inklusive)
+                </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: halbtags (ca. 4–5 Std.)"
+                  data-en="Duration: half day (approx. 4–5 hrs)"
+                >
+                  Dauer: halbtags (ca. 4–5 Std.)
+                </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Entdecken Sie das kristallklare Wasser der Blue Lagoon und die faszinierende Unterwasserwelt mit wunderschönen Seesternen von Sansibar – alles inklusive."
+                  data-en="Discover the crystal-clear waters of the Blue Lagoon and the fascinating underwater world with beautiful starfish of Zanzibar – all inclusive."
+                >
+                  Entdecken Sie das kristallklare Wasser der Blue Lagoon und die
+                  faszinierende Unterwasserwelt mit wunderschönen Seesternen von
+                  Sansibar – alles inklusive.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Blue Lagoon Schnorcheltour"
+                    data-en="Blue Lagoon snorkeling tour"
+                  >
+                    Blue Lagoon Schnorcheltour
+                  </li>
+                  <li data-de="Seestern-Tour" data-en="Starfish tour">
+                    Seestern-Tour
+                  </li>
+                  <li
+                    data-de="Trinkwasser &amp; frische tropische Früchte inklusive"
+                    data-en="Drinking water &amp; fresh tropical fruit included"
+                  >
+                    Trinkwasser &amp; frische tropische Früchte inklusive
+                  </li>
+                  <li
+                    data-de="Schnorchelausrüstung inklusive (Maske, Schnorchel &amp; Flossen)"
+                    data-en="Snorkel gear included (mask, snorkel &amp; fins)"
+                  >
+                    Schnorchelausrüstung inklusive (Maske, Schnorchel &amp;
+                    Flossen)
+                  </li>
+                  <li
+                    data-de="Abholung vom Hotel &amp; Taxitransfer (Hin- und Rückfahrt) inklusive"
+                    data-en="Hotel pickup &amp; taxi transfer (round trip) included"
+                  >
+                    Abholung vom Hotel &amp; Taxitransfer (Hin- und Rückfahrt)
+                    inklusive
+                  </li>
+                </ul>
+              </div>
+            </article>
+
+            <!-- 12 -->
+            <article class="tour reveal">
+              <div class="flag-edge"></div>
+              <div
+                class="cover"
+                style="
+                  background-image: url(&quot;./images/stonetown.jpeg&quot;);
+                "
+              >
+                <span
+                  class="origin-badge"
+                  data-de="Individuell"
+                  data-en="Custom"
+                  >Individuell</span
+                >
+              </div>
+              <div class="body">
+                <h3
+                  data-de="Weitere individuelle Ausflüge"
+                  data-en="More Custom Excursions"
+                >
+                  Weitere individuelle Ausflüge
+                </h3>
+                <div
+                  class="price-tag"
+                  data-de="Preis auf Anfrage"
+                  data-en="Price on request"
+                >
+                  Preis auf Anfrage
+                </div>
+                <div
+                  class="duration"
+                  data-de="Dauer: nach Absprache"
+                  data-en="Duration: by arrangement"
+                >
+                  Dauer: nach Absprache
+                </div>
+              </div>
+              <div class="tour-extra" hidden>
+                <p
+                  data-de="Sie haben eine andere Idee oder möchten mehrere Ausflüge kombinieren? Kontaktieren Sie uns – wir stellen Ihnen gerne eine individuelle Tour zusammen."
+                  data-en="Have a different idea, or want to combine several trips? Contact us – we&amp;#x27;ll be happy to put together a custom tour for you."
+                >
+                  Sie haben eine andere Idee oder möchten mehrere Ausflüge
+                  kombinieren? Kontaktieren Sie uns – wir stellen Ihnen gerne
+                  eine individuelle Tour zusammen.
+                </p>
+                <ul class="highlights">
+                  <li
+                    data-de="Individuelle Routenplanung nach Ihren Wünschen"
+                    data-en="Custom route planning to your wishes"
+                  >
+                    Individuelle Routenplanung nach Ihren Wünschen
+                  </li>
+                  <li
+                    data-de="Kombination mehrerer Ausflüge möglich"
+                    data-en="Combination of several trips possible"
+                  >
+                    Kombination mehrerer Ausflüge möglich
+                  </li>
+                  <li
+                    data-de="Persönliche Beratung per WhatsApp"
+                    data-en="Personal advice via WhatsApp"
+                  >
+                    Persönliche Beratung per WhatsApp
+                  </li>
+                </ul>
               </div>
             </article>
           </div>
 
+          <!-- CTA Banner -->
           <div style="margin-top: 30px" class="cta-band reveal">
             <div>
               <h3
@@ -582,6 +1848,326 @@
         </div>
       </section>
     </main>
+
+    <!-- ===== QUIZ MODAL ===== -->
+    <div class="quiz-modal" id="quizModal" role="dialog" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-btn" id="closeQuiz" aria-label="Schließen">
+          &times;
+        </button>
+
+        <!-- Step 1 -->
+        <div class="quiz-step active" data-step="1">
+          <h2
+            data-de="🌴 Welche Art von Erlebnis suchen Sie?"
+            data-en="🌴 What kind of experience are you looking for?"
+          >
+            🌴 Welche Art von Erlebnis suchen Sie?
+          </h2>
+          <p
+            data-de="Wählen Sie die Kategorie, die Sie am meisten anspricht."
+            data-en="Choose the category that appeals to you most."
+          >
+            Wählen Sie die Kategorie, die Sie am meisten anspricht.
+          </p>
+          <div class="quiz-options">
+            <label data-value="culture">
+              <input type="radio" name="q1" value="culture" />
+              <span
+                data-de="🏛️ Kultur & Geschichte (Stone Town, Märkte)"
+                data-en="🏛️ Culture & History (Stone Town, markets)"
+                >🏛️ Kultur & Geschichte (Stone Town, Märkte)</span
+              >
+            </label>
+            <label data-value="nature">
+              <input type="radio" name="q1" value="nature" />
+              <span
+                data-de="🌿 Natur & Tiere (Jozani, Delfine, Schildkröten)"
+                data-en="🌿 Nature & Animals (Jozani, dolphins, turtles)"
+                >🌿 Natur & Tiere (Jozani, Delfine, Schildkröten)</span
+              >
+            </label>
+            <label data-value="beach">
+              <input type="radio" name="q1" value="beach" />
+              <span
+                data-de="🏖️ Strand & Wasser (Safari Blue, Sandbank, Schnorcheln)"
+                data-en="🏖️ Beach & Water (Safari Blue, sandbank, snorkeling)"
+                >🏖️ Strand & Wasser (Safari Blue, Sandbank, Schnorcheln)</span
+              >
+            </label>
+            <label data-value="safari">
+              <input type="radio" name="q1" value="safari" />
+              <span
+                data-de="🦁 Safari auf dem Festland (Mikumi)"
+                data-en="🦁 Safari on the mainland (Mikumi)"
+                >🦁 Safari auf dem Festland (Mikumi)</span
+              >
+            </label>
+            <label data-value="social">
+              <input type="radio" name="q1" value="social" />
+              <span
+                data-de="🤝 Soziale & kulturelle Begegnungen (Dorf, Schule)"
+                data-en="🤝 Social & cultural encounters (village, school)"
+                >🤝 Soziale & kulturelle Begegnungen (Dorf, Schule)</span
+              >
+            </label>
+          </div>
+          <div class="quiz-nav">
+            <span></span>
+            <button
+              class="next-btn"
+              disabled
+              data-de="Weiter →"
+              data-en="Next →"
+            >
+              Weiter →
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="quiz-step" data-step="2">
+          <h2
+            data-de="👥 Mit wem reisen Sie?"
+            data-en="👥 Who are you travelling with?"
+          >
+            👥 Mit wem reisen Sie?
+          </h2>
+          <p
+            data-de="Das hilft uns, die richtige Gruppengröße und das passende Tempo zu empfehlen."
+            data-en="This helps us recommend the right group size and pace."
+          >
+            Das hilft uns, die richtige Gruppengröße und das passende Tempo zu
+            empfehlen.
+          </p>
+          <div class="quiz-options">
+            <label data-value="alone">
+              <input type="radio" name="q2" value="alone" />
+              <span data-de="🧑 Alleinreisend" data-en="🧑 Solo traveller"
+                >🧑 Alleinreisend</span
+              >
+            </label>
+            <label data-value="couple">
+              <input type="radio" name="q2" value="couple" />
+              <span data-de="❤️ Paar" data-en="❤️ Couple">❤️ Paar</span>
+            </label>
+            <label data-value="family">
+              <input type="radio" name="q2" value="family" />
+              <span data-de="👨‍👩‍👧‍👦 Familie / Gruppe" data-en="👨‍👩‍👧‍👦 Family / Group"
+                >👨‍👩‍👧‍👦 Familie / Gruppe</span
+              >
+            </label>
+          </div>
+          <div class="quiz-nav">
+            <button class="prev-btn" data-de="← Zurück" data-en="← Back">
+              ← Zurück
+            </button>
+            <button
+              class="next-btn"
+              disabled
+              data-de="Weiter →"
+              data-en="Next →"
+            >
+              Weiter →
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="quiz-step" data-step="3">
+          <h2
+            data-de="⚡ Wie aktiv soll Ihre Tour sein?"
+            data-en="⚡ How active should your tour be?"
+          >
+            ⚡ Wie aktiv soll Ihre Tour sein?
+          </h2>
+          <p
+            data-de="Wählen Sie, wie viel Bewegung und Abenteuer Sie wünschen."
+            data-en="Choose how much activity and adventure you want."
+          >
+            Wählen Sie, wie viel Bewegung und Abenteuer Sie wünschen.
+          </p>
+          <div class="quiz-options">
+            <label data-value="relaxed">
+              <input type="radio" name="q3" value="relaxed" />
+              <span
+                data-de="🧘 Entspannt (viel Ruhe, wenig Lauferei)"
+                data-en="🧘 Relaxed (lots of rest, little walking)"
+                >🧘 Entspannt (viel Ruhe, wenig Lauferei)</span
+              >
+            </label>
+            <label data-value="moderate">
+              <input type="radio" name="q3" value="moderate" />
+              <span
+                data-de="🚶 Gemischt (kulturelle Spaziergänge, kurze Wanderungen)"
+                data-en="🚶 Mixed (cultural walks, short hikes)"
+                >🚶 Gemischt (kulturelle Spaziergänge, kurze Wanderungen)</span
+              >
+            </label>
+            <label data-value="active">
+              <input type="radio" name="q3" value="active" />
+              <span
+                data-de="🏃 Aktiv (Schnorcheln, Wandern, viel Bewegung)"
+                data-en="🏃 Active (snorkeling, hiking, lots of movement)"
+                >🏃 Aktiv (Schnorcheln, Wandern, viel Bewegung)</span
+              >
+            </label>
+          </div>
+          <div class="quiz-nav">
+            <button class="prev-btn" data-de="← Zurück" data-en="← Back">
+              ← Zurück
+            </button>
+            <button
+              class="next-btn"
+              disabled
+              data-de="Ergebnis anzeigen"
+              data-en="Show results"
+            >
+              Ergebnis anzeigen
+            </button>
+          </div>
+        </div>
+
+        <!-- Ergebnis -->
+        <div class="quiz-step" data-step="result">
+          <h2
+            data-de="🎉 Ihre persönliche Tour-Empfehlung"
+            data-en="🎉 Your personal tour recommendation"
+          >
+            🎉 Ihre persönliche Tour-Empfehlung
+          </h2>
+          <p
+            data-de="Basierend auf Ihren Antworten könnten diese Pakete perfekt zu Ihnen passen:"
+            data-en="Based on your answers, these packages might be a perfect fit:"
+          >
+            Basierend auf Ihren Antworten könnten diese Pakete perfekt zu Ihnen
+            passen:
+          </p>
+          <div id="quizResults"></div>
+          <div class="quiz-nav">
+            <button class="prev-btn" data-de="← Zurück" data-en="← Back">
+              ← Zurück
+            </button>
+            <button
+              id="resetQuiz"
+              data-de="🔁 Von vorne beginnen"
+              data-en="🔁 Start over"
+            >
+              🔁 Von vorne beginnen
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== TOUR DETAIL MODAL ===== -->
+    <div class="tour-modal" id="tourModal" role="dialog" aria-modal="true">
+      <div class="modal-content">
+        <button class="close-btn" id="closeTourModal" aria-label="Schließen">
+          &times;
+        </button>
+
+        <div class="modal-images" id="modalImages">
+          <div class="modal-thumb" id="modalThumb1"></div>
+          <div class="modal-thumb" id="modalThumb2"></div>
+          <span class="origin-badge" id="modalBadge"></span>
+        </div>
+
+        <div class="modal-body">
+          <h2 id="modalTitle"></h2>
+          <p class="modal-desc" id="modalDesc"></p>
+          <ul class="highlights" id="modalHighlights"></ul>
+
+          <div class="modal-meta">
+            <div class="duration" id="modalDuration"></div>
+            <div class="price-tag" id="modalPrice"></div>
+          </div>
+
+          <form class="booking-form" id="bookingForm">
+            <h3 data-de="Jetzt buchen" data-en="Book now">Jetzt buchen</h3>
+            <div class="form-grid">
+              <div class="field-full">
+                <label for="bookName" data-de="Name" data-en="Name">Name</label>
+                <input type="text" id="bookName" required />
+              </div>
+              <div class="field-full">
+                <label
+                  for="bookHotel"
+                  data-de="Hotel (optional)"
+                  data-en="Hotel (optional)"
+                  >Hotel (optional)</label
+                >
+                <input type="text" id="bookHotel" />
+              </div>
+              <div>
+                <label
+                  for="bookPhone"
+                  data-de="Telefonnummer"
+                  data-en="Phone number"
+                  >Telefonnummer</label
+                >
+                <input type="tel" id="bookPhone" required />
+              </div>
+              <div>
+                <label for="bookDate" data-de="Datum" data-en="Date"
+                  >Datum</label
+                >
+                <input type="date" id="bookDate" />
+              </div>
+              <div>
+                <label for="bookAdults" data-de="Erwachsene" data-en="Adults"
+                  >Erwachsene</label
+                >
+                <input type="number" id="bookAdults" min="1" value="2" />
+              </div>
+              <div>
+                <label for="bookChildren" data-de="Kinder" data-en="Children"
+                  >Kinder</label
+                >
+                <input type="number" id="bookChildren" min="0" value="0" />
+              </div>
+              <div class="field-full">
+                <label
+                  for="bookMessage"
+                  data-de="Nachricht (optional)"
+                  data-en="Message (optional)"
+                  >Nachricht (optional)</label
+                >
+                <textarea id="bookMessage"></textarea>
+              </div>
+            </div>
+
+            <div class="booking-actions">
+              <button
+                type="button"
+                class="btn-whatsapp"
+                id="bookWhatsapp"
+                data-de="Per WhatsApp buchen"
+                data-en="Book via WhatsApp"
+              >
+                Per WhatsApp buchen
+              </button>
+              <a
+                href="#"
+                class="btn-email"
+                id="bookEmail"
+                data-de="Per E-Mail buchen"
+                data-en="Book via email"
+                >Per E-Mail buchen</a
+              >
+            </div>
+            <p
+              class="booking-note"
+              data-de="Sie erhalten eine Bestätigung per WhatsApp. Zahlung erfolgt in Euro (bar) am Tag des Ausflugs."
+              data-en="You will receive confirmation via WhatsApp. Payment is made in euros (cash) on the day of the excursion."
+            >
+              Sie erhalten eine Bestätigung per WhatsApp. Zahlung erfolgt in
+              Euro (bar) am Tag des Ausflugs.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -645,7 +2231,9 @@
                 data-en="Destinations"
                 >Reiseziele</a
               >
-              <a href="tours.html" data-de="Pakete" data-en="Packages">Pakete</a>
+              <a href="tours.html" data-de="Pakete" data-en="Packages"
+                >Pakete</a
+              >
               <a href="gallery.html" data-de="Galerie" data-en="Gallery"
                 >Galerie</a
               >
@@ -706,6 +2294,7 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
+        // Observer für Animationen
         const observer = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
@@ -720,6 +2309,333 @@
         document
           .querySelectorAll(".reveal")
           .forEach((el) => observer.observe(el));
+
+        // ===== QUIZ LOGIC =====
+        const modal = document.getElementById("quizModal");
+        const trigger = document.getElementById("quizTrigger");
+        const closeBtn = document.getElementById("closeQuiz");
+
+        const steps = document.querySelectorAll(".quiz-step");
+        const nextBtns = document.querySelectorAll(".next-btn");
+        const prevBtns = document.querySelectorAll(".prev-btn");
+        const resetBtn = document.getElementById("resetQuiz");
+        const resultContainer = document.getElementById("quizResults");
+
+        let currentStep = 1; // 1,2,3, 'result'
+        const answers = { q1: null, q2: null, q3: null };
+
+        // Mapping von Antworten zu Tour-IDs (basierend auf Daten)
+        const tourMapping = {
+          culture: [1, 2, 8, 7], // Spice+ Prison+Stone, Stone+Prison+Nakupenda, Spice+Stone, Jozani+Spice+Stone
+          nature: [4, 5, 6, 7], // Jozani+Salam+Mtende+Butterfly, Jozani+Mtende+Rock, Mnemba Dolphin, Jozani+Spice+Stone
+          beach: [2, 3, 6], // Stone+Nakupenda, Safari Blue, Mnemba
+          safari: [9],
+          social: [10],
+        };
+
+        // Funktion zum Öffnen/Schließen
+        function openModal() {
+          modal.classList.add("open");
+          resetQuiz();
+        }
+        function closeModal() {
+          modal.classList.remove("open");
+        }
+
+        trigger.addEventListener("click", openModal);
+        closeBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+
+        // Schrittwechsel
+        function goToStep(step) {
+          steps.forEach((s) => s.classList.remove("active"));
+          const target = document.querySelector(
+            `.quiz-step[data-step="${step}"]`,
+          );
+          if (target) target.classList.add("active");
+          currentStep = step;
+
+          // Next-Button Status aktualisieren (nur für Schritte mit Radio)
+          if (step === 1 || step === 2 || step === 3) {
+            const radios = document.querySelectorAll(
+              `.quiz-step[data-step="${step}"] input[type="radio"]`,
+            );
+            const nextBtn = document.querySelector(
+              `.quiz-step[data-step="${step}"] .next-btn`,
+            );
+            if (radios.length && nextBtn) {
+              const checked = Array.from(radios).some((r) => r.checked);
+              nextBtn.disabled = !checked;
+            }
+          }
+
+          // Bei Ergebnis: Empfehlungen generieren
+          if (step === "result") {
+            generateResults();
+          }
+        }
+
+        function resetQuiz() {
+          // Alle Radios zurücksetzen
+          document
+            .querySelectorAll('.quiz-options input[type="radio"]')
+            .forEach((r) => {
+              r.checked = false;
+              r.closest("label")?.classList.remove("selected");
+            });
+          answers.q1 = null;
+          answers.q2 = null;
+          answers.q3 = null;
+          goToStep(1);
+        }
+
+        // Radio-Auswahl speichern und Label hervorheben
+        document
+          .querySelectorAll('.quiz-options input[type="radio"]')
+          .forEach((radio) => {
+            radio.addEventListener("change", function () {
+              const parent = this.closest(".quiz-options");
+              parent
+                .querySelectorAll("label")
+                .forEach((l) => l.classList.remove("selected"));
+              this.closest("label").classList.add("selected");
+
+              const step = this.closest(".quiz-step").dataset.step;
+              const key = `q${step}`;
+              answers[key] = this.value;
+              // Next-Button aktivieren
+              const nextBtn =
+                this.closest(".quiz-step").querySelector(".next-btn");
+              if (nextBtn) nextBtn.disabled = false;
+            });
+          });
+
+        // Next-Buttons
+        nextBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const step = parseInt(this.closest(".quiz-step").dataset.step);
+            if (step === 1 || step === 2) {
+              goToStep(step + 1);
+            } else if (step === 3) {
+              goToStep("result");
+            }
+          });
+        });
+
+        // Prev-Buttons
+        prevBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const step = this.closest(".quiz-step").dataset.step;
+            if (step === "result") {
+              goToStep(3);
+            } else {
+              const prev = parseInt(step) - 1;
+              if (prev >= 1) goToStep(prev);
+            }
+          });
+        });
+
+        resetBtn.addEventListener("click", resetQuiz);
+
+        // Ergebnisse generieren
+        function generateResults() {
+          const q1 = answers.q1;
+          const q2 = answers.q2;
+          const q3 = answers.q3;
+
+          if (!q1) {
+            resultContainer.innerHTML =
+              "<p>Bitte beantworten Sie alle Fragen, um eine Empfehlung zu erhalten.</p>";
+            return;
+          }
+
+          // Kandidaten aus Mapping
+          let candidateIds = tourMapping[q1] || [];
+
+          // Je nach q2 und q3 filtern (Beispiel: für Safari nur Einzelpersonen? Oder für Familie bestimmte Touren? Wir machen es einfach und zeigen alle Kandidaten)
+          // Wir könnten auch nach Aktivität filtern: wenn q3=relaxed, dann weniger aktive touren (z.B. Safari Blue ist entspannt, aber Jozani mit Wandern ist moderat)
+          // Vereinfachen: wir zeigen alle Kandidaten aus der Hauptkategorie, aber sortieren nach q3 (optional)
+          // Wir geben einfach alle passenden Touren aus, aber priorisieren.
+
+          if (candidateIds.length === 0) {
+            resultContainer.innerHTML =
+              "<p>Leider konnten wir keine passende Tour finden. Kontaktieren Sie uns gerne für eine individuelle Beratung.</p>";
+            return;
+          }
+
+          // Hier holen wir die Tour-Daten aus dem DOM, um sie anzuzeigen
+          const tourCards = document.querySelectorAll(".tour");
+          const tourData = [];
+          tourCards.forEach((card, index) => {
+            // index+1 als ID
+            const id = index + 1;
+            const title = card.querySelector("h3")?.innerText || "";
+            const desc = card.querySelector("p")?.innerText || "";
+            const price = card.querySelector(".price-tag")?.innerText || "";
+            const link =
+              card.querySelector(".cta-row a")?.href || "contact.html";
+            const badge = card.querySelector(".origin-badge")?.innerText || "";
+            tourData.push({ id, title, desc, price, link, badge });
+          });
+
+          // Filtern
+          const results = candidateIds
+            .map((id) => tourData.find((t) => t.id === id))
+            .filter(Boolean);
+
+          if (results.length === 0) {
+            resultContainer.innerHTML =
+              "<p>Keine passende Tour gefunden. Kontaktieren Sie uns!</p>";
+            return;
+          }
+
+          let html = "";
+          results.forEach((t) => {
+            html += `
+                <div class="result-card">
+                  <h3>${t.title}</h3>
+                  <p>${t.desc.substring(0, 100)}…</p>
+                  <div class="price-tag">${t.price}</div>
+                  <div class="result-actions">
+                    <a href="${t.link}" class="see">Anfragen</a>
+                  </div>
+                </div>
+              `;
+          });
+          resultContainer.innerHTML = html;
+
+          // Nachricht, falls mehrere
+          if (results.length > 1) {
+            const note = document.createElement("p");
+            note.style.marginTop = "12px";
+            note.style.fontStyle = "italic";
+            note.style.opacity = "0.7";
+            note.textContent =
+              "Sie haben mehrere passende Touren – stöbern Sie in den Details oder kontaktieren Sie uns für eine persönliche Beratung.";
+            resultContainer.appendChild(note);
+          }
+        }
+
+        // ===== TOUR DETAIL MODAL =====
+        const tourModal = document.getElementById("tourModal");
+        const closeTourModal = document.getElementById("closeTourModal");
+        const modalThumb1 = document.getElementById("modalThumb1");
+        const modalThumb2 = document.getElementById("modalThumb2");
+        const modalBadge = document.getElementById("modalBadge");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+        const modalHighlights = document.getElementById("modalHighlights");
+        const modalDuration = document.getElementById("modalDuration");
+        const modalPrice = document.getElementById("modalPrice");
+        const bookingForm = document.getElementById("bookingForm");
+        const bookWhatsapp = document.getElementById("bookWhatsapp");
+        const bookEmail = document.getElementById("bookEmail");
+
+        const WA_NUMBER = "255671525305";
+        const CONTACT_EMAIL = "donyarossa@gmail.com";
+        let activeTourTitle = "";
+
+        function openTourModal(card) {
+          const cover = card.querySelector(".cover");
+          const mainImage = cover ? cover.style.backgroundImage : "";
+          const secondImage = cover?.dataset.image2
+            ? `url("${cover.dataset.image2}")`
+            : mainImage;
+          modalThumb1.style.backgroundImage = mainImage;
+          modalThumb2.style.backgroundImage = secondImage;
+
+          const badgeEl = card.querySelector(".origin-badge");
+          modalBadge.textContent = badgeEl ? badgeEl.textContent.trim() : "";
+
+          const titleEl = card.querySelector("h3");
+          activeTourTitle = titleEl ? titleEl.textContent.trim() : "";
+          modalTitle.textContent = activeTourTitle;
+
+          const descEl = card.querySelector(".tour-extra p");
+          modalDesc.textContent = descEl ? descEl.textContent.trim() : "";
+
+          modalHighlights.innerHTML = "";
+          card.querySelectorAll(".tour-extra .highlights li").forEach((li) => {
+            const item = document.createElement("li");
+            item.textContent = li.textContent.trim();
+            modalHighlights.appendChild(item);
+          });
+
+          const durationEl = card.querySelector(".duration");
+          modalDuration.textContent = durationEl
+            ? durationEl.textContent.trim()
+            : "";
+
+          const priceEl = card.querySelector(".price-tag");
+          modalPrice.textContent = priceEl ? priceEl.textContent.trim() : "";
+          modalPrice.style.display = priceEl ? "" : "none";
+
+          bookingForm.reset();
+          document.getElementById("bookAdults").value = 2;
+          document.getElementById("bookChildren").value = 0;
+
+          tourModal.classList.add("open");
+        }
+
+        function closeTourModalFn() {
+          tourModal.classList.remove("open");
+        }
+
+        document.querySelectorAll(".tours-grid .tour").forEach((card) => {
+          card.addEventListener("click", (e) => {
+            e.preventDefault();
+            openTourModal(card);
+          });
+        });
+
+        closeTourModal.addEventListener("click", closeTourModalFn);
+        tourModal.addEventListener("click", (e) => {
+          if (e.target === tourModal) closeTourModalFn();
+        });
+
+        function buildBookingMessage() {
+          const name = document.getElementById("bookName").value.trim();
+          const hotel = document.getElementById("bookHotel").value.trim();
+          const phone = document.getElementById("bookPhone").value.trim();
+          const date = document.getElementById("bookDate").value;
+          const adults = document.getElementById("bookAdults").value || "0";
+          const children = document.getElementById("bookChildren").value || "0";
+          const message = document.getElementById("bookMessage").value.trim();
+
+          const lines = [
+            `Hallo ZanBlauerhimmel Tour Safari, ich möchte buchen:`,
+            `Tour: ${activeTourTitle}`,
+            name ? `Name: ${name}` : null,
+            hotel ? `Hotel: ${hotel}` : null,
+            phone ? `Telefon: ${phone}` : null,
+            date ? `Datum: ${date}` : null,
+            `Erwachsene: ${adults}, Kinder: ${children}`,
+            message ? `Nachricht: ${message}` : null,
+          ].filter(Boolean);
+
+          return lines.join("\n");
+        }
+
+        bookWhatsapp.addEventListener("click", () => {
+          if (!bookingForm.reportValidity()) return;
+          const text = encodeURIComponent(buildBookingMessage());
+          window.open(`https://wa.me/${WA_NUMBER}?text=${text}`, "_blank");
+        });
+
+        bookEmail.addEventListener("click", (e) => {
+          e.preventDefault();
+          if (!bookingForm.reportValidity()) return;
+          const subject = encodeURIComponent(
+            `Buchungsanfrage: ${activeTourTitle}`,
+          );
+          const body = encodeURIComponent(buildBookingMessage());
+          window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+        });
+
+        // Jahr im Footer
+        document.getElementById("year").textContent = new Date().getFullYear();
       });
     </script>
 
