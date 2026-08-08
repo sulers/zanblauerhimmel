@@ -12,7 +12,10 @@
       name="keywords"
       content="Sansibar Blog, Reisebericht Sansibar, Stone Town Erfahrungen, Gewürzfarm Sansibar Tipps, Ausflüge Sansibar Deutsch"
     />
-    <meta property="og:title" content="Blog & Reiseberichte — ZanBlauerhimmel Tour Safari" />
+    <meta
+      property="og:title"
+      content="Blog & Reiseberichte — ZanBlauerhimmel Tour Safari"
+    />
     <meta
       property="og:description"
       content="Echte Eindrücke und wertvolle Insider-Tipps für Ihren Traumurlaub auf Sansibar."
@@ -28,42 +31,42 @@
     <link rel="stylesheet" href="styles/index.css" />
     <link rel="stylesheet" href="styles/blogs.css" />
     <style>
-  .whatsapp-float {
-    position: fixed;
-    bottom: 22px;
-    right: 22px;
-    width: 58px;
-    height: 58px;
-    background: #25d366;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-    z-index: 999;
-    transition: transform 0.2s ease;
-  }
-  .whatsapp-float:hover {
-    transform: scale(1.08);
-  }
-  .whatsapp-float svg {
-    width: 30px;
-    height: 30px;
-    fill: #fff;
-  }
-  @media (max-width: 480px) {
-    .whatsapp-float {
-      width: 52px;
-      height: 52px;
-      bottom: 16px;
-      right: 16px;
-    }
-    .whatsapp-float svg {
-      width: 26px;
-      height: 26px;
-    }
-  }
-</style>
+      .whatsapp-float {
+        position: fixed;
+        bottom: 22px;
+        right: 22px;
+        width: 58px;
+        height: 58px;
+        background: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+        z-index: 999;
+        transition: transform 0.2s ease;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.08);
+      }
+      .whatsapp-float svg {
+        width: 30px;
+        height: 30px;
+        fill: #fff;
+      }
+      @media (max-width: 480px) {
+        .whatsapp-float {
+          width: 52px;
+          height: 52px;
+          bottom: 16px;
+          right: 16px;
+        }
+        .whatsapp-float svg {
+          width: 26px;
+          height: 26px;
+        }
+      }
+    </style>
   </head>
   <body>
     <!-- Header -->
@@ -72,32 +75,63 @@
         <nav class="nav" aria-label="Hauptnavigation">
           <a href="index.html" class="brand">
             <div class="brand-logo">
-              <img src="./images/logo.jpg" alt="ZanBlauerhimmel Tour Safari Logo" />
+              <img
+                src="./images/logo.jpg"
+                alt="ZanBlauerhimmel Tour Safari Logo"
+              />
             </div>
             <div class="brand-name">ZanBlauerhimmel Tour Safari</div>
           </a>
-          <button class="burger" aria-label="Menü öffnen" id="burger">☰</button>
+          <button class="burger" aria-label="Menü öffnen" id="burger">
+            ☰
+          </button>
           <div class="menu" id="menu">
-            <a href="index.html#destinations" data-de="Reiseziele" data-en="Destinations">Reiseziele</a>
+            <!-- <a href="index.html#destinations" data-de="Reiseziele" data-en="Destinations">Reiseziele</a> -->
             <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
-            <a href="gallery.html" data-de="Galerie" data-en="Gallery">Galerie</a>
-            <a href="blogs.html" class="active" data-de="Blog" data-en="Blog">Blog</a>
-            <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
-            <a href="contact.html" class="cta" style="color: #1a1a1a" data-de="Reise planen" data-en="Plan Your Trip">Reise planen</a>
+            <a href="gallery.html" data-de="Galerie" data-en="Gallery"
+              >Galerie</a
+            >
+            <a href="blogs.html" class="active" data-de="Blog" data-en="Blog"
+              >Blog</a
+            >
+            <a href="contact.html" data-de="Kontakt" data-en="Contact"
+              >Kontakt</a
+            >
+            <a
+              href="contact.html"
+              class="cta"
+              style="color: #1a1a1a"
+              data-de="Reise planen"
+              data-en="Plan Your Trip"
+              >Reise planen</a
+            >
             <a href="tours.html" data-de="FAQs" data-en="FAQs">FAQs</a>
-            
+
             <div class="lang-toggle" aria-label="Sprache wählen">
-              <button type="button" data-lang-btn="de" class="active">DE</button>
+              <button type="button" data-lang-btn="de" class="active">
+                DE
+              </button>
               <button type="button" data-lang-btn="en">EN</button>
             </div>
-            <div id="google_translate_element" class="gt-fallback" title="Automatische Übersetzung (Google)"></div>
+            <div
+              id="google_translate_element"
+              class="gt-fallback"
+              title="Automatische Übersetzung (Google)"
+            ></div>
           </div>
         </nav>
         <div class="mobile" id="mobileMenu" aria-label="Mobile Navigation">
-          <a href="index.html#destinations" data-de="Reiseziele" data-en="Destinations">Reiseziele</a>
+          <a
+            href="index.html#destinations"
+            data-de="Reiseziele"
+            data-en="Destinations"
+            >Reiseziele</a
+          >
           <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
           <a href="gallery.html" data-de="Galerie" data-en="Gallery">Galerie</a>
-          <a href="blogs.html" class="active" data-de="Blog" data-en="Blog">Blog</a>
+          <a href="blogs.html" class="active" data-de="Blog" data-en="Blog"
+            >Blog</a
+          >
           <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
           <div class="lang-toggle" style="margin: 14px 20px">
             <button type="button" data-lang-btn="de" class="active">DE</button>
@@ -112,27 +146,51 @@
       <div class="container wrap">
         <div class="eyebrow">
           <span class="dot"></span>
-          <span data-de="Erfahrungen & Insider-Wissen" data-en="Experiences & Insider Knowledge">Erfahrungen & Insider-Wissen</span>
+          <span
+            data-de="Erfahrungen & Insider-Wissen"
+            data-en="Experiences & Insider Knowledge"
+            >Erfahrungen & Insider-Wissen</span
+          >
         </div>
-        <h1 style="color: #1a1a1a;">
-          <span data-de="Unser Sansibar" data-en="Our Zanzibar">Unser Sansibar</span>
-          <span style="color: var(--gold, #d4a373);" data-de="Reise-Blog" data-en="Travel Blog">Reise-Blog</span>
+        <h1 style="color: #1a1a1a">
+          <span data-de="Unser Sansibar" data-en="Our Zanzibar"
+            >Unser Sansibar</span
+          >
+          <span
+            style="color: var(--gold, #d4a373)"
+            data-de="Reise-Blog"
+            data-en="Travel Blog"
+            >Reise-Blog</span
+          >
         </h1>
         <p
-          style="color: #4a4a4a;"
+          style="color: #4a4a4a"
           data-de="Echte Geschichten, ehrliche Reisetipps und magische Momente. Lesen Sie, wie andere Reisende die Gewürzinsel erlebt haben."
           data-en="Real stories, honest travel tips and magical moments. Read how other travelers experienced the spice island."
         >
-          Echte Geschichten, ehrliche Reisetipps und magische Momente. Lesen Sie, wie andere Reisende die Gewürzinsel erlebt haben.
+          Echte Geschichten, ehrliche Reisetipps und magische Momente. Lesen
+          Sie, wie andere Reisende die Gewürzinsel erlebt haben.
         </p>
       </div>
     </section>
 
     <div class="wave-divider" aria-hidden="true">
       <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
-        <path class="de-line de-line-black" d="M0,10 C 200,32 400,-4 600,18 C 800,40 1000,4 1200,26" fill="none" />
-        <path class="de-line de-line-red" d="M0,20 C 200,-2 400,36 600,14 C 800,-4 1000,32 1200,10" fill="none" />
-        <path class="de-line de-line-gold" d="M0,30 C 200,8 400,22 600,32 C 800,18 1000,8 1200,20" fill="none" />
+        <path
+          class="de-line de-line-black"
+          d="M0,10 C 200,32 400,-4 600,18 C 800,40 1000,4 1200,26"
+          fill="none"
+        />
+        <path
+          class="de-line de-line-red"
+          d="M0,20 C 200,-2 400,36 600,14 C 800,-4 1000,32 1200,10"
+          fill="none"
+        />
+        <path
+          class="de-line de-line-gold"
+          d="M0,30 C 200,8 400,22 600,32 C 800,18 1000,8 1200,20"
+          fill="none"
+        />
       </svg>
     </div>
 
@@ -141,11 +199,19 @@
       <section class="section">
         <div class="container">
           <div class="blog-grid">
-            
             <!-- Article 1 -->
             <article class="blog-card">
-              <a href="blog-stone-town.html" class="blog-card-image-link" aria-label="Mein Tag in Stone Town lesen">
-                <div class="blog-card-image" style="background-image: url('./images/stonetown.jpeg');"></div>
+              <a
+                href="blog-stone-town.html"
+                class="blog-card-image-link"
+                aria-label="Mein Tag in Stone Town lesen"
+              >
+                <div
+                  class="blog-card-image"
+                  style="
+                    background-image: url(&quot;./images/stonetown.jpeg&quot;);
+                  "
+                ></div>
               </a>
               <div class="blog-card-content">
                 <div class="blog-meta">
@@ -154,18 +220,36 @@
                 </div>
                 <h3>
                   <a href="blog-stone-town.html" class="blog-title-link">
-                    Mein Tag in Stone Town: Zwischen Nelkenduft und geschnitzten Holztüren
+                    Mein Tag in Stone Town: Zwischen Nelkenduft und geschnitzten
+                    Holztüren
                   </a>
                 </h3>
-                <p>Von den verwinkelten Gassen der UNESCO-Altstadt bis zum Forodhani-Nachtmarkt — warum ein deutschsprachiger Guide hier den Unterschied macht.</p>
-                <a href="blog-stone-town.html" class="btn btn-outline blog-read-more">Artikel lesen →</a>
+                <p>
+                  Von den verwinkelten Gassen der UNESCO-Altstadt bis zum
+                  Forodhani-Nachtmarkt — warum ein deutschsprachiger Guide hier
+                  den Unterschied macht.
+                </p>
+                <a
+                  href="blog-stone-town.html"
+                  class="btn btn-outline blog-read-more"
+                  >Artikel lesen →</a
+                >
               </div>
             </article>
 
             <!-- Article 2 -->
             <article class="blog-card">
-              <a href="blog-safari-blue.html" class="blog-card-image-link" aria-label="Safari Blue & Sandbänke lesen">
-                <div class="blog-card-image" style="background-image: url('./images/beach\ kidau\ 2.jpg');"></div>
+              <a
+                href="blog-safari-blue.html"
+                class="blog-card-image-link"
+                aria-label="Safari Blue & Sandbänke lesen"
+              >
+                <div
+                  class="blog-card-image"
+                  style="
+                    background-image: url(&quot;./images/beach\ kidau\ 2.jpg&quot;);
+                  "
+                ></div>
               </a>
               <div class="blog-card-content">
                 <div class="blog-meta">
@@ -174,14 +258,22 @@
                 </div>
                 <h3>
                   <a href="blog-safari-blue.html" class="blog-title-link">
-                    Safari Blue & Sandbänke: Unser Paradies-Tag auf dem Indischen Ozean
+                    Safari Blue & Sandbänke: Unser Paradies-Tag auf dem
+                    Indischen Ozean
                   </a>
                 </h3>
-                <p>Mit einer traditionellen Dhau über türkisblaues Wasser segeln, frischen Fisch auf einer Sandbank essen und Schildkröten besuchen.</p>
-                <a href="blog-safari-blue.html" class="btn btn-outline blog-read-more">Artikel lesen →</a>
+                <p>
+                  Mit einer traditionellen Dhau über türkisblaues Wasser segeln,
+                  frischen Fisch auf einer Sandbank essen und Schildkröten
+                  besuchen.
+                </p>
+                <a
+                  href="blog-safari-blue.html"
+                  class="btn btn-outline blog-read-more"
+                  >Artikel lesen →</a
+                >
               </div>
             </article>
-
           </div>
         </div>
       </section>
@@ -193,43 +285,100 @@
         <div class="cols">
           <div>
             <a class="brand" href="index.html" style="color: #c9d6df">
-              <div class="brand-logo" style="background: linear-gradient(135deg, #ffd166, #ffe08a)">
-                <img src="./images/logo.jpg" alt="ZanBlauerhimmel Tour Safari Logo" />
+              <div
+                class="brand-logo"
+                style="background: linear-gradient(135deg, #ffd166, #ffe08a)"
+              >
+                <img
+                  src="./images/logo.jpg"
+                  alt="ZanBlauerhimmel Tour Safari Logo"
+                />
               </div>
               <div class="brand-name">ZanBlauerhimmel Tour Safari</div>
             </a>
-            <p class="small" style="margin-top: 10px" data-de="Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen." data-en="Authentic Zanzibar experiences: Stone Town, spice, sea and smiles — guided in German. Karibu — you are most welcome.">
-              Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen.
+            <p
+              class="small"
+              style="margin-top: 10px"
+              data-de="Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen."
+              data-en="Authentic Zanzibar experiences: Stone Town, spice, sea and smiles — guided in German. Karibu — you are most welcome."
+            >
+              Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und
+              Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen.
             </p>
             <div class="social-row" aria-label="Soziale Netzwerke">
-              <a href="https://www.facebook.com/share/1EjKrh5Tua/" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
-              <a href="https://www.tiktok.com/@zanlaueurhimmeltour" target="_blank" rel="noopener" aria-label="TikTok">TT</a>
-              <a href="https://www.instagram.com/ZanBlauerhimmeltour_safari" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+              <a
+                href="https://www.facebook.com/share/1EjKrh5Tua/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                >FB</a
+              >
+              <a
+                href="https://www.tiktok.com/@zanlaueurhimmeltour"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+                >TT</a
+              >
+              <a
+                href="https://www.instagram.com/ZanBlauerhimmeltour_safari"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+                >IG</a
+              >
             </div>
           </div>
           <div>
             <h4 data-de="Entdecken" data-en="Explore">Entdecken</h4>
-            <div class="small" style="display: grid; gap: 8px; margin-top: 10px">
-              <a href="index.html#destinations" data-de="Reiseziele" data-en="Destinations">Reiseziele</a>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <a
+                href="index.html#destinations"
+                data-de="Reiseziele"
+                data-en="Destinations"
+                >Reiseziele</a
+              >
               <a href="tours.html" data-de="Touren" data-en="Tours">Touren</a>
-              <a href="gallery.html" data-de="Galerie" data-en="Gallery">Galerie</a>
+              <a href="gallery.html" data-de="Galerie" data-en="Gallery"
+                >Galerie</a
+              >
               <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
-              <a href="about.html" data-de="Über uns" data-en="About Us">Über uns</a>
-              <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
+              <a href="about.html" data-de="Über uns" data-en="About Us"
+                >Über uns</a
+              >
+              <a href="contact.html" data-de="Kontakt" data-en="Contact"
+                >Kontakt</a
+              >
             </div>
           </div>
           <div>
             <h4 data-de="Kontakt" data-en="Info">Kontakt</h4>
-            <div class="small" style="display: grid; gap: 8px; margin-top: 10px">
-              <span data-de="Sansibar, Tansania" data-en="Zanzibar, Tanzania">Sansibar, Tansania</span>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <span data-de="Sansibar, Tansania" data-en="Zanzibar, Tanzania"
+                >Sansibar, Tansania</span
+              >
               <span>+255 671 525 305</span>
-              <a href="mailto:donyarossa@gmail.com" style="color: inherit; text-decoration: underline;">donyarossa@gmail.com</a>
+              <a
+                href="mailto:donyarossa@gmail.com"
+                style="color: inherit; text-decoration: underline"
+                >donyarossa@gmail.com</a
+              >
             </div>
           </div>
         </div>
         <div class="small" style="margin-top: 24px; opacity: 0.6">
           © <span id="year"></span> ZanBlauerhimmel Tour Safari.
-          <span data-de="Alle Rechte vorbehalten." data-en="All rights reserved.">Alle Rechte vorbehalten.</span>
+          <span
+            data-de="Alle Rechte vorbehalten."
+            data-en="All rights reserved."
+            >Alle Rechte vorbehalten.</span
+          >
         </div>
       </div>
     </footer>
