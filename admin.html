@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Admin — Bewertungen verwalten</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --gold: #ffd166;
+        --ink: #1a1a1a;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+        background: #f4f5f7;
+        color: var(--ink);
+      }
+      .wrap {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 40px 20px 80px;
+      }
+      h1 {
+        font-size: 22px;
+        margin-bottom: 4px;
+      }
+      .sub {
+        opacity: 0.65;
+        font-size: 14px;
+        margin-bottom: 28px;
+      }
+
+      /* Login */
+      #loginBox {
+        max-width: 380px;
+        margin: 80px auto 0;
+        background: #fff;
+        padding: 28px;
+        border-radius: 14px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+      }
+      #loginBox h2 {
+        margin-top: 0;
+        font-size: 18px;
+      }
+      #loginBox input {
+        width: 100%;
+        padding: 10px 12px;
+        margin-top: 6px;
+        margin-bottom: 14px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 14px;
+      }
+      #loginBox label {
+        font-size: 13px;
+        font-weight: 500;
+      }
+      #loginError {
+        display: none;
+        color: #9c2626;
+        font-size: 13px;
+        margin-bottom: 10px;
+      }
+
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 18px;
+        font-size: 14px;
+        font-weight: 600;
+      }
+      .btn-primary {
+        background: var(--ink);
+        color: #fff;
+        width: 100%;
+      }
+      .btn-approve {
+        background: #2f9e44;
+        color: #fff;
+      }
+      .btn-delete {
+        background: #fff;
+        color: #c0392b;
+        border: 1px solid #f0c2c2;
+      }
+      .btn-logout {
+        background: transparent;
+        color: var(--ink);
+        border: 1px solid #ddd;
+        padding: 8px 14px;
+        font-size: 13px;
+      }
+
+      /* Dashboard */
+      #dashboard {
+        display: none;
+      }
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .tabs {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 20px;
+      }
+      .tab {
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: #ebebee;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        border: none;
+      }
+      .tab.active {
+        background: var(--ink);
+        color: #fff;
+      }
+
+      .review-row {
+        background: #fff;
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin-bottom: 14px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+      }
+      .review-row .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .review-row .name {
+        font-weight: 600;
+      }
+      .review-row .meta {
+        font-size: 12px;
+        opacity: 0.6;
+        margin-top: 2px;
+      }
+      .review-row .stars {
+        color: var(--gold);
+        white-space: nowrap;
+      }
+      .review-row .msg {
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 8px 0 12px;
+      }
+      .badge {
+        font-size: 11px;
+        font-weight: 700;
+        padding: 3px 9px;
+        border-radius: 999px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+      }
+      .badge.pending {
+        background: #fff3cd;
+        color: #8a6d1a;
+      }
+      .badge.approved {
+        background: #e3f6e6;
+        color: #1f6d2c;
+      }
+      .actions {
+        display: flex;
+        gap: 8px;
+      }
+      .state-msg {
+        text-align: center;
+        opacity: 0.6;
+        padding: 30px;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <!-- Login -->
+      <div id="loginBox">
+        <h2>Admin-Login</h2>
+        <div id="loginError">E-Mail oder Passwort ist falsch.</div>
+        <form id="loginForm">
+          <label>E-Mail</label>
+          <input
+            type="email"
+            id="loginEmail"
+            required
+            autocomplete="username"
+          />
+          <label>Passwort</label>
+          <input
+            type="password"
+            id="loginPassword"
+            required
+            autocomplete="current-password"
+          />
+          <button type="submit" class="btn-primary">Anmelden</button>
+        </form>
+      </div>
+
+      <!-- Dashboard -->
+      <div id="dashboard">
+        <div class="topbar">
+          <div>
+            <h1>Bewertungen verwalten</h1>
+            <div class="sub">
+              Neue Bewertungen prüfen, freigeben oder löschen.
+            </div>
+          </div>
+          <button class="btn-logout" id="logoutBtn">Abmelden</button>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-filter="pending">Ausstehend</button>
+          <button class="tab" data-filter="approved">Freigegeben</button>
+          <button class="tab" data-filter="all">Alle</button>
+        </div>
+
+        <div id="listState" class="state-msg">Lädt…</div>
+        <div id="reviewList"></div>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyC3Zux72pO_iROQKDXRI8-44CTWiCVO08M",
+        authDomain: "zanblauerhimmel-reviews.firebaseapp.com",
+        projectId: "zanblauerhimmel-reviews",
+        storageBucket: "zanblauerhimmel-reviews.firebasestorage.app",
+        messagingSenderId: "9227142205",
+        appId: "1:9227142205:web:6386ef2118ec53674c9654",
+        measurementId: "G-G9DEFKQB54",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+
+      const loginBox = document.getElementById("loginBox");
+      const dashboard = document.getElementById("dashboard");
+      const loginForm = document.getElementById("loginForm");
+      const loginError = document.getElementById("loginError");
+      const logoutBtn = document.getElementById("logoutBtn");
+      const reviewList = document.getElementById("reviewList");
+      const listState = document.getElementById("listState");
+      const tabs = document.querySelectorAll(".tab");
+
+      let currentFilter = "pending";
+      let unsubscribe = null;
+
+      loginForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        loginError.style.display = "none";
+        const email = document.getElementById("loginEmail").value.trim();
+        const password = document.getElementById("loginPassword").value;
+        try {
+          await auth.signInWithEmailAndPassword(email, password);
+        } catch (err) {
+          console.error(err);
+          loginError.style.display = "block";
+        }
+      });
+
+      logoutBtn.addEventListener("click", () => auth.signOut());
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          tabs.forEach((t) => t.classList.remove("active"));
+          tab.classList.add("active");
+          currentFilter = tab.dataset.filter;
+          startListening();
+        });
+      });
+
+      auth.onAuthStateChanged((user) => {
+        if (user) {
+          loginBox.style.display = "none";
+          dashboard.style.display = "block";
+          startListening();
+        } else {
+          loginBox.style.display = "block";
+          dashboard.style.display = "none";
+          if (unsubscribe) unsubscribe();
+        }
+      });
+
+      function formatDate(ts) {
+        try {
+          const d = ts && ts.toDate ? ts.toDate() : null;
+          return d
+            ? d.toLocaleDateString("de-DE", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              })
+            : "—";
+        } catch (e) {
+          return "—";
+        }
+      }
+
+      function starString(n) {
+        const full = Math.round(n) || 0;
+        return "★★★★★".slice(0, full) + "☆☆☆☆☆".slice(0, 5 - full);
+      }
+
+      function buildRow(doc) {
+        const data = doc.data();
+        const row = document.createElement("div");
+        row.className = "review-row";
+
+        const badge = data.approved
+          ? '<span class="badge approved">Freigegeben</span>'
+          : '<span class="badge pending">Ausstehend</span>';
+
+        row.innerHTML = `
+          <div class="top">
+            <div>
+              <div class="name">${escapeHtml(data.name || "")}${data.tour ? " — " + escapeHtml(data.tour) : ""}</div>
+              <div class="meta">${formatDate(data.createdAt)}</div>
+            </div>
+            <div style="text-align:right">
+              <div class="stars">${starString(data.rating)}</div>
+              ${badge}
+            </div>
+          </div>
+          <div class="msg">${escapeHtml(data.message || "")}</div>
+          <div class="actions"></div>
+        `;
+
+        const actions = row.querySelector(".actions");
+
+        if (!data.approved) {
+          const approveBtn = document.createElement("button");
+          approveBtn.className = "btn-approve";
+          approveBtn.textContent = "Freigeben";
+          approveBtn.addEventListener("click", () => approveReview(doc.id));
+          actions.appendChild(approveBtn);
+        }
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.className = "btn-delete";
+        deleteBtn.textContent = "Löschen";
+        deleteBtn.addEventListener("click", () => deleteReview(doc.id, row));
+        actions.appendChild(deleteBtn);
+
+        return row;
+      }
+
+      function escapeHtml(str) {
+        const div = document.createElement("div");
+        div.textContent = str;
+        return div.innerHTML;
+      }
+
+      async function approveReview(id) {
+        try {
+          await db.collection("reviews").doc(id).update({ approved: true });
+        } catch (err) {
+          console.error(err);
+          alert("Freigabe fehlgeschlagen: " + err.message);
+        }
+      }
+
+      async function deleteReview(id, rowEl) {
+        if (!confirm("Diese Bewertung wirklich endgültig löschen?")) return;
+        try {
+          await db.collection("reviews").doc(id).delete();
+        } catch (err) {
+          console.error(err);
+          alert("Löschen fehlgeschlagen: " + err.message);
+        }
+      }
+
+      function startListening() {
+        if (unsubscribe) unsubscribe();
+        listState.style.display = "block";
+        listState.textContent = "Lädt…";
+        reviewList.innerHTML = "";
+
+        let query = db.collection("reviews").orderBy("createdAt", "desc");
+        if (currentFilter === "pending")
+          query = query.where("approved", "==", false);
+        if (currentFilter === "approved")
+          query = query.where("approved", "==", true);
+
+        unsubscribe = query.onSnapshot(
+          (snapshot) => {
+            reviewList.innerHTML = "";
+            if (snapshot.empty) {
+              listState.style.display = "block";
+              listState.textContent = "Keine Bewertungen in dieser Ansicht.";
+              return;
+            }
+            listState.style.display = "none";
+            snapshot.forEach((doc) => reviewList.appendChild(buildRow(doc)));
+          },
+          (err) => {
+            console.error(err);
+            listState.style.display = "block";
+            listState.textContent = "Fehler beim Laden: " + err.message;
+          },
+        );
+      }
+    </script>
+  </body>
+</html>

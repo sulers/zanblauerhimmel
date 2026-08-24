@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bewertungen — ZanBlauerhimmel Tour Safari</title>
+    <meta
+      name="description"
+      content="Lesen Sie echte Bewertungen von Gästen von ZanBlauerhimmel Tour Safari und teilen Sie Ihre eigene Erfahrung mit uns."
+    />
+    <meta
+      name="keywords"
+      content="Sansibar Bewertungen, Zanzibar Tours Reviews, ZanBlauerhimmel Tour Safari Erfahrungen"
+    />
+    <meta
+      property="og:title"
+      content="Bewertungen — ZanBlauerhimmel Tour Safari"
+    />
+    <meta
+      property="og:description"
+      content="Echte Erfahrungen unserer Gäste — und Ihre eigene Bewertung teilen."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://zanblauerhimmeltoursundsafari.com/images/wanaume.jpg"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="icon" href="./images/logo.jpg" type="image/jpg" />
+
+    <style>
+      .summary-band {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        flex-wrap: wrap;
+        margin-bottom: 28px;
+      }
+      .summary-score {
+        font-size: 42px;
+        font-weight: 700;
+        line-height: 1;
+      }
+      .summary-stars {
+        color: var(--gold, #ffd166);
+        font-size: 20px;
+        letter-spacing: 2px;
+      }
+      .summary-count {
+        opacity: 0.7;
+        font-size: 14px;
+      }
+
+      .state-msg {
+        padding: 24px;
+        text-align: center;
+        opacity: 0.7;
+        font-size: 15px;
+      }
+
+      /* Star rating input (CSS-only, no JS state needed) */
+      .star-rating {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: flex-end;
+        gap: 4px;
+      }
+      .star-rating input {
+        display: none;
+      }
+      .star-rating label {
+        font-size: 30px;
+        line-height: 1;
+        color: #d8d8d8;
+        cursor: pointer;
+        transition: color 0.15s ease;
+      }
+      .star-rating input:checked ~ label,
+      .star-rating label:hover,
+      .star-rating label:hover ~ label {
+        color: var(--gold, #ffd166);
+      }
+
+      .review-form-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 28px;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      }
+
+      .form-note {
+        font-size: 13px;
+        opacity: 0.65;
+        margin-top: 10px;
+      }
+
+      .form-success {
+        display: none;
+        background: #eefaf0;
+        border: 1px solid #bfe8c6;
+        color: #1f6d2c;
+        padding: 14px 16px;
+        border-radius: 10px;
+        margin-top: 16px;
+        font-size: 14px;
+      }
+      .form-error {
+        display: none;
+        background: #fdeeee;
+        border: 1px solid #f2bcbc;
+        color: #9c2626;
+        padding: 14px 16px;
+        border-radius: 10px;
+        margin-top: 16px;
+        font-size: 14px;
+      }
+
+      .reviews-grid.dynamic {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="top">
+      <div class="container">
+        <nav class="nav" aria-label="Hauptnavigation">
+          <a href="index.html" class="brand">
+            <div class="brand-logo">
+              <img
+                src="./images/logo.jpg"
+                alt="ZanBlauerhimmel Tour Safari Logo"
+              />
+            </div>
+            <div class="brand-name">ZanBlauerhimmel Tour Safari</div>
+          </a>
+          <button class="burger" aria-label="Menü öffnen" id="burger">
+            ☰
+          </button>
+          <div class="menu" id="menu">
+            <a href="tours.html" data-de="Pakete" data-en="Packages">Pakete</a>
+            <a href="gallery.html" data-de="Galerie" data-en="Gallery"
+              >Galerie</a
+            >
+            <a
+              href="reviews.html"
+              data-de="Bewertungen"
+              data-en="Reviews"
+              class="active"
+              >Bewertungen</a
+            >
+            <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
+            <a href="contact.html" data-de="Kontakt" data-en="Contact"
+              >Kontakt</a
+            >
+            <a href="faqs.html" data-de="FAQs" data-en="FAQs">FAQs</a>
+
+            <div class="lang-toggle" aria-label="Sprache wählen">
+              <button type="button" data-lang-btn="de" class="active">
+                DE
+              </button>
+              <button type="button" data-lang-btn="en">EN</button>
+            </div>
+            <div
+              id="google_translate_element"
+              class="gt-fallback"
+              title="Automatische Übersetzung (Google)"
+            ></div>
+          </div>
+        </nav>
+        <div class="mobile" id="mobileMenu" aria-label="Mobile Navigation">
+          <a href="tours.html" data-de="Pakete" data-en="Packages">Pakete</a>
+          <a href="gallery.html" data-de="Galerie" data-en="Gallery">Galerie</a>
+          <a
+            href="reviews.html"
+            data-de="Bewertungen"
+            data-en="Reviews"
+            class="active"
+            >Bewertungen</a
+          >
+          <a href="blogs.html" data-de="Blog" data-en="Blog">Blog</a>
+          <a href="contact.html" data-de="Kontakt" data-en="Contact">Kontakt</a>
+          <a href="faqs.html" data-de="FAQs" data-en="FAQs">FAQs</a>
+          <div class="lang-toggle" style="margin: 14px 20px">
+            <button type="button" data-lang-btn="de" class="active">DE</button>
+            <button type="button" data-lang-btn="en">EN</button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero" role="banner">
+      <div class="container wrap">
+        <div class="eyebrow">
+          <span class="dot"></span
+          ><span
+            data-de="Echte Erfahrungen, echte Empfehlungen"
+            data-en="Real experiences, real recommendations"
+            >Echte Erfahrungen, echte Empfehlungen</span
+          >
+        </div>
+        <h1>
+          <span data-de="Was unsere" data-en="What our">Was unsere</span>
+          <span
+            style="color: var(--gold)"
+            data-de="Gäste sagen"
+            data-en="guests say"
+            >Gäste sagen</span
+          >
+        </h1>
+        <p
+          data-de="Von Sonnenaufgängen auf dem Meer bis zu Gewürzfarmen in Stone Town — lesen Sie, wie andere Reisende ihre Zeit mit uns erlebt haben, und teilen Sie gerne Ihre eigene Bewertung."
+          data-en="From sunrises at sea to spice farms in Stone Town — read how other travelers experienced their time with us, and feel free to share your own review."
+        >
+          Von Sonnenaufgängen auf dem Meer bis zu Gewürzfarmen in Stone Town —
+          lesen Sie, wie andere Reisende ihre Zeit mit uns erlebt haben, und
+          teilen Sie gerne Ihre eigene Bewertung.
+        </p>
+        <div class="hero-actions">
+          <a
+            href="#write-review"
+            class="btn btn-primary"
+            data-de="Bewertung schreiben"
+            data-en="Write a Review"
+            >Bewertung schreiben</a
+          >
+          <a
+            href="#review-list"
+            class="btn btn-outline"
+            data-de="Alle Bewertungen ansehen"
+            data-en="See All Reviews"
+            >Alle Bewertungen ansehen</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <div class="wave-divider" aria-hidden="true">
+      <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+        <path
+          class="de-line de-line-black"
+          d="M0,10 C 200,32 400,-4 600,18 C 800,40 1000,4 1200,26"
+          fill="none"
+        />
+        <path
+          class="de-line de-line-red"
+          d="M0,20 C 200,-2 400,36 600,14 C 800,-4 1000,32 1200,10"
+          fill="none"
+        />
+        <path
+          class="de-line de-line-gold"
+          d="M0,30 C 200,8 400,22 600,32 C 800,18 1000,8 1200,20"
+          fill="none"
+        />
+      </svg>
+    </div>
+
+    <main>
+      <!-- Review list -->
+      <section class="section reveal" id="review-list">
+        <div class="container">
+          <div class="section-title">
+            <div>
+              <h2 data-de="Bewertungen unserer Gäste" data-en="Guest Reviews">
+                Bewertungen unserer Gäste
+              </h2>
+              <div
+                class="sub"
+                data-de="Alle Bewertungen werden vor Veröffentlichung geprüft"
+                data-en="All reviews are checked before publishing"
+              >
+                Alle Bewertungen werden vor Veröffentlichung geprüft
+              </div>
+            </div>
+          </div>
+
+          <div class="summary-band" id="summaryBand" style="display: none">
+            <div class="summary-score" id="summaryScore">5.0</div>
+            <div>
+              <div class="summary-stars" id="summaryStars">★★★★★</div>
+              <div class="summary-count" id="summaryCount">0 Bewertungen</div>
+            </div>
+          </div>
+
+          <div
+            id="reviewsState"
+            class="state-msg"
+            data-de="Bewertungen werden geladen…"
+            data-en="Loading reviews…"
+          >
+            Bewertungen werden geladen…
+          </div>
+
+          <div class="reviews-grid dynamic reveal-group" id="reviewsGrid"></div>
+        </div>
+      </section>
+
+      <div class="wave-divider" aria-hidden="true">
+        <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
+          <path
+            class="de-line de-line-black"
+            d="M0,28 C 200,4 400,30 600,8 C 800,-4 1000,34 1200,12"
+            fill="none"
+          />
+          <path
+            class="de-line de-line-red"
+            d="M0,12 C 200,34 400,6 600,26 C 800,38 1000,2 1200,24"
+            fill="none"
+          />
+          <path
+            class="de-line de-line-gold"
+            d="M0,20 C 200,18 400,26 600,16 C 800,10 1000,24 1200,18"
+            fill="none"
+          />
+        </svg>
+      </div>
+
+      <!-- Write a review -->
+      <section
+        class="section reveal"
+        id="write-review"
+        style="background: #f9fafb"
+      >
+        <div class="container">
+          <div
+            class="section-title"
+            style="
+              justify-content: center;
+              text-align: center;
+              flex-direction: column;
+            "
+          >
+            <h2
+              data-de="Teilen Sie Ihre Erfahrung"
+              data-en="Share Your Experience"
+            >
+              Teilen Sie Ihre Erfahrung
+            </h2>
+            <div
+              class="sub"
+              data-de="Ihre Bewertung hilft anderen Reisenden bei der Planung ihrer Sansibar-Reise."
+              data-en="Your review helps other travelers plan their Zanzibar trip."
+            >
+              Ihre Bewertung hilft anderen Reisenden bei der Planung ihrer
+              Sansibar-Reise.
+            </div>
+          </div>
+
+          <div
+            class="review-form-card"
+            style="max-width: 640px; margin: 0 auto"
+          >
+            <form id="reviewForm">
+              <div class="form-row">
+                <div class="field">
+                  <label data-de="Name" data-en="Name">Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    id="reviewName"
+                    data-de-placeholder="Ihr vollständiger Name"
+                    data-en-placeholder="Your full name"
+                    placeholder="Ihr vollständiger Name"
+                    required
+                  />
+                </div>
+                <div class="field">
+                  <label data-de="Tour (optional)" data-en="Tour (optional)"
+                    >Tour (optional)</label
+                  >
+                  <input
+                    type="text"
+                    name="tour"
+                    id="reviewTour"
+                    data-de-placeholder="z. B. Safari Blue"
+                    data-en-placeholder="e.g. Safari Blue"
+                    placeholder="z. B. Safari Blue"
+                  />
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field full">
+                  <label data-de="Ihre Bewertung" data-en="Your Rating"
+                    >Ihre Bewertung</label
+                  >
+                  <div class="star-rating" id="starRating">
+                    <input type="radio" name="rating" id="star5" value="5" />
+                    <label for="star5" title="5">★</label>
+                    <input type="radio" name="rating" id="star4" value="4" />
+                    <label for="star4" title="4">★</label>
+                    <input type="radio" name="rating" id="star3" value="3" />
+                    <label for="star3" title="3">★</label>
+                    <input type="radio" name="rating" id="star2" value="2" />
+                    <label for="star2" title="2">★</label>
+                    <input type="radio" name="rating" id="star1" value="1" />
+                    <label for="star1" title="1">★</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="field full">
+                  <label data-de="Ihre Bewertung (Text)" data-en="Your Review"
+                    >Ihre Bewertung (Text)</label
+                  >
+                  <textarea
+                    name="message"
+                    id="reviewMessage"
+                    rows="5"
+                    data-de-placeholder="Erzählen Sie uns von Ihrer Erfahrung mit uns…"
+                    data-en-placeholder="Tell us about your experience with us…"
+                    placeholder="Erzählen Sie uns von Ihrer Erfahrung mit uns…"
+                    required
+                  ></textarea>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                id="reviewSubmitBtn"
+                data-de="Bewertung senden"
+                data-en="Submit Review"
+              >
+                Bewertung senden
+              </button>
+
+              <div
+                class="form-note"
+                data-de="Ihre Bewertung wird nach kurzer Prüfung veröffentlicht."
+                data-en="Your review will be published after a short review."
+              >
+                Ihre Bewertung wird nach kurzer Prüfung veröffentlicht.
+              </div>
+
+              <div
+                class="form-success"
+                id="formSuccess"
+                data-de="Vielen Dank! Ihre Bewertung wurde übermittelt und wird bald veröffentlicht."
+                data-en="Thank you! Your review has been submitted and will be published soon."
+              >
+                Vielen Dank! Ihre Bewertung wurde übermittelt und wird bald
+                veröffentlicht.
+              </div>
+              <div
+                class="form-error"
+                id="formError"
+                data-de="Bitte wählen Sie eine Sternebewertung aus und versuchen Sie es erneut."
+                data-en="Please select a star rating and try again."
+              >
+                Bitte wählen Sie eine Sternebewertung aus und versuchen Sie es
+                erneut.
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="cols">
+          <div>
+            <a class="brand" href="index.html" style="color: #c9d6df">
+              <div
+                class="brand-logo"
+                style="background: linear-gradient(135deg, #ffd166, #ffe08a)"
+              >
+                <img
+                  src="./images/logo.jpg"
+                  alt="ZanBlauerhimmel Tour Safari Logo"
+                />
+              </div>
+              <div class="brand-name">ZanBlauerhimmel Tour Safari</div>
+            </a>
+            <p
+              class="small"
+              style="margin-top: 10px"
+              data-de="Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen."
+              data-en="Authentic Zanzibar experiences: Stone Town, spice, sea and smiles — guided in German. Karibu — you are most welcome."
+            >
+              Authentische Sansibar-Erlebnisse: Stone Town, Gewürze, Meer und
+              Lächeln — auf Deutsch begleitet. Karibu — herzlich willkommen.
+            </p>
+            <div class="social-row" aria-label="Soziale Netzwerke">
+              <a
+                href="https://www.facebook.com/share/1EjKrh5Tua/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Facebook"
+                >FB</a
+              >
+              <a
+                href="https://www.tiktok.com/@zanblaueurhimmeltour"
+                target="_blank"
+                rel="noopener"
+                aria-label="TikTok"
+                >TT</a
+              >
+              <a
+                href="https://www.instagram.com/ZanBlauerhimmeltour_safari"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+                >IG</a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 data-de="Entdecken" data-en="Explore">Entdecken</h4>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <a href="tours.html" data-de="Pakete" data-en="Packages"
+                >Pakete</a
+              >
+              <a href="gallery.html" data-de="Galerie" data-en="Gallery"
+                >Galerie</a
+              >
+              <a href="reviews.html" data-de="Bewertungen" data-en="Reviews"
+                >Bewertungen</a
+              >
+              <a href="contact.html" data-de="Kontakt" data-en="Contact"
+                >Kontakt</a
+              >
+            </div>
+          </div>
+          <div>
+            <h4 data-de="Kontakt" data-en="Info">Kontakt</h4>
+            <div
+              class="small"
+              style="display: grid; gap: 8px; margin-top: 10px"
+            >
+              <span data-de="Sansibar, Tansania" data-en="Zanzibar, Tanzania"
+                >Sansibar, Tansania</span
+              >
+              <span>+255 671 525 305</span>
+              <a
+                href="mailto:donyarossa@gmail.com"
+                style="color: inherit; text-decoration: underline"
+                >donyarossa@gmail.com</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="small" style="margin-top: 24px; opacity: 0.6">
+          © <span id="year"></span> ZanBlauerhimmel Tour Safari.
+          <span
+            data-de="Alle Rechte vorbehalten."
+            data-en="All rights reserved."
+            >Alle Rechte vorbehalten.</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <a
+      href="https://wa.me/255671525305?text=Hallo%20ZanBlauerhimmel%20Tour%20Safari%2C%20ich%20interessiere%20mich%20f%C3%BCr%20eine%20Reise%20nach%20Sansibar."
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener"
+      aria-label="Chat auf WhatsApp"
+    >
+      <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true">
+        <path
+          d="M16.01 3C9.38 3 4 8.38 4 15.01c0 2.39.7 4.63 1.9 6.5L4 29l7.68-1.85a11.9 11.9 0 0 0 4.33.82h.01c6.63 0 12.01-5.38 12.01-12.01C28.02 8.38 22.64 3 16.01 3zm0 21.86h-.01c-1.4 0-2.77-.36-3.98-1.05l-.29-.17-4.7 1.13 1.15-4.58-.19-.3a9.83 9.83 0 0 1-1.52-5.28c0-5.45 4.44-9.89 9.9-9.89 2.64 0 5.13 1.03 6.99 2.9a9.83 9.83 0 0 1 2.9 6.99c0 5.46-4.44 9.9-9.9 9.9zm5.42-7.41c-.3-.15-1.75-.86-2.02-.96-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.63.07-.3-.15-1.24-.46-2.37-1.47-.88-.78-1.47-1.75-1.65-2.05-.17-.3-.02-.46.13-.6.13-.13.3-.34.44-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.66-1.6-.91-2.19-.24-.57-.48-.5-.66-.51h-.56c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.47 0 1.46 1.06 2.87 1.21 3.07.15.2 2.08 3.18 5.04 4.46.7.3 1.25.48 1.68.62.7.22 1.35.19 1.85.11.57-.08 1.75-.71 2-1.4.24-.68.24-1.27.17-1.4-.07-.12-.27-.2-.56-.35z"
+        />
+      </svg>
+    </a>
+
+    <script src="scripts/nav.js"></script>
+    <script src="scripts/lang.js"></script>
+
+    <script>
+      document.getElementById("year") &&
+        (document.getElementById("year").textContent =
+          new Date().getFullYear());
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add("in-view");
+            });
+          },
+          { threshold: 0.15 },
+        );
+        document
+          .querySelectorAll(".reveal")
+          .forEach((el) => observer.observe(el));
+      });
+    </script>
+
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "de",
+            includedLanguages: "en",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element",
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyC3Zux72pO_iROQKDXRI8-44CTWiCVO08M",
+        authDomain: "zanblauerhimmel-reviews.firebaseapp.com",
+        projectId: "zanblauerhimmel-reviews",
+        storageBucket: "zanblauerhimmel-reviews.firebasestorage.app",
+        messagingSenderId: "9227142205",
+        appId: "1:9227142205:web:6386ef2118ec53674c9654",
+        measurementId: "G-G9DEFKQB54",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+
+      const reviewsGrid = document.getElementById("reviewsGrid");
+      const reviewsState = document.getElementById("reviewsState");
+      const summaryBand = document.getElementById("summaryBand");
+      const summaryScore = document.getElementById("summaryScore");
+      const summaryStars = document.getElementById("summaryStars");
+      const summaryCount = document.getElementById("summaryCount");
+
+      function starString(n) {
+        const full = Math.round(n);
+        return "★★★★★".slice(0, full) + "☆☆☆☆☆".slice(0, 5 - full);
+      }
+
+      function formatDate(ts) {
+        try {
+          const d = ts && ts.toDate ? ts.toDate() : new Date();
+          return d.toLocaleDateString("de-DE", {
+            year: "numeric",
+            month: "long",
+          });
+        } catch (e) {
+          return "";
+        }
+      }
+
+      function buildReviewCard(data) {
+        const card = document.createElement("div");
+        card.className = "review-card";
+
+        const stars = document.createElement("div");
+        stars.className = "stars";
+        stars.textContent = starString(data.rating || 5);
+        card.appendChild(stars);
+
+        const quote = document.createElement("p");
+        quote.className = "quote";
+        quote.textContent = "„" + (data.message || "") + "“";
+        card.appendChild(quote);
+
+        const author = document.createElement("div");
+        author.className = "author";
+        author.textContent = data.name || "";
+        if (data.tour) {
+          author.textContent += " — " + data.tour;
+        }
+        card.appendChild(author);
+
+        const origin = document.createElement("div");
+        origin.className = "origin";
+        origin.textContent = formatDate(data.createdAt);
+        card.appendChild(origin);
+
+        return card;
+      }
+
+      async function loadReviews() {
+        try {
+          const snapshot = await db
+            .collection("reviews")
+            .where("approved", "==", true)
+            .orderBy("createdAt", "desc")
+            .get();
+
+          reviewsState.style.display = "none";
+
+          if (snapshot.empty) {
+            reviewsState.style.display = "block";
+            reviewsState.textContent =
+              document.documentElement.lang === "en"
+                ? "No reviews yet — be the first to share your experience!"
+                : "Noch keine Bewertungen — seien Sie die/der Erste!";
+            return;
+          }
+
+          let total = 0;
+          let count = 0;
+
+          snapshot.forEach((doc) => {
+            const data = doc.data();
+            reviewsGrid.appendChild(buildReviewCard(data));
+            total += Number(data.rating) || 0;
+            count += 1;
+          });
+
+          if (count > 0) {
+            const avg = total / count;
+            summaryBand.style.display = "flex";
+            summaryScore.textContent = avg.toFixed(1);
+            summaryStars.textContent = starString(avg);
+            summaryCount.textContent =
+              count +
+              (document.documentElement.lang === "en"
+                ? " reviews"
+                : " Bewertungen");
+          }
+        } catch (err) {
+          console.error("Error loading reviews:", err);
+          reviewsState.style.display = "block";
+          reviewsState.textContent =
+            "Bewertungen konnten nicht geladen werden. Bitte versuchen Sie es später erneut.";
+        }
+      }
+
+      loadReviews();
+
+      // --- Submit new review ---
+      const reviewForm = document.getElementById("reviewForm");
+      const formSuccess = document.getElementById("formSuccess");
+      const formError = document.getElementById("formError");
+      const submitBtn = document.getElementById("reviewSubmitBtn");
+
+      reviewForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        formSuccess.style.display = "none";
+        formError.style.display = "none";
+
+        const name = document.getElementById("reviewName").value.trim();
+        const tour = document.getElementById("reviewTour").value.trim();
+        const message = document.getElementById("reviewMessage").value.trim();
+        const ratingInput = reviewForm.querySelector(
+          'input[name="rating"]:checked',
+        );
+
+        if (!name || !message || !ratingInput) {
+          formError.style.display = "block";
+          return;
+        }
+
+        const rating = parseInt(ratingInput.value, 10);
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = "…";
+
+        try {
+          await db.collection("reviews").add({
+            name: name.slice(0, 80),
+            tour: tour.slice(0, 80),
+            message: message.slice(0, 1000),
+            rating: rating,
+            approved: false,
+            createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          });
+
+          formSuccess.style.display = "block";
+          reviewForm.reset();
+        } catch (err) {
+          console.error("Error submitting review:", err);
+          formError.style.display = "block";
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent =
+            document.documentElement.lang === "en"
+              ? "Submit Review"
+              : "Bewertung senden";
+        }
+      });
+    </script>
+  </body>
+</html>

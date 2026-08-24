@@ -27,6 +27,10 @@
        <priority>0.8000</priority>
   </url>
   <url>
+       <loc>https://zanblauerhimmeltoursundsafari.com/reviews.html</loc>
+       <priority>0.8000</priority>
+  </url>
+  <url>
        <loc>https://zanblauerhimmeltoursundsafari.com/blog-stone-town.html</loc>
        <priority>0.6400</priority>
   </url>
