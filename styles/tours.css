@@ -1,0 +1,609 @@
+.inclusions {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 28px 24px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 40px;
+  margin: 0 0 32px 0;
+  align-items: center;
+  border-left: 6px solid var(--gold);
+}
+.inclusions h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+}
+.inclusions ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  font-size: 0.95rem;
+}
+.inclusions ul li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.85;
+}
+.inclusions ul li::before {
+  content: "✓";
+  color: var(--sea);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+/* Quiz-Button */
+.quiz-trigger {
+  background: var(--gold);
+  color: #1a1a1a;
+  border: 0;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1.05rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 183, 3, 0.3);
+  margin: 6px 0 18px 0;
+}
+.quiz-trigger:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(255, 183, 3, 0.45);
+}
+
+/* Modal – Quiz */
+.quiz-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.quiz-modal.open {
+  display: flex;
+}
+.quiz-modal .modal-content {
+  background: #fff;
+  max-width: 560px;
+  width: 100%;
+  border-radius: 24px;
+  padding: 32px 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+.quiz-modal .close-btn {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: transparent;
+  border: 0;
+  font-size: 28px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+.quiz-modal .close-btn:hover {
+  opacity: 1;
+}
+
+.quiz-step {
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+.quiz-step.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.quiz-step h2 {
+  font-size: 1.4rem;
+  margin: 0 0 6px 0;
+}
+.quiz-step p {
+  margin: 0 0 18px 0;
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+.quiz-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.quiz-options label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--sand);
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border 0.2s;
+  border: 2px solid transparent;
+}
+.quiz-options label:hover {
+  background: #eae7e0;
+}
+.quiz-options input[type="radio"] {
+  accent-color: var(--sea);
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.quiz-options label.selected {
+  border-color: var(--gold);
+  background: #fef6e0;
+}
+
+.quiz-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 6px;
+}
+.quiz-nav button {
+  background: var(--sea);
+  color: #fff;
+  border: 0;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.quiz-nav button:hover {
+  background: var(--sea-2);
+}
+.quiz-nav button:disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+.quiz-nav .prev-btn {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid #ccc;
+}
+.quiz-nav .prev-btn:hover {
+  background: #eee;
+}
+
+/* Ergebnis */
+.result-card {
+  background: var(--sand);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 14px 0 20px 0;
+  border-left: 5px solid var(--gold);
+}
+.result-card h3 {
+  margin: 0 0 4px 0;
+}
+.result-card p {
+  margin: 4px 0 0 0;
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+.result-card .price-tag {
+  font-weight: 700;
+  color: var(--sea);
+  margin-top: 6px;
+}
+
+.result-actions {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+.result-actions a {
+  text-decoration: none;
+}
+
+/* Tour-Karten – zusätzliche Elemente (werden zu .tour hinzugefügt) */
+.tour .body .highlights {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 6px 0;
+  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+}
+.tour .body .highlights li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  opacity: 0.8;
+}
+.tour .body .highlights li::before {
+  content: "•";
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.tour .body .duration {
+  font-size: 0.85rem;
+  opacity: 0.65;
+  margin: 4px 0 0 0;
+}
+
+.tour .body .price-tag {
+  font-weight: 700;
+  color: var(--sea);
+  font-size: 1rem;
+  margin-top: 6px;
+}
+
+.origin-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 2;
+  background: rgba(11, 30, 45, 0.75);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  padding: 5px 10px;
+  border-radius: 999px;
+}
+
+/* Anpassungen für das Raster (übernimmt die .tours-grid aus dem eingebetteten Style) */
+.tours-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+@media (max-width: 980px) {
+  .tours-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 620px) {
+  .tours-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Tour-Karten sind jetzt klickbar (öffnen das Detail-Modal) */
+.tour {
+  cursor: pointer;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+.tour:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(11, 30, 45, 0.16);
+}
+.tour .cta-row .see {
+  position: relative;
+  z-index: 2;
+}
+.tour .body {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.tour .body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.3;
+}
+.tour .body .price-tag {
+  margin-top: 0;
+}
+.tour .body .duration {
+  margin: 0;
+}
+
+/* ===== TOUR DETAIL MODAL ===== */
+.tour-modal {
+  display: none;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(4px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.tour-modal.open {
+  display: flex;
+}
+.tour-modal .modal-content {
+  background: #fff;
+  max-width: 640px;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+  position: relative;
+  max-height: 92vh;
+  overflow-y: auto;
+}
+.tour-modal .close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  z-index: 3;
+  background: rgba(11, 30, 45, 0.55);
+  color: #fff;
+  border: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+}
+.tour-modal .close-btn:hover {
+  opacity: 1;
+}
+.tour-modal .modal-images {
+  display: flex;
+  gap: 8px;
+  padding: 14px 14px 0;
+  position: relative;
+}
+.tour-modal .modal-images .modal-thumb {
+  flex: 1;
+  aspect-ratio: 4/3;
+  background-size: cover;
+  background-position: center;
+  border-radius: 14px;
+}
+.tour-modal .modal-images .origin-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+}
+.tour-modal .modal-body {
+  padding: 20px 26px 28px;
+}
+.tour-modal .modal-body h2 {
+  margin: 0 0 10px;
+  font-size: 1.5rem;
+}
+.tour-modal .modal-body .modal-desc {
+  opacity: 0.85;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+.tour-modal .modal-body .highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  font-size: 0.95rem;
+}
+.tour-modal .modal-body .highlights li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.85;
+}
+.tour-modal .modal-body .highlights li::before {
+  content: "✓";
+  color: var(--sea);
+  font-weight: 700;
+}
+.tour-modal .modal-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  align-items: center;
+  margin: 0 0 22px;
+  padding: 14px 16px;
+  background: var(--sand);
+  border-radius: 14px;
+  border-left: 5px solid var(--gold);
+}
+.tour-modal .modal-meta .duration {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+.tour-modal .modal-meta .price-tag {
+  font-weight: 700;
+  color: var(--sea);
+  font-size: 1.1rem;
+  margin-left: auto;
+}
+
+/* Booking-Formular im Modal */
+.booking-form h3 {
+  margin: 0 0 14px;
+  font-size: 1.1rem;
+}
+.booking-form .form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px 14px;
+}
+.booking-form .field-full {
+  grid-column: 1 / -1;
+}
+.booking-form label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  opacity: 0.8;
+}
+.booking-form input,
+.booking-form textarea {
+  width: 100%;
+  border: 1.5px solid #dcd7cc;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: #fff;
+  color: var(--ink);
+}
+.booking-form input:focus,
+.booking-form textarea:focus {
+  outline: 2px solid var(--sea-2);
+  border-color: transparent;
+}
+.booking-form textarea {
+  resize: vertical;
+  min-height: 64px;
+}
+.booking-form .booking-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+.booking-form .booking-actions button,
+.booking-form .booking-actions a {
+  flex: 1 1 200px;
+  text-align: center;
+  border: 0;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+.booking-form .btn-whatsapp {
+  background: #25d366;
+  color: #fff;
+}
+.booking-form .btn-email {
+  background: transparent;
+  color: var(--ink);
+  border: 1.5px solid #ccc !important;
+}
+.booking-form .booking-actions button:hover,
+.booking-form .booking-actions a:hover {
+  transform: scale(1.02);
+}
+.booking-form .booking-note {
+  font-size: 0.78rem;
+  opacity: 0.6;
+  margin: 10px 0 0;
+}
+@media (max-width: 560px) {
+  .booking-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Page banner (übernimmt den bestehenden Stil) */
+.page-banner {
+  position: relative;
+  padding: 64px 0 46px;
+  color: var(--cloud);
+  background: linear-gradient(135deg, var(--ink-2), var(--sea));
+  overflow: hidden;
+}
+.page-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("./images/animals.jpg") center/cover no-repeat;
+  opacity: 0.22;
+}
+.page-banner .container {
+  position: relative;
+  z-index: 1;
+}
+.page-banner h1 {
+  font-size: clamp(28px, 5vw, 46px);
+  margin: 10px 0 8px;
+}
+.page-banner p {
+  max-width: 620px;
+  opacity: 0.92;
+  font-size: clamp(14px, 2vw, 16px);
+}
+.breadcrumb {
+  font-size: 13px;
+  opacity: 0.8;
+}
+.breadcrumb a {
+  color: var(--cloud);
+  text-decoration: none;
+  opacity: 0.85;
+}
+.breadcrumb a:hover {
+  opacity: 1;
+}
+.origin-chips {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+.origin-chips .chip {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+/* Antworten im Quiz – kleine Anpassungen */
+@media (max-width: 500px) {
+  .quiz-modal .modal-content {
+    padding: 24px 18px;
+  }
+  .quiz-options label {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+  .inclusions ul {
+    flex-direction: column;
+    gap: 6px;
+  }
+  .result-actions {
+    flex-direction: column;
+  }
+}
